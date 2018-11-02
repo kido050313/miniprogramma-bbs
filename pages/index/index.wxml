@@ -1,0 +1,51 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+  <view class="userinfo">
+    <view class="username">点击注册</view>
+    <image class="userinfo-avatar" src=""></image>
+  </view>
+  <view class="userlink">
+    <view class="usercoupon">
+      <view class="coupon-txt">领优惠券</view>
+      <image class="coupon-img" src=""></image>
+      <view class="coupon-bubble">2</view>
+    </view>
+    <view class="h5-link">
+      <view class="h5-txt">线上商城</view>
+      <image class="h5-img" src=""></image>
+    </view>
+  </view>
+  <view class="user-service">
+    <view>个人服务</view>
+    <view class="service-line">
+      <view class="line-l"></view>
+      <view class="line-c">个人信息</view>
+      <view class="line-r">></view>
+    </view>
+    <view class="service-line">
+      <view class="line-l"></view>
+      <view class="line-c">我的优惠券</view>
+      <view class="line-r">></view>
+    </view>
+    <view class="service-line">
+      <view class="line-l"></view>
+      <view class="line-c">订单和评价</view>
+      <view class="line-r">></view>
+    </view>
+    <view class="service-line">
+      <view class="line-l"></view>
+      <view class="line-c">售后服务</view>
+      <view class="line-r">></view>
+    </view>
+  </view>
+</view>

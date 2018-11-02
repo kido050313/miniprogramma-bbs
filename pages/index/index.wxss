@@ -1,0 +1,123 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 104px;
+  line-height: 20px;
+  border-radius: 7px;
+  background-color: rgba(138, 217, 236, 1);
+  text-align: center;
+  box-shadow: 2px 2px 10px 0px rgba(221, 221, 221, 1);
+  border: 1px solid rgba(255, 255, 255, 0);
+  justify-content: space-between;
+}
+.userinfo .username{
+  color: rgba(255, 255, 255, 1);
+  font-size: 27px;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  margin-left: 26px;
+}
+.userinfo .userinfo-avatar{
+  height: 62px;
+  width: 62px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  margin-right: 28px;
+}
+.userlink{
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+.usercoupon,
+.h5-link
+{
+  display: flex;
+  width: 48%;
+  height: 78px;
+  line-height: 20px;
+  border-radius: 7px;
+  text-align: center;
+  box-shadow: 2px 2px 10px 0px rgba(221, 221, 221, 1);
+  border: 1px solid rgba(255, 255, 255, 0);
+  position: relative;
+  align-items: center;
+  justify-content: space-around;
+}
+.coupon-txt,
+.h5-txt
+{
+  width: 76px;
+  height: 26px;
+  color: rgba(68, 68, 68, 1);
+  font-size: 19px;
+  text-align: center;
+  font-family: PingFangSC-regular;
+}
+.coupon-img,
+.h5-img
+{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #fff;
+}
+.coupon-bubble{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  line-height: 17px;
+  background-color: rgba(230, 88, 93, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 12px;
+  text-align: center;
+  font-family: -apple-system;
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 10px;
+  top: 10px;
+  right: 10px;
+}
+
+.user-service{
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  color: #606060;
+  margin-top: 42px;
+}
+.service-line{
+  align-items: center;
+  margin-top: 10px;
+  height: 62px;
+  line-height: 20px;
+  border-radius: 7px;
+  text-align: center;
+  box-shadow: 2px 2px 10px 0px rgba(221, 221, 221, 1);
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+.line-l{
+  width: 6px;
+  height: 60px;
+  border-radius: 7px;
+  background-color: rgba(138, 217, 236, 1);
+  text-align: center;
+  box-shadow: 0px 0px 0px 0px rgba(221, 221, 221, 1);
+  border: 1px solid rgba(255, 255, 255, 0);
+  margin-right: 26px;
+  float: left;
+}
+.line-c{
+  height: 62px;
+  line-height: 62px;
+  float: left;
+}
+.line-r{
+  float: right;
+  height: 62px;
+  line-height: 62px;
+  margin-right: 15px;
+}
+
