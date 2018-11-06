@@ -1,0 +1,52 @@
+<!--pages/coupon/couponReceive.wxml-->
+<view class='container'>
+  <block>
+    <view class='coupon-box'>
+      <view class='box-l'>
+        <view class='l1'>老会员双十一预热专享优惠券</view>
+        <view class='l2'>代金券</view>
+        <view class='l3'>50<text class='unit'>元</text></view>
+        <view class='l4'>无使用门槛</view>
+      </view>
+      <view class='box-r'>
+        <view class='r1'>有效期</view>
+        <view class='r2'>2018-10-25</view>
+        <view class='r3'>至</view>
+        <view class='r4'>2018-10-25</view>
+        <view class='r5' bindtap='receive'>立即领取</view>
+      </view>
+    </view>
+    <view class='coupon-tips'>
+      <view class='txt'>使用须知：</view>
+      <view class='txt'>每人限领取 1 张</view>
+      <view class='txt'>不可与其他优惠同时使用</view>
+      <view class='txt'>适用全品类产品</view>
+      <view class='txt'>仅限累计消费满30000元的老会员领取</view>
+    </view>
+  </block>
+  <block>
+    <view class='coupon-box grey'>
+      <view class='box-l'>
+        <view class='l1'>双十一·特赏大典活动专属优惠券</view>
+        <view class='l2'>折扣券</view>
+        <view class='l3'>50<text class='unit'>元</text></view>
+        <view class='l4'>无使用门槛</view>
+        <image class='img' src='../static/images/finished.png'></image>
+      </view>
+      <view class='box-r'>
+        <view class='r1'>有效期</view>
+        <view class='r2'>2018-10-25</view>
+        <view class='r3'>至</view>
+        <view class='r4'>2018-10-25</view>
+        <view class='r5' bindtap='receive'>立即领取</view>
+      </view>
+    </view>
+    <view class='coupon-tips grey'>
+      <view class='txt'>使用须知：</view>
+      <view class='txt'>每人限领取 1 张</view>
+      <view class='txt'>不可与其他优惠同时使用</view>
+      <view class='txt'>适用全品类产品</view>
+      <view class='txt'>仅限累计消费满30000元的老会员领取</view>
+    </view>
+  </block>
+</view>

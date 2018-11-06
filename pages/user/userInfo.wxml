@@ -1,0 +1,43 @@
+<view class="container">
+  <view class='info-line'>
+    <view class='info-l'>会员ID</view>
+    <view class='info-r'>
+      <view class='info-value'>4638 6371 7382</view>
+    </view>
+  </view>
+  <view class='info-line' bindtap='editUname'>
+      <view class='info-l'>名称</view>
+      <view class='info-r'>
+        <view class='info-value'>张三化</view>
+        <image class='info-img' src='../static/images/more.png'></image>
+      </view>
+  </view>
+  <view class='info-line' bindtap='editPhone'>
+    <view class='info-l'>手机</view>
+    <view class='info-r'>
+      <view class='info-value'>18319773764</view>
+      <image class='info-img' src='../static/images/more.png'></image>
+    </view>
+  </view>
+  <view class='info-line' bindtap='editGender'>
+    <view class='info-l'>性别</view>
+    <view class='info-r'>
+      <view class='info-value'>男</view>
+      <image class='info-img' src='../static/images/more.png'></image>
+    </view>
+  </view>
+  <view class='info-line'>
+    <view class='info-l'>生日</view>
+    <view class='info-r'>
+      <view class='info-value'>1995-5-25</view>
+      <image class='info-img' src='../static/images/more.png'></image>
+    </view>
+  </view>
+  <view class='info-line' bindtap='editAddress'>
+    <view class='info-l'>地址</view>
+    <view class='info-r'>
+      <view class='info-value'></view>
+      <image class='info-img' src='../static/images/more.png'></image>
+    </view>
+  </view>
+</view>

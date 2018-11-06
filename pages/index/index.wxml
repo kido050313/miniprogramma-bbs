@@ -10,42 +10,62 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view> -->
-  <view class="userinfo">
-    <view class="username">点击注册</view>
-    <image class="userinfo-avatar" src=""></image>
+  <button class="userinfo" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+    <view class="username">点击注册/登录</view>
+    <image class="userinfo-avatar" src="../static/images/default-user.png"></image>
+  </button>
+  <view wx:else class="userinfo">
+    <view class='info-l'>
+      <view class='info-df'>
+        <view bindtap='login' class="user-name">{{userInfo.nickName}}</view>
+        <view class='sign'>普通会员</view>
+      </view>
+      <view class='userid'>463863717382</view>
+    </view>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
   </view>
   <view class="userlink">
-    <view class="usercoupon">
+    <view class="usercoupon" bindtap='receiveCoupon'>
       <view class="coupon-txt">领优惠券</view>
-      <image class="coupon-img" src=""></image>
+      <image class="coupon-img" src='../static/images/coupon_1.png'></image>
       <view class="coupon-bubble">2</view>
     </view>
     <view class="h5-link">
       <view class="h5-txt">线上商城</view>
-      <image class="h5-img" src=""></image>
+      <image class="h5-img" src="../static/images/h5_link.png"></image>
     </view>
   </view>
   <view class="user-service">
     <view>个人服务</view>
-    <view class="service-line">
+    <view class="service-line" bindtap='toUserCenter'>
       <view class="line-l"></view>
-      <view class="line-c">个人信息</view>
-      <view class="line-r">></view>
+      <view class='df'>
+        <view class="line-c">个人信息</view>
+      </view>
+      <image src='../static/images/more.png' class="line-img"></image>
+    </view>
+    <view class="service-line" bindtap='toCouponList'>
+      <view class="line-l"></view>
+      <view class='df'>
+        <view class="line-c">我的优惠券</view>
+        <view class="service-bubble">1</view>
+      </view>
+      <image src='../static/images/more.png' class="line-img"></image>
+    </view>
+    <view class="service-line" bindtap='toOrderList'>
+      <view class="line-l"></view>
+      <view class='df'>
+        <view class="line-c">订单和评价</view>
+      </view>
+      <image src='../static/images/more.png' class="line-img"></image>
     </view>
     <view class="service-line">
       <view class="line-l"></view>
-      <view class="line-c">我的优惠券</view>
-      <view class="line-r">></view>
-    </view>
-    <view class="service-line">
-      <view class="line-l"></view>
-      <view class="line-c">订单和评价</view>
-      <view class="line-r">></view>
-    </view>
-    <view class="service-line">
-      <view class="line-l"></view>
-      <view class="line-c">售后服务</view>
-      <view class="line-r">></view>
+      <view class='df'>
+        <view class="line-c">售后服务</view>
+        <view class="line-txt">敬请期待</view>
+      </view>
+      <image src='../static/images/more.png' class="line-img"></image>
     </view>
   </view>
 </view>

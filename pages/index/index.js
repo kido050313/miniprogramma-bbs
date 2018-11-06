@@ -50,5 +50,30 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  login: function(){
+    wx.navigateTo({
+      url: '../login/login',
+    })
+  },
+  receiveCoupon: function(){
+    wx.navigateTo({
+      url: '../coupon/couponReceive',
+    })
+  },
+  toUserCenter: function(){
+    wx.navigateTo({
+      url: '../user/userInfo',
+    })
+  },
+  toCouponList: function(){
+    wx.navigateTo({
+      url: '../myCoupon/myCoupon',
+    })
+  },
+  toOrderList: function(){
+    wx.navigateTo({
+      url: '../order/orderList',
+    })
   }
 })

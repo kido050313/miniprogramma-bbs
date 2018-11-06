@@ -1,0 +1,13 @@
+<view class="container">
+  <image class='login-img' src="../static/images/logo.png"></image>
+  <view class='login-form'>
+    <view class='input-box'>
+      <input placeholder='手机号' class='phone'></input>
+    </view>
+    <view class='input-box mt16'>
+      <input placeholder='验证码' class='password'></input>
+      <view class='code'>发送验证码</view>
+    </view>
+    <view class='submit'>进 入</view>
+  </view>
+</view>

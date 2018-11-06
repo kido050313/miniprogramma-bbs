@@ -1,12 +1,22 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/login/login",
+    "pages/coupon/couponReceive",
+    "pages/user/userInfo",
+    "pages/myCoupon/myCoupon",
+    "pages/order/orderList",
+    "pages/user/unameEdit/unameEdit",
+    "pages/user/phoneEdit/phoneEdit",
+    "pages/user/genderEdit/genderEdit",
+    "pages/user/addressEdit/addressEdit",
+    "pages/order/orderComment/orderComment"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   }
 }

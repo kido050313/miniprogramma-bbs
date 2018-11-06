@@ -1,0 +1,58 @@
+/* pages/login/login.wxss */
+.container{
+  width: 100%;
+  background-color: #fff;
+}
+.login-img{
+  width: 423.54rpx;
+  height: 79.64rpx;
+  margin: 157.47rpx auto 115.84rpx auto;
+}
+.login-form{
+  width: 620.83rpx;
+}
+.input-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1.81rpx solid rgba(187, 187, 187, 1);
+  padding: 0 18.1rpx;
+}
+.phone,.password{
+  width: 80%;
+  height: 85.07rpx;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgba(136, 136, 136, 1);
+  font-size: 25.34rpx;
+  text-align: left;
+  font-family: -apple-system;
+}
+.mt16{
+  margin-top: 28.96rpx;
+}
+.code{
+  width: 144.8rpx;
+  height: 48.87rpx;
+  line-height: 48.87rpx;
+  border-radius: 9.05rpx;
+  background-color: rgba(138, 219, 237, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 21.72rpx;
+  text-align: center;
+  font-family: -apple-system;
+  border: 1.81rpx solid rgba(255, 255, 255, 0);
+  padding: 0;
+}
+.submit{
+  margin-top: 65.16rpx;
+  width: 620.83rpx;
+  height: 85.07rpx;
+  line-height: 85.07rpx;
+  border-radius: 4px;
+  background-color: rgba(82, 177, 230, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28.96rpx;
+  text-align: center;
+  font-family: PingFang SC;
+  border: 1.81rpx solid rgba(255, 255, 255, 0);
+}

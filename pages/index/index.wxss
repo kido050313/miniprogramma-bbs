@@ -1,35 +1,88 @@
 /**index.wxss**/
+/* 
+1rpx=0.552px 
+1px=1.81rpx 
+*/
+.contianer{
+  background-color: #f8f8f8;
+}
 .userinfo {
   display: flex;
   align-items: center;
-  width: 100%;
-  height: 104px;
-  line-height: 20px;
-  border-radius: 7px;
+  width: 687.8rpx;
+  height: 188.24rpx;
+  line-height: 36.2rpx;
+  border-radius: 12.67rpx;
   background-color: rgba(138, 217, 236, 1);
   text-align: center;
-  box-shadow: 2px 2px 10px 0px rgba(221, 221, 221, 1);
-  border: 1px solid rgba(255, 255, 255, 0);
+  box-shadow: 3.62rpx 3.62rpx 18.1rpx 0rpx rgba(221, 221, 221, 1);
+  border: 1.81rpx solid rgba(255, 255, 255, 0);
   justify-content: space-between;
+  position: initial;
+  margin: 0;
+  padding: 0;
 }
 .userinfo .username{
   color: rgba(255, 255, 255, 1);
-  font-size: 27px;
+  font-size: 48.87rpx;
   text-align: left;
   font-family: PingFangSC-regular;
-  margin-left: 26px;
+  margin-left: 47.06rpx;
 }
 .userinfo .userinfo-avatar{
-  height: 62px;
-  width: 62px;
-  border: 4px solid #fff;
+  height: 112.22rpx;
+  width: 112.22rpx;
+  margin-right: 50.68rpx;
   border-radius: 50%;
-  margin-right: 28px;
+}
+.info-df{
+  display: flex;
+  height: 68.78rpx;
+  align-items: center;
+}
+.info-l{
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  height: 130.32rpx;
+  margin-top: 28.96rpx;
+  margin-left: 48.87rpx;
+}
+.user-name{
+  width: 146.61rpx;
+  height: 68.78rpx;
+  line-height: 68.78rpx;
+  color: rgba(255, 255, 255, 1);
+  font-size: 48.87rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.sign{
+  width: 115.84rpx;
+  height: 36.2rpx;
+  line-height: 36.2rpx;
+  border-radius: 19.91rpx;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgba(255, 255, 255, 1);
+  font-size: 19.91rpx;
+  text-align: center;
+  font-family: -apple-system;
+  border: 1.81rpx solid rgba(255, 255, 255, 1);
+  margin-left: 23.53rpx;
+}
+.userid{
+  width: 213.58rpx;
+  height: 43.44rpx;
+  line-height: 43.44rpx;
+  color: rgba(255, 255, 255, 1);
+  font-size: 30.77rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
 }
 .userlink{
   width: 100%;
   display: flex;
-  margin-top: 10px;
+  margin-top: 18.1rpx;
   justify-content: space-between;
   align-items: center;
 }
@@ -38,86 +91,117 @@
 {
   display: flex;
   width: 48%;
-  height: 78px;
-  line-height: 20px;
-  border-radius: 7px;
+  height: 141.18rpx;
+  line-height: 36.2rpx;
+  border-radius: 12.67rpx;
   text-align: center;
-  box-shadow: 2px 2px 10px 0px rgba(221, 221, 221, 1);
-  border: 1px solid rgba(255, 255, 255, 0);
+  box-shadow: 3.62rpx 3.62rpx 18.1rpx 0px rgba(221, 221, 221, 1);
+  border: 1.81rpx solid rgba(255, 255, 255, 0);
   position: relative;
   align-items: center;
   justify-content: space-around;
+  background-color: #fff;
 }
 .coupon-txt,
 .h5-txt
 {
-  width: 76px;
-  height: 26px;
+  width: 137.56rpx;
+  height: 47.06rpx;
   color: rgba(68, 68, 68, 1);
-  font-size: 19px;
+  font-size: 34.39rpx;
   text-align: center;
+  line-height: 47.06rpx;
   font-family: PingFangSC-regular;
 }
 .coupon-img,
 .h5-img
 {
-    width: 40px;
-    height: 40px;
-    border: 1px solid #fff;
+    width: 72.4rpx;
+    height: 72.4rpx;
 }
 .coupon-bubble{
   position: absolute;
-  width: 20px;
-  height: 20px;
-  line-height: 17px;
+  width: 36.2rpx;
+  height: 36.2rpx;
+  line-height: 36.2rpx;
   background-color: rgba(230, 88, 93, 1);
   color: rgba(255, 255, 255, 1);
-  font-size: 12px;
+  font-size: 21.72rpx;
   text-align: center;
   font-family: -apple-system;
-  border: 1px solid rgba(255, 255, 255, 0);
-  border-radius: 10px;
-  top: 10px;
-  right: 10px;
+  border: 1.81rpx solid rgba(255, 255, 255, 0);
+  border-radius: 50%;
+  top: 9.05rpx;
+  right: 9.05rpx;
 }
 
 .user-service{
   width: 100%;
   text-align: left;
-  font-size: 16px;
+  font-size: 28.96rpx;
   color: #606060;
-  margin-top: 42px;
+  margin-top: 76.02rpx;
 }
 .service-line{
   align-items: center;
-  margin-top: 10px;
-  height: 62px;
-  line-height: 20px;
-  border-radius: 7px;
+  margin-top: 18.1rpx;
+  height: 112.22rpx;
+  line-height: 36.2rpx;
+  border-radius: 12.67rpx;
   text-align: center;
-  box-shadow: 2px 2px 10px 0px rgba(221, 221, 221, 1);
-  border: 1px solid rgba(255, 255, 255, 0);
+  box-shadow: 3.62rpx 3.62rpx 18.1rpx 0rpx rgba(221, 221, 221, 1);
+  border: 1.81rpx solid rgba(255, 255, 255, 0);
+  position: relative;
+  display: flex;
+  background-color: #fff;
+}
+.service-bubble{
+  width: 36.2rpx;
+  height: 36.2rpx;
+  background-color: rgba(230, 88, 93, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 21.72rpx;
+  text-align: center;
+  font-family: -apple-system;
+  border: 1.81rpx solid rgba(255, 255, 255, 0);
+  border-radius: 50%;
 }
 .line-l{
-  width: 6px;
-  height: 60px;
-  border-radius: 7px;
+  width: 10.86rpx;
+  height: 108.6rpx;
+  border-radius: 12.67rpx;
   background-color: rgba(138, 217, 236, 1);
   text-align: center;
-  box-shadow: 0px 0px 0px 0px rgba(221, 221, 221, 1);
-  border: 1px solid rgba(255, 255, 255, 0);
-  margin-right: 26px;
-  float: left;
+  box-shadow: 0rpx 0rpx 0rpx 0rpx rgba(221, 221, 221, 1);
+  border: 1.81rpx solid rgba(255, 255, 255, 0);
+  margin-right: 36.2rpx;
 }
 .line-c{
-  height: 62px;
-  line-height: 62px;
-  float: left;
+  height: 112.22rpx;
+  line-height: 112.22rpx;
+  width: 80%;
+  text-align: left;
 }
-.line-r{
-  float: right;
-  height: 62px;
-  line-height: 62px;
-  margin-right: 15px;
+.line-txt{
+  height: 112.22rpx;
+  line-height: 112.22rpx;
+  color: rgba(151, 151, 151, 1);
+  font-size: 25.34rpx;
+  text-align: center;
+  font-family: PingFangSC-regular;
+}
+.line-img{
+  width: 36.2rpx;
+  height: 36.2rpx;
+  line-height: 112.22rpx;
+}
+
+.df{
+  display:flex;
+  align-items:center;
+  width:80%;
+  text-align:left;
+  justify-content:space-between;
+  padding-right: 20rpx;
 }
 

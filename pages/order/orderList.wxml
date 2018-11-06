@@ -1,0 +1,56 @@
+<view class='container'>
+  <block> 
+    <view class='order-item'>
+      <text class='order-id'>2018-9-24 16:29:36</text>
+      <view class='order-c'>
+        <view class='line'>
+          <text class='line-l'>订单号：</text>
+          <text class='line-r'>1003853899</text>
+        </view>
+         <view class='line'>
+          <text class='line-l'>商品名：</text>
+          <text class='line-r'>倍轻松（breo）SK-2017颈椎按摩器L肩颈按摩披肩</text>
+        </view>
+         <view class='line'>
+          <text class='line-l'>订单来源：</text>
+          <text class='line-r'>京东旗舰店</text>
+        </view>
+         <view class='line'>
+          <text class='line-l'>合计件数：</text>
+          <text class='line-r'>1 件</text>
+        </view>
+        <view class='total'>实付款：109元</view>
+      </view>
+      <view class='order-b'>
+        <view class='toComment' bindtap='toComent'>去评价</view>
+      </view>
+    </view>
+  </block>
+  <block> 
+    <view class='order-item'>
+      <text class='order-id'>2018-9-24 16:29:36</text>
+      <view class='order-c'>
+        <view class='line'>
+          <text class='line-l'>订单号：</text>
+          <text class='line-r'>1003853899</text>
+        </view>
+         <view class='line'>
+          <text class='line-l'>商品名：</text>
+          <text class='line-r'>倍轻松（breo）SK-2017颈椎按摩器L肩颈按摩披肩</text>
+        </view>
+         <view class='line'>
+          <text class='line-l'>订单来源：</text>
+          <text class='line-r'>京东旗舰店</text>
+        </view>
+         <view class='line'>
+          <text class='line-l'>合计件数：</text>
+          <text class='line-r'>1 件</text>
+        </view>
+        <view class='total'>实付款：109元</view>
+      </view>
+      <view class='order-b'>
+        <view class='hasComment'>已评价(4星)</view>
+      </view>
+    </view>
+  </block>
+</view>

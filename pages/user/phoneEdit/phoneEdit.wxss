@@ -1,0 +1,61 @@
+.container{
+  background-color: #f8f8f8;
+  width: 100%;
+  padding: 1.81rpx 0 0;
+}
+.phone-edit{
+  width: 100%;
+  height: 90.5rpx;
+  line-height: 36.2rpx;
+  text-align: center;
+  border: 1.81rpx solid rgba(255, 255, 255, 0);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 7.24rpx;
+  background-color: #fff;
+}
+.phone-value{
+  width: 80%;
+  height: 39.82rpx;
+  color: rgba(16, 16, 16, 1);
+  font-size: 28.96rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  margin-left: 47.06rpx;
+}
+.code{
+  width: 144.8rpx;
+  height: 54.3rpx;
+  line-height: 54.3rpx;
+  border-radius: 9.05rpx;
+  background-color: rgba(82, 177, 230, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 21.72rpx;
+  text-align: center;
+  font-family: -apple-system;
+  border: 1.81rpx solid rgba(255, 255, 255, 0);
+  margin-right: 23.53rpx;
+}
+.phone-submit{
+  width: 687.8rpx;
+  height: 72.4rpx;
+  line-height: 72.4rpx;
+  border-radius: 7.24rpx;
+  background-color: rgba(138, 217, 236, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28.96rpx;
+  text-align: center;
+  font-family: PingFang SC;
+  border: 1.81rpx solid rgba(255, 255, 255, 0);
+  margin-top: 45.25rpx;
+}
+.phone-tips{
+  margin-top: 36.2rpx;
+  width: 687.8rpx;
+  height: 36.2rpx;
+  color: rgba(16, 16, 16, 1);
+  font-size: 25.34rpx;
+  text-align: right;
+  font-family: PingFangSC-regular;
+}
