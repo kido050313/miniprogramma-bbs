@@ -22,7 +22,7 @@
         <view class='total'>实付款：109元</view>
       </view>
       <view class='order-b'>
-        <view class='toComment' bindtap='toComent'>去评价</view>
+        <view class='toComment' bindtap='toComent' data-type="{{false}}">去评价</view>
       </view>
     </view>
   </block>
@@ -49,7 +49,7 @@
         <view class='total'>实付款：109元</view>
       </view>
       <view class='order-b'>
-        <view class='hasComment'>已评价(4星)</view>
+        <view class='hasComment' bindtap='toComent' data-type="true">已评价(4星)</view>
       </view>
     </view>
   </block>

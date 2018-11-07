@@ -43,3 +43,6 @@
   width: 36.2rpx;
   height: 36.2rpx;
 }
+.picker{
+  font-size: 25.34rpx;
+}

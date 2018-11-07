@@ -6,7 +6,7 @@
     </view>
   </view>
   <view class='info-line' bindtap='editUname'>
-      <view class='info-l'>名称</view>
+      <view class='info-l'>姓名</view>
       <view class='info-r'>
         <view class='info-value'>张三化</view>
         <image class='info-img' src='../static/images/more.png'></image>
@@ -26,10 +26,12 @@
       <image class='info-img' src='../static/images/more.png'></image>
     </view>
   </view>
-  <view class='info-line'>
+  <view class='info-line' bindtap='editBirthday'>
     <view class='info-l'>生日</view>
     <view class='info-r'>
-      <view class='info-value'>1995-5-25</view>
+      <picker class='picker' mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class='info-value'>{{time}}</view>
+      </picker>
       <image class='info-img' src='../static/images/more.png'></image>
     </view>
   </view>

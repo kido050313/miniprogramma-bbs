@@ -2,28 +2,29 @@
   <view class='ads-edit'>
     <view class='ads-l'>所在省</view>
     <view class='ads-r'>
-      <view class='ads-v'>广东省</view>
-      <image class='ads-img' src="../../static/images/clear.png"></image>
+      <input class='ads-v' value='{{address.province}}'></input>
+      <image bindtap='clear' data-type="province" class='ads-img' src="../../static/images/clear.png"></image>
     </view>
   </view>
   <view class='ads-edit'>
     <view class='ads-l'>所在市</view>
     <view class='ads-r'>
-      <view class='ads-v'>深圳市</view>
-      <image class='ads-img' src="../../static/images/clear.png"></image>
+      <input class='ads-v' value='{{address.city}}'></input>
+      <image bindtap='clear' data-type="city" class='ads-img' src="../../static/images/clear.png"></image>
     </view>
   </view>
   <view class='ads-edit'>
     <view class='ads-l'>所在区/县</view>
     <view class='ads-r'>
-      <view class='ads-v'>宝安区</view>
-      <image class='ads-img' src="../../static/images/clear.png"></image>
+      <input class='ads-v' value='{{address.area}}'></input>
+      <image bindtap='clear' data-type="area" class='ads-img' src="../../static/images/clear.png"></image>
     </view>
   </view>
   <view class='ads-edit'>
     <view class='ads-l'>详细地址</view>
     <view class='ads-r'>
-      <view class='ads-detail'>龙华新区民治街道捷进中路58号那然色布斯台音布拉格</view>
+      <textarea class='ads-detail' value="{{address.detail}}"></textarea>
+      <image bindtap='clear' data-type="detail" class='ads-img' src="../../static/images/clear.png"></image>
     </view>
   </view>
   <view class='ads-submit' bindtap='submit'>保 存</view>

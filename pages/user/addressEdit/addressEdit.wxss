@@ -37,7 +37,7 @@
   font-size: 25.34rpx;
   text-align: right;
   font-family: PingFangSC-regular;
-  width: 80%;
+  /* width: 90%; */
   line-height: 36.2rpx;
 }
 .ads-detail{
@@ -47,7 +47,10 @@
   font-family:PingFangSC-regular;
   width:80%;
   line-height:36.2rpx;
-  margin:30rpx 0;
+  max-height: 100rpx;
+  min-height: 50rpx;
+  padding-top: 30rpx;
+  padding-bottom: 20rpx;
 }
 .ads-img{
   width: 32.58rpx;

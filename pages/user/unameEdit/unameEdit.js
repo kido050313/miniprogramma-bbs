@@ -26,6 +26,8 @@ Page({
 
     wx.showToast({
       title: '修改成功',
+      icon: "none",
+      duration: 3000,
       success: ()=>{
         wx.navigateBack({
           delta: 1

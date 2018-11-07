@@ -33,8 +33,11 @@
 .line{
   margin-top: 18.1rpx;
   width: 633.5rpx;
-  height: 1.81rpx;
-  background-color: 1.81rpx solid rgba(185, 185, 185, 1);
+  border-top: 1.81rpx solid rgba(185, 185, 185, 1);
+  border-bottom: 1.81rpx solid rgba(185, 185, 185, 1);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 .c-title{
   margin-top: 41.63rpx;
@@ -55,7 +58,6 @@
 .star{
   width: 50.68rpx;
   height: 50.68rpx;
-  border: 1.81rpx solid #fff;
 }
 .label-box{
   margin-top: 43.44rpx;
@@ -64,6 +66,7 @@
 }
 .center{
   width: 516.04rpx;
+  margin-bottom: 23.53rpx;
 }
 .label-item{
   width: 217.2rpx;
@@ -75,21 +78,12 @@
   font-size: 25.34rpx;
   text-align: center;
   font-family: -apple-system;
-  border: 1.81px solid rgba(255, 255, 255, 0);
   display: inline-block;
   margin: 0 18.1rpx 18.1rpx;
 }
 .label-item.checked{
-  width: 217.2rpx;
-  height: 63.35rpx;
-  line-height: 63.35rpx;
-  border-radius: 14.48rpx;
   background-color: rgba(225, 244, 255, 1);
   color: rgba(7, 104, 159, 1);
-  font-size: 25.34rpx;
-  text-align: center;
-  font-family: -apple-system;
-  border: 1.81rpx solid rgba(255, 255, 255, 0);
 }
 .txta{
   width: 539.38rpx;
@@ -101,7 +95,8 @@
   font-family: PingFang SC;
   border: 1.81rpx solid rgba(187, 187, 187, 1);
   margin-top: 36.2rpx;
-  padding: 14.48rpx
+  background-color: #fff;
+  padding: 10.48rpx;
 }
 .submit{
   width: 539.38rpx;
@@ -115,4 +110,14 @@
   font-family: PingFang SC;
   border: 1.81rpx solid rgba(255, 255, 255, 0);
   margin-top: 28.96rpx;
+  padding: 0 10.48rpx;
+}
+.comment-time{
+  margin-top: 36.2rpx;
+  width: 539.38rpx;
+  height: 36.2rpx;
+  color: rgba(185, 185, 185, 1);
+  font-size: 25.34rpx;
+  text-align: right;
+  font-family: PingFangSC-regular;
 }

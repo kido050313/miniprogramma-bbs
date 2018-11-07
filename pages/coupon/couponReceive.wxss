@@ -76,6 +76,9 @@
   line-height: 114.03rpx;
   width: 325.8rpx;
 }
+.orange{
+  color: rgba(255, 126, 103, 1);
+}
 .l4{
   width: 231.68rpx;
   height: 45.25rpx;
@@ -96,7 +99,7 @@
   font-size: 28.96rpx;
   text-align: left;
   font-family: PingFangSC-regular;
-  margin-left: 39.82rpx;
+  margin-left: 20.82rpx;
 }
 .box-r{
   text-align: center;
@@ -142,7 +145,7 @@
   height:141.18rpx;
   position:absolute;
   top:108.6rpx;
-  left:50.68rpx;
+  left:40.68rpx;
 }
 .grey.coupon-box{
   border: 1.81rpx solid rgba(185, 185, 185, 1);

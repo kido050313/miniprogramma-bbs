@@ -15,9 +15,10 @@ Page({
 
   },
 
-  toComent: function(){
+  toComent: function(event){
+    let type = event.currentTarget.dataset.type;
     wx.navigateTo({
-      url: './orderComment/orderComment',
+      url: './orderComment/orderComment?type='+type,
     })
   },
 

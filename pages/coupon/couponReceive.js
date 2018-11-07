@@ -17,7 +17,19 @@ Page({
 
   receive: function(){
     wx.showToast({
-      title: '领取成功'
+      title: '领取成功',
+      mask: true,
+      duration: 2000,
+      icon: "none"
+    })
+  },
+
+  finished: function(){
+    wx.showToast({
+      title: '领取失败! 该券已被领取完',
+      mask: true,
+      duration: 2000,
+      icon: "none"
     })
   },
 
@@ -25,7 +37,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**

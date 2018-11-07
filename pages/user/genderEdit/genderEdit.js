@@ -26,7 +26,9 @@ Page({
     // todo 提交信息
 
     wx.showToast({
-      title: '修改成功',
+      title: '修改成功', 
+      icon: "none",
+      duration: 3000,
       success: () => {
         wx.navigateBack({
           delta: 1

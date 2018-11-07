@@ -2,26 +2,30 @@
   <view class='p-name'>倍轻松（breo）颈椎按摩器SK-2017L肩颈按摩披肩</view>
   <view class='p-store'>益田假日广场店</view>
   <view class='p-time'>2018-9-26 14:49:25</view>
-  <view class='line'></view>
-
-  <view class='c-title'>请对本次购买进行评价</view>
-  <view class='star-box'>
-    <image class='star checked' src=""></image>
-    <image class='star' src=""></image>
-    <image class='star' src=""></image>
-    <image class='star' src=""></image>
-    <image class='star' src=""></image>    
-  </view>
-  <view class='label-box'>
-    <view class='center'>
-      <view class='label-item checked'>产品性价比高</view>
-      <view class='label-item'>舒适好用</view>
-      <view class='label-item'>便携方便</view>
-      <view class='label-item'>服务良好</view>
+  <view class='line'>
+    <view class='c-title'>请对本次购买进行评价</view>
+    <view class='star-box'>
+      <image 
+        class='star' 
+        wx:for="{{starCheckedList}}" 
+        wx:for-item="item" 
+        wx:key="index"
+        data-index="{{index}}"
+        bindtap='{{type == "true"?"":"changeStarStatus"}}'
+        src='{{item?"../../static/images/star_light.png":"../../static/images/star_grey.png"}}'
+      >
+      </image>
+    </view>
+    <view class='label-box'>
+      <view class='center'>
+        <view class='label-item{{item.checked?" checked":""}}' wx:for="{{labelList}}" wx:key="index" wx:for-item="item" data-index="{{index}}" bindtap='{{type == "true"?"":"changeLabelStatus"}}'>{{item.value}}</view>
+      </view>
     </view>
   </view>
-  <view class='line'></view>
-  <textarea class='txta' placeholder='请输入文字评价'>
+  <textarea wx:if="{{type == 'true'}}" disabled='true' class='txta'>
+  产品非常好用，使用之后颈肩酸痛感觉有明细好转，会坚持使用。希望倍轻松的产品越做越好。
   </textarea>
-  <view class='submit'>提 交</view>
+  <textarea wx:else class='txta' placeholder='请输入文字评价'></textarea>
+  <view wx:if="{{type == 'false'}}" class='submit' bindtap='submit'>提 交</view>
+  <view wx:else class='comment-time'>评价时间： 2018-10-26 11:19:42</view>
 </view>

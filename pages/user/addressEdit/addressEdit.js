@@ -5,7 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    address:{
+      province: "广东省",
+      city: "深圳市",
+      area: "宝安区",
+      detail: "龙华新区民治街道捷进中路58号那然色布斯台音布拉格"
+    }
   },
 
   /**
@@ -15,12 +20,21 @@ Page({
 
   },
 
+  clear: function(event){
+    let that = this;
+    let type = event.currentTarget.dataset.type, address = that.data.address;
+    address[type] = "";
+    that.setData({ address: address});
+  },
+
   submit: function(){
     let that = this;
     // todo 提交信息
 
     wx.showToast({
       title: '修改成功',
+      icon: "none",
+      duration: 3000,
       success: () => {
         wx.navigateBack({
           delta: 1

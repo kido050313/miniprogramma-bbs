@@ -39,6 +39,7 @@
   display: flex;
   height: 68.78rpx;
   align-items: center;
+  justify-content: space-between;
 }
 .info-l{
   display: flex;
@@ -49,13 +50,18 @@
   margin-left: 48.87rpx;
 }
 .user-name{
-  width: 146.61rpx;
+  max-width: 333rpx;
   height: 68.78rpx;
   line-height: 68.78rpx;
   color: rgba(255, 255, 255, 1);
   font-size: 48.87rpx;
   text-align: left;
   font-family: PingFangSC-regular;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 23.53rpx;
+  letter-spacing: -2rpx;
 }
 .sign{
   width: 115.84rpx;
@@ -68,7 +74,6 @@
   text-align: center;
   font-family: -apple-system;
   border: 1.81rpx solid rgba(255, 255, 255, 1);
-  margin-left: 23.53rpx;
 }
 .userid{
   width: 213.58rpx;

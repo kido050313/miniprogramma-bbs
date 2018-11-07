@@ -24,6 +24,32 @@
       <view class='txt'>仅限累计消费满30000元的老会员领取</view>
     </view>
   </block>
+
+  <block>
+    <view class='coupon-box'>
+      <view class='box-l'>
+        <view class='l1'>女神节大金春特别活动专享优惠券</view>
+        <view class='l2'>折扣券</view>
+        <view class='l3'>95<text class='unit'>折</text></view>
+        <view class='l4'>满20000元可用</view>
+      </view>
+      <view class='box-r'>
+        <view class='r1'>有效期</view>
+        <view class='r2'>自领取之日起</view>
+        <view class='r3'><text class='orange'>第11天 生效</text></view>
+        <view class='r4'>有效期 <text class='orange'>30</text> 天</view>
+        <view class='r5' bindtap='receive'>立即领取</view>
+      </view>
+    </view>
+    <view class='coupon-tips'>
+      <view class='txt'>使用须知：</view>
+      <view class='txt'>每人限领取 1 张</view>
+      <view class='txt'>不可与其他优惠同时使用</view>
+      <view class='txt'>适用全品类产品</view>
+      <view class='txt'>仅限累计消费满30000元的老会员领取</view>
+    </view>
+  </block>
+
   <block>
     <view class='coupon-box grey'>
       <view class='box-l'>
@@ -38,7 +64,7 @@
         <view class='r2'>2018-10-25</view>
         <view class='r3'>至</view>
         <view class='r4'>2018-10-25</view>
-        <view class='r5' bindtap='receive'>立即领取</view>
+        <view class='r5' bindtap='finished'>立即领取</view>
       </view>
     </view>
     <view class='coupon-tips grey'>

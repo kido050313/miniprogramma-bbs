@@ -1,4 +1,7 @@
 /* pages/login/login.wxss */
+page{
+  background-color: #fff;
+}
 .container{
   width: 100%;
   background-color: #fff;
