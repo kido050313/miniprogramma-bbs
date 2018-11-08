@@ -12,7 +12,7 @@
         wx:key="index"
         data-index="{{index}}"
         bindtap='{{type == "true"?"":"changeStarStatus"}}'
-        src='{{item?"../../static/images/star_light.png":"../../static/images/star_grey.png"}}'
+        src='{{item?"../../../static/images/star_light.png":"../../../static/images/star_grey.png"}}'
       >
       </image>
     </view>

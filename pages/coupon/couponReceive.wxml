@@ -57,7 +57,7 @@
         <view class='l2'>折扣券</view>
         <view class='l3'>50<text class='unit'>元</text></view>
         <view class='l4'>无使用门槛</view>
-        <image class='img' src='../static/images/finished.png'></image>
+        <image class='img' src='../../static/images/finished.png'></image>
       </view>
       <view class='box-r'>
         <view class='r1'>有效期</view>

@@ -9,21 +9,21 @@
       <view class='info-l'>姓名</view>
       <view class='info-r'>
         <view class='info-value'>张三化</view>
-        <image class='info-img' src='../static/images/more.png'></image>
+        <image class='info-img' src='../../static/images/more.png'></image>
       </view>
   </view>
   <view class='info-line' bindtap='editPhone'>
     <view class='info-l'>手机</view>
     <view class='info-r'>
       <view class='info-value'>18319773764</view>
-      <image class='info-img' src='../static/images/more.png'></image>
+      <image class='info-img' src='../../static/images/more.png'></image>
     </view>
   </view>
   <view class='info-line' bindtap='editGender'>
     <view class='info-l'>性别</view>
     <view class='info-r'>
       <view class='info-value'>男</view>
-      <image class='info-img' src='../static/images/more.png'></image>
+      <image class='info-img' src='../../static/images/more.png'></image>
     </view>
   </view>
   <view class='info-line' bindtap='editBirthday'>
@@ -32,14 +32,14 @@
       <picker class='picker' mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
         <view class='info-value'>{{time}}</view>
       </picker>
-      <image class='info-img' src='../static/images/more.png'></image>
+      <image class='info-img' src='../../static/images/more.png'></image>
     </view>
   </view>
   <view class='info-line' bindtap='editAddress'>
     <view class='info-l'>地址</view>
     <view class='info-r'>
       <view class='info-value'></view>
-      <image class='info-img' src='../static/images/more.png'></image>
+      <image class='info-img' src='../../static/images/more.png'></image>
     </view>
   </view>
 </view>

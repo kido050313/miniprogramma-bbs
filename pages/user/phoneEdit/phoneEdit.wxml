@@ -6,6 +6,6 @@
     <input class='phone-value' placeholder='新手机验证码'></input>
     <view class='code'>发送验证码</view>
   </view>
-  <view class='phone-submit' bindtap='submit'>更改电话</view>
+  <view class='phone-submit' bindtap='submit'>确 认</view>
   <view class='phone-tips'>更改后，请以新手机号码作为识别和登录验证</view>
 </view>

@@ -39,7 +39,7 @@
   padding-bottom: 14.48rpx;
 }
 .line-l{
-  width: 28%;
+  width: 22%;
   text-align: right;
 }
 .line-r{
