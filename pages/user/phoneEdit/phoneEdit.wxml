@@ -8,6 +8,6 @@
       <view bindtap="{{showCountdown?'':'getCode'}}" class='code'>{{showCountdown?(countdown+"秒"):"发送验证码"}}</view>
     </view>
     <button formType="submit" class='phone-submit'>确 认</button>
-    <view class='phone-tips'>更改后，请以新手机号码作为识别和登录验证</view>
   </form>
+  <view class='phone-tips'>更改后，请以新手机号码作为识别和登录验证</view>
 </view>

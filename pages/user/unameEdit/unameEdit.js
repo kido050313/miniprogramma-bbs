@@ -17,7 +17,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ username: app.globalData.userInfo.nickname})
+    if (app.globalData.userInfo){
+      this.setData({ username: app.globalData.userInfo.nickname })
+    }
   },
 
   clearTxt: function(){
@@ -35,7 +37,7 @@ Page({
   submit: function(){
     let that = this;
     // todo 提交信息
-    util.request(api.userUpdate, { name: that.data.username, customerId: app.globalData.userInfo.customerId}, "POST").then(function (res) {
+    app.globalData.userInfo && util.request(api.userUpdate, { name: that.data.username, customerId: app.globalData.userInfo.customerId}, "POST").then(function (res) {
       if (res.status == "200") {
         let queryString = `?customerId=${app.globalData.userInfo.customerId}`
         util.request(api.userQuery + queryString, {}, "POST").then(function (res) {

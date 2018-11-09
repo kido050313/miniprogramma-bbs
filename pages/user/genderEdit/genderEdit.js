@@ -1,11 +1,15 @@
 // pages/user/genderEdit/genderEdit.js
+const util = require('../../../utils/util.js');
+const api = require('../../../config/api.js');
+
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    gender: "M"
+    gender: "男"
   },
 
   /**
@@ -21,18 +25,34 @@ Page({
     that.setData({gender: gender})
   },
 
-  submit: function(){
+  submit: function () {
     let that = this;
     // todo 提交信息
-
-    wx.showToast({
-      title: '修改成功', 
-      icon: "none",
-      duration: 3000,
-      success: () => {
-        wx.navigateBack({
-          delta: 1
+    app.globalData.userInfo && util.request(api.userUpdate, { sex: that.data.gender, customerId: app.globalData.userInfo.customerId }, "POST").then(function (res) {
+      if (res.status == "200") {
+        let queryString = `?customerId=${app.globalData.userInfo.customerId}`
+        util.request(api.userQuery + queryString, {}, "POST").then(function (res) {
+          if (res.status == "200") {
+            console.log('查询信息-->')
+            console.log(res.data)
+            app.globalData.userInfo.sex = res.data.sex
+            wx.showToast({
+              title: '修改成功',
+              icon: "none",
+              duration: 3000,
+              success: () => {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }
+            })
+          }
         })
+      } else {
+        wx.showModal({
+          content: res.message,
+          showCancel: false
+        });
       }
     })
   },

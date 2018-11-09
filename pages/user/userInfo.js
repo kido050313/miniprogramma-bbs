@@ -1,5 +1,8 @@
 // pages/user/userInfo.js
 
+const util = require('../../utils/util.js');
+const api = require('../../config/api.js');
+
 const app = getApp()
 
 const date = new Date();
@@ -33,7 +36,7 @@ Page({
   data: {
     edit: false,
     showPicker: false,
-    time: '1995-02-24',
+    time: '1990-02-24',
     multiArray: [years, months, days],
     multiIndex: [90, 5, 16],
     choose_year: '',
@@ -46,9 +49,7 @@ Page({
   onLoad: function (options) {
     //设置默认的年份
     this.setData({
-      choose_year: this.data.multiArray[0][0],
-      time: "",
-      userInfo: ""
+      choose_year: this.data.multiArray[0][0]
     })
   },
 
@@ -92,10 +93,14 @@ Page({
     const month = this.data.multiArray[1][index[1]];
     const day = this.data.multiArray[2][index[2]];
     // console.log(`${year}-${month}-${day}-${hour}-${minute}`);
+
+    let time = year.replace("年", "") + '-' + month.replace("月", "") + '-' + day.replace("日", "")
+
     this.setData({
-      time: year.replace("年", "") + '-' + month.replace("月", "") + '-' + day.replace("日", "")
+      time: time
     })
     // console.log(this.data.time);
+    this.submit(time);
   },
   //监听picker的滚动事件
   bindMultiPickerColumnChange: function (e) {
@@ -166,6 +171,31 @@ Page({
     this.setData(data);
   },
 
+  submit(time){
+    console.log(time);
+    let that = this;
+    // todo 提交信息
+    app.globalData.userInfo && util.request(api.userUpdate, { birthTime: time, customerId: app.globalData.userInfo.customerId }, "POST").then(function (res) {
+      if (res.status == "200") {
+        let queryString = `?customerId=${app.globalData.userInfo.customerId}`
+        util.request(api.userQuery + queryString, {}, "POST").then(function (res) {
+          if (res.status == "200") {
+            console.log('查询信息-->')
+            console.log(res.data)
+            app.globalData.userInfo.birthTime = res.data.birthTime
+            that.setData({ time: res.data.birthTime })
+            console.log("===生日修改成功====")
+          }
+        })
+      } else {
+        wx.showModal({
+          content: res.message,
+          showCancel: false
+        });
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -180,7 +210,7 @@ Page({
     if (app.globalData.userInfo){
       this.setData({
         userInfo: app.globalData.userInfo,
-        time: app.globalData.userInfo.birthTime
+        time: app.globalData.userInfo.birthTime ||"1990-02-24"
       })
     }
   },

@@ -95,11 +95,11 @@ Page({
     } else if (form.code == "") {
       wx.showModal({
         title: '提示',
-        content: '请输入手机号码验证码',
+        content: '请输入验证码',
         showCancel: false
       });
     } else {
-      util.request(api.userUpdate, { phoneNumber: form.phone, phoneCode: form.code, customerId: app.globalData.userInfo.customerId }, "POST").then(function (res) {
+      app.globalData.userInfo && util.request(api.userUpdate, { phoneNumber: form.phone, phoneCode: form.code, customerId: app.globalData.userInfo.customerId }, "POST").then(function (res) {
         if (res.status == "200") {
           let queryString = `?customerId=${app.globalData.userInfo.customerId}`
           util.request(api.userQuery + queryString, {}, "POST").then(function (res) {

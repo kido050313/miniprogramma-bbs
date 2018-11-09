@@ -1,31 +1,33 @@
 <view class='container'>
-  <view class='ads-edit'>
-    <view class='ads-l'>所在省</view>
-    <view class='ads-r'>
-      <input class='ads-v' value='{{address.province}}'></input>
-      <image bindtap='clear' data-type="province" class='ads-img' src="../../../static/images/clear.png"></image>
+  <form bindsubmit="formSubmit" class='form'>
+    <view class='ads-edit'>
+      <view class='ads-l'>所在省</view>
+      <view class='ads-r'>
+        <input name="province" bindinput='inputProvince' class='ads-v' value='{{province}}'></input>
+        <image bindtap='clear' data-type="province" class='ads-img' src="../../../static/images/clear.png"></image>
+      </view>
     </view>
-  </view>
-  <view class='ads-edit'>
-    <view class='ads-l'>所在市</view>
-    <view class='ads-r'>
-      <input class='ads-v' value='{{address.city}}'></input>
-      <image bindtap='clear' data-type="city" class='ads-img' src="../../../static/images/clear.png"></image>
+    <view class='ads-edit'>
+      <view class='ads-l'>所在市</view>
+      <view class='ads-r'>
+        <input name="city" bindinput='inputCity' class='ads-v' value='{{city}}'></input>
+        <image bindtap='clear' data-type="city" class='ads-img' src="../../../static/images/clear.png"></image>
+      </view>
     </view>
-  </view>
-  <view class='ads-edit'>
-    <view class='ads-l'>所在区/县</view>
-    <view class='ads-r'>
-      <input class='ads-v' value='{{address.area}}'></input>
-      <image bindtap='clear' data-type="area" class='ads-img' src="../../../static/images/clear.png"></image>
+    <view class='ads-edit'>
+      <view class='ads-l'>所在区/县</view>
+      <view class='ads-r'>
+        <input name="region" bindinput='inputRegion' class='ads-v' value='{{region}}'></input>
+        <image bindtap='clear' data-type="region" class='ads-img' src="../../../static/images/clear.png"></image>
+      </view>
     </view>
-  </view>
-  <view class='ads-edit'>
-    <view class='ads-l'>详细地址</view>
-    <view class='ads-r'>
-      <textarea class='ads-detail' value="{{address.detail}}"></textarea>
-      <image bindtap='clear' data-type="detail" class='ads-img' src="../../../static/images/clear.png"></image>
+    <view class='ads-edit'>
+      <view class='ads-l'>详细地址</view>
+      <view class='ads-r'>
+        <textarea name="detail" bindinput='inputDetail' class='ads-detail' value="{{detail}}"></textarea>
+        <image bindtap='clear' data-type="detail" class='ads-img' src="../../../static/images/clear.png"></image>
+      </view>
     </view>
-  </view>
-  <view class='ads-submit' bindtap='submit'>保 存</view>
+    <button class='ads-submit' formType="submit">保 存</button>
+  </form>
 </view>
