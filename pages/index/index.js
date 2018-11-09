@@ -4,15 +4,18 @@ const app = getApp()
 
 Page({
   data: {
-    userInfo: null
+    userInfo: ""
   },
+  
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
+
   onLoad: function () {
+    console.log(app.globalData.userInfo)
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo
@@ -34,8 +37,8 @@ Page({
     }
     console.log(app.globalData.userInfo)
   },
-  getUserInfo: function(e) {
 
+  getUserInfo: function(e) {
     let userInfo = {};
     if (e.detail.userInfo){
       userInfo = e.detail.userInfo;
@@ -43,7 +46,6 @@ Page({
         url: '../login/login?userInfo=' + JSON.stringify(userInfo),
       })
     }
-
   },
 
   login: function(){

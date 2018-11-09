@@ -96,3 +96,12 @@
   color: rgba(162, 213, 242, 1);
   border: 1px solid rgba(162, 213, 242, 1);
 }
+.empty{
+  width: 284.17rpx;
+  height: 231.68rpx;
+  margin-top: 50%;
+}
+.loading{
+  color:#a6a6a6;
+  font-size: 25.34rpx;
+}

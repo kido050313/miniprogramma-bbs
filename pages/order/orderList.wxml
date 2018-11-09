@@ -1,5 +1,10 @@
 <view class='container'>
-  <block> 
+  <view class='loading' wx:if="{{loading}}">加载中...</view>
+  <view wx:elif="{{!orderData.length}}">
+    <image class='empty' src='../../static/images/empty.png'></image>
+  </view>
+  <view wx:else>
+    <block> 
     <view class='order-item'>
       <text class='order-id'>2018-9-24 16:29:36</text>
       <view class='order-c'>
@@ -53,4 +58,5 @@
       </view>
     </view>
   </block>
+  </view>
 </view>
