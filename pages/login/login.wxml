@@ -1,13 +1,13 @@
 <view class="container">
   <image class='login-img' src="../../static/images/logo.png"></image>
-  <view class='login-form'>
+  <form bindsubmit="formSubmit" bindreset="formReset" class='login-form'>
     <view class='input-box'>
-      <input placeholder='手机号' class='phone'></input>
+      <input bindinput='inputPhone' placeholder='手机号' class='phone' name='phone'></input>
     </view>
     <view class='input-box mt16'>
-      <input placeholder='验证码' class='password'></input>
-      <view class='code'>发送验证码</view>
+      <input placeholder='验证码' name='code' class='password'></input>
+      <view bindtap="{{showCountdown?'':'getCode'}}" class='code'>{{showCountdown?(countdown+"秒"):"发送验证码"}}</view>
     </view>
-    <button bindtap='submit' class='submit'>进 入</button>
-  </view>
+    <button formType="submit" class='submit'>进 入</button>
+  </form>
 </view>

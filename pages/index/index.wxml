@@ -17,12 +17,12 @@
   <view wx:else class="userinfo">
     <view class='info-l'>
       <view class='info-df'>
-        <view class="user-name">{{userInfo.nickName||"15200008888"}}</view>
-        <view class='sign'>普通会员</view>
+        <view class="user-name">{{userInfo.nickname||userInfo.phoneNumber}}</view>
+        <view class='sign'>{{userInfo.gradeName}}</view>
       </view>
-      <view class='userid'>463863717382</view>
+      <view class='userid'>{{userInfo.customerNum}}</view>
     </view>
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl||'../static/images/default-user.png'}}"></image>
+    <image class="userinfo-avatar" src="{{userInfo.photoUrl||'../../static/images/default-user.png'}}"></image>
   </view>
   <view class="userlink">
     <view class="usercoupon" bindtap='receiveCoupon'>

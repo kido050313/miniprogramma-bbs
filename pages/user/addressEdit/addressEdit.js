@@ -1,4 +1,6 @@
 // pages/user/addressEdit/addressEdit.js
+
+const app = getApp()
 Page({
 
   /**
@@ -17,7 +19,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let userInfo = app.globalData.userInfo
+    this.setData({
+      province: userInfo.province || "",
+      city: userInfo.city || "",
+      area: userInfo.region || "",
+      province: userInfo.address || "",
+    })
   },
 
   clear: function(event){

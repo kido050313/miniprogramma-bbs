@@ -1,4 +1,8 @@
 //app.js
+
+var util = require('./utils/util.js');
+var api = require('./config/api.js');
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -32,6 +36,27 @@ App({
         }
       }
     })
+
+    wx.request({
+      url: api.getToken,
+      data: {},
+      method: "POST",
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log('token=='+res.data.data)
+        if (res.statusCode == 200) {
+          wx.setStorageSync('token', res.data.data)
+        }
+
+      },
+      fail: function (err) {
+        console.log("failed")
+      }
+    })
+
+
   },
   globalData: {
     userInfo: null

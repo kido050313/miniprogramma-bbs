@@ -1,4 +1,7 @@
 // pages/user/userInfo.js
+
+const app = getApp()
+
 const date = new Date();
 const years = [];
 const months = [];
@@ -34,6 +37,7 @@ Page({
     multiArray: [years, months, days],
     multiIndex: [90, 5, 16],
     choose_year: '',
+    userInfo: app.globalData.userInfo
   },
 
   /**
@@ -42,7 +46,8 @@ Page({
   onLoad: function (options) {
     //设置默认的年份
     this.setData({
-      choose_year: this.data.multiArray[0][0]
+      choose_year: this.data.multiArray[0][0],
+      time: app.globalData.userInfo.birthTime || ""
     })
   },
 
