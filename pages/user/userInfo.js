@@ -37,7 +37,7 @@ Page({
     multiArray: [years, months, days],
     multiIndex: [90, 5, 16],
     choose_year: '',
-    userInfo: app.globalData.userInfo
+    userInfo: ""
   },
 
   /**
@@ -47,7 +47,8 @@ Page({
     //设置默认的年份
     this.setData({
       choose_year: this.data.multiArray[0][0],
-      time: app.globalData.userInfo.birthTime || ""
+      time: "",
+      userInfo: ""
     })
   },
 
@@ -176,7 +177,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (app.globalData.userInfo){
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        time: app.globalData.userInfo.birthTime
+      })
+    }
   },
 
   /**

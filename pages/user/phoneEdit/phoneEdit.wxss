@@ -37,6 +37,9 @@
   border: 1.81rpx solid rgba(255, 255, 255, 0);
   margin-right: 23.53rpx;
 }
+.form{
+  width: 100%;
+}
 .phone-submit{
   width: 687.8rpx;
   height: 72.4rpx;
@@ -49,6 +52,7 @@
   font-family: PingFang SC;
   border: 1.81rpx solid rgba(255, 255, 255, 0);
   margin-top: 45.25rpx;
+  position:initial;
 }
 .phone-tips{
   margin-top: 36.2rpx;

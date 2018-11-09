@@ -1,7 +1,7 @@
 <!--pages/user/unameEdit/unameEdit.wxml-->
 <view class='container'>
   <view class='uname-edit'>
-    <input class='uname-value' value="{{username}}"></input>
+    <input bindinput='inputname' class='uname-value' value="{{username}}"></input>
     <image bindtap='clearTxt' class='uname-img' src='../../../static/images/clear.png'></image>
   </view>
   <view class='uname-submit' bindtap='submit'>保 存</view>

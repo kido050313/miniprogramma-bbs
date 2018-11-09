@@ -1,18 +1,23 @@
 // pages/user/unameEdit/unameEdit.js
+
+const util = require('../../../utils/util.js');
+const api = require('../../../config/api.js');
+
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    username: "追风筝的贝贝"
+    username: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({ username: app.globalData.userInfo.nickname})
   },
 
   clearTxt: function(){
@@ -20,21 +25,44 @@ Page({
     that.setData({ username: ""})
   },
 
+  inputname: function(event){
+    let value = event.detail.value;
+    this.setData({
+      username: value
+    })
+  },
+
   submit: function(){
     let that = this;
     // todo 提交信息
-
-    wx.showToast({
-      title: '修改成功',
-      icon: "none",
-      duration: 3000,
-      success: ()=>{
-        wx.navigateBack({
-          delta: 1
+    util.request(api.userUpdate, { name: that.data.username, customerId: app.globalData.userInfo.customerId}, "POST").then(function (res) {
+      if (res.status == "200") {
+        let queryString = `?customerId=${app.globalData.userInfo.customerId}`
+        util.request(api.userQuery + queryString, {}, "POST").then(function (res) {
+          if (res.status == "200") {
+            console.log('查询信息-->')
+            console.log(res.data)
+            app.globalData.userInfo.nickname = res.data.name
+            that.setData({ username: res.data.name})
+            wx.showToast({
+              title: '修改成功',
+              icon: "none",
+              duration: 3000,
+              success: () => {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }
+            })
+          }
         })
+      } else {
+        wx.showModal({
+          content: res.message,
+          showCancel: false
+        });
       }
     })
-  
   },
 
   /**
