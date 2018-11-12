@@ -1,7 +1,7 @@
 <view class='container'>
-  <view class='p-name'>倍轻松（breo）颈椎按摩器SK-2017L肩颈按摩披肩</view>
+  <view class='p-name'>{{orderData.name}}</view>
   <view class='p-store'>益田假日广场店</view>
-  <view class='p-time'>2018-9-26 14:49:25</view>
+  <view class='p-time'>{{orderData.orderedDate}}</view>
   <view class='line'>
     <view class='c-title'>请对本次购买进行评价</view>
     <view class='star-box'>
@@ -27,5 +27,5 @@
   </textarea>
   <textarea wx:else class='txta' placeholder='请输入文字评价'></textarea>
   <view wx:if="{{type == 'false'}}" class='submit' bindtap='submit'>提 交</view>
-  <view wx:else class='comment-time'>评价时间： 2018-10-26 11:19:42</view>
+  <view wx:else class='comment-time'>评价时间： {{orderData.recordTime}}</view>
 </view>

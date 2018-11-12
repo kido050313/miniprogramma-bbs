@@ -12,16 +12,17 @@ Page({
       { value: "便携方便", checked: false },
       { value: "服务良好", checked: false }
     ],
-    hasComment: false
+    hasComment: false,
+    orderData: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.type)
+    console.log(options)
     let that = this;
-    that.setData({ type: options.type})
+    that.setData({ type: options.type, item: JSON.parse(options.item)})
   },
 
   changeLabelStatus: function (event){

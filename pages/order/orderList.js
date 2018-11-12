@@ -12,13 +12,14 @@ Page({
     orderData: [],
     page: 1,
     pageSize: 5,
-    loading: false
+    loading: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app.globalData.userInfo)
     if (app.globalData.userInfo){
       this.queryOrderList()
     } 
@@ -31,7 +32,7 @@ Page({
     util.request(api.orderQuery + queryString, {}, "POST").then(function (res) {
       if (res.status == "200") {
         that.setData({
-          orderData: res.data,
+          orderData: res.data.rows,
           loading: false
         })
       } else {
@@ -44,9 +45,9 @@ Page({
   },
 
   toComent: function(event){
-    let type = event.currentTarget.dataset.type;
+    let {type,item} = event.currentTarget.dataset;
     wx.navigateTo({
-      url: './orderComment/orderComment?type='+type,
+      url: `./orderComment/orderComment?type=${type}&item=${JSON.stringify(item)}`,
     })
   },
 
