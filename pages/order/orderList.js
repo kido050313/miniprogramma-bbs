@@ -12,7 +12,8 @@ Page({
     orderData: [],
     page: 1,
     pageSize: 5,
-    loading: true
+    loading: true,
+    canload: true
   },
 
   /**
@@ -22,7 +23,9 @@ Page({
     console.log(app.globalData.userInfo)
     if (app.globalData.userInfo){
       this.queryOrderList()
-    } 
+    } else{
+      this.setData({loading: false})
+    }
   },
 
   queryOrderList: function(){
@@ -31,13 +34,20 @@ Page({
     let queryString = `?customerId=${app.globalData.userInfo.customerId}&page=${that.data.page}&pageSize=${that.data.pageSize}`
     util.request(api.orderQuery + queryString, {}, "POST").then(function (res) {
       if (res.status == "200") {
+        let canload = true;
+        let orderData = that.data.orderData.concat(res.data.rows);
+        if (orderData.length == res.data.total) {
+          canload = false
+        }
         that.setData({
-          orderData: res.data.rows,
-          loading: false
-        })
+          canload: canload,
+          loading: false,
+          orderData: orderData,
+        });
       } else {
         wx.showModal({
           content: res.message,
+          loading: false,
           showCancel: false
         });
       }
@@ -90,7 +100,14 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    let that = this;
+    if (that.data.canload) {
+      let page = that.data.page + 1;
+      that.setData({
+        page: page
+      })
+      this.queryOrderList();
+    }
   },
 
   /**

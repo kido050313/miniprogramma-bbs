@@ -28,4 +28,5 @@
       <view class='{{recordTime || recordTime==""?"toComment":"hasComment"}}' bindtap='toComent' data-type="{{false}}" data-item="{{item}}">去评价</view>
     </view>
   </view>
+  <view wx:if="{{!canload}}" class='loading'>{{canload?'':'没有更多了...'}}</view>
 </view>
