@@ -103,7 +103,7 @@ Page({
         showCancel: false
       });
     } else{
-      let queryString = `?phoneNumber=${form.phone}&code=${form.code}`
+      let queryString = `?phoneNumber=${form.phone}&code=${form.code}&source="小程序"`
       util.request(api.login + queryString, {}, "POST").then(function (res) {
         if (res.status == "200") {
           wx.showToast({

@@ -22,11 +22,10 @@ Page({
   onLoad: function (options) {
     console.log(options)
     let that = this;
-    that.setData({ type: options.type, item: JSON.parse(options.item)})
+    that.setData({ type: options.type, orderData: JSON.parse(options.item)})
   },
 
   changeLabelStatus: function (event){
-
     let that = this;
     let index = event.currentTarget.dataset.index, labelList = that.data.labelList;
     
