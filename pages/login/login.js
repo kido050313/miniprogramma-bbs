@@ -86,6 +86,40 @@ Page({
     })
   },
 
+  login: function (phone, code){
+    let that = this;
+    let queryString = `?phoneNumber=${phone}&code=${code}&source="小程序"`
+    util.request(api.login + queryString, {}, "POST").then(function (res) {
+      if (res.status == "200") {
+        wx.showToast({
+          title: '登录成功',
+          icon: 'none',
+          duration: 3000
+        })
+
+        let userInfo = that.data.userInfo, info = res.data;
+
+        console.log("info before------>")
+        console.log(userInfo)
+        info.nickname = userInfo.nickName;
+        info.photoUrl = userInfo.avatarUrl;
+
+
+        console.log("info after------>")
+        console.log(info)
+        app.globalData.userInfo = info;
+        wx.navigateBack({
+          delta: 1,
+        })
+      } else {
+        wx.showModal({
+          content: res.message,
+          showCancel: false
+        });
+      }
+    })
+  },
+
   formSubmit: function (e) {
     let that = this;
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
@@ -103,36 +137,28 @@ Page({
         showCancel: false
       });
     } else{
-      let queryString = `?phoneNumber=${form.phone}&code=${form.code}&source="小程序"`
-      util.request(api.login + queryString, {}, "POST").then(function (res) {
-        if (res.status == "200") {
-          wx.showToast({
-            title: '登录成功',
-            icon: 'none',
-            duration: 3000
-          })
-
-          let userInfo = that.data.userInfo, info = res.data;
-
-          console.log("info before------>")
-          console.log(userInfo)
-          info.nickname = userInfo.nickName;
-          info.photoUrl = userInfo.avatarUrl;
-
-
-          console.log("info after------>")
-          console.log(info)
-          app.globalData.userInfo = info;
-          wx.navigateBack({
-            delta: 1,
-          })
-        } else {
-          wx.showModal({
-            content: res.message,
-            showCancel: false
-          });
-        }
-      })
+      if(wx.getStorageSync("token")){
+        that.login(form.phone, form.code);
+      }else{
+        wx.request({
+          url: api.getToken,
+          data: {},
+          method: "POST",
+          header: {
+            'Content-Type': 'application/json'
+          },
+          success: function (res) {
+            console.log('token==' + res.data.data)
+            if (res.statusCode == 200) {
+              wx.setStorageSync('token', res.data.data)
+              that.login(form.phone, form.code);
+            }
+          },
+          fail: function (err) {
+            console.log("failed")
+          }
+        })
+      }
     }
   },
 
