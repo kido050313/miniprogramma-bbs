@@ -76,7 +76,6 @@
   border: 1.81rpx solid rgba(255, 255, 255, 1);
 }
 .userid{
-  width: 213.58rpx;
   height: 43.44rpx;
   line-height: 43.44rpx;
   color: rgba(255, 255, 255, 1);

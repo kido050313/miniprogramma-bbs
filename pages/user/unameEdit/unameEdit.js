@@ -18,7 +18,7 @@ Page({
    */
   onLoad: function (options) {
     if (app.globalData.userInfo){
-      this.setData({ username: app.globalData.userInfo.nickname })
+      this.setData({ username: app.globalData.userInfo.name })
     }
   },
 
@@ -44,7 +44,7 @@ Page({
           if (res.status == "200") {
             console.log('查询信息-->')
             console.log(res.data)
-            app.globalData.userInfo.nickname = res.data.name
+            app.globalData.userInfo.name = res.data.name
             that.setData({ username: res.data.name})
             wx.showToast({
               title: '修改成功',

@@ -17,6 +17,10 @@ Page({
   onLoad: function () {
     console.log(app.globalData.userInfo)
     if (app.globalData.userInfo) {
+      let customerNum = app.globalData.userInfo.customerNum;
+      customerNum = customerNum.replace(/(\d{4})(?=\d)/g, '$1 ');
+      console.log(customerNum)
+      app.globalData.userInfo.customerNum = customerNum;
       this.setData({
         userInfo: app.globalData.userInfo
       })
@@ -32,6 +36,10 @@ Page({
    */
   onShow: function () {
     if (app.globalData.userInfo){
+      let customerNum = app.globalData.userInfo.customerNum;
+      customerNum = customerNum.replace(/(\d{4})(?=\d)/g, '$1 ');
+      console.log(customerNum)
+      app.globalData.userInfo.customerNum = customerNum;
       this.setData({
         userInfo: app.globalData.userInfo
       })

@@ -73,3 +73,6 @@
 .ads-submit::after{
   border: none;
 }
+.form{
+  width: 100%;
+}

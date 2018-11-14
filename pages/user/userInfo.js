@@ -36,7 +36,7 @@ Page({
   data: {
     edit: false,
     showPicker: false,
-    time: '1990-02-24',
+    time: '',
     multiArray: [years, months, days],
     multiIndex: [90, 5, 16],
     choose_year: '',
@@ -52,7 +52,7 @@ Page({
       this.setData({
         choose_year: this.data.multiArray[0][0],
         userInfo: app.globalData.userInfo,
-        time: app.globalData.userInfo.birthTime || "1990-02-24"
+        time: app.globalData.userInfo.birthTime
       })
     }
   },
@@ -214,7 +214,7 @@ Page({
     if (app.globalData.userInfo){
       this.setData({
         userInfo: app.globalData.userInfo,
-        time: app.globalData.userInfo.birthTime ||"1990-02-24"
+        time: app.globalData.userInfo.birthTime
       })
     }
   },

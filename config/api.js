@@ -2,7 +2,7 @@ var BaseUrl = "http://www.51shoop.cn:18002/api/";
 
 module.exports = {
   
-  getToken: BaseUrl + 'dmpCustomer/init/getToken', //获取Token
+  getToken: BaseUrl + 'dmpWeixin/init/getToken', //获取Token
   getCode: BaseUrl + 'dmpMessage/custMessage/getMessage', // 获取验证码
 
   // User
