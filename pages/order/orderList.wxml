@@ -12,7 +12,7 @@
       </view>
       <view class='line'>
         <text class='line-l'>商品名：</text>
-        <text class='line-r'>{{item.name}}</text>
+        <text class='line-r'>{{item.prouductName}}</text>
       </view>
       <view class='line'>
         <text class='line-l'>订单来源：</text>

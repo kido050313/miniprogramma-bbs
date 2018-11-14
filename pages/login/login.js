@@ -23,7 +23,9 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.userInfo)
-    this.setData({ userInfo: JSON.parse(options.userInfo)})
+    if (options.userInfo){
+      this.setData({ userInfo: JSON.parse(options.userInfo) })
+    }
   },
 
   //获取手机验证码

@@ -59,3 +59,6 @@ page{
   font-family: PingFang SC;
   border: 1.81rpx solid rgba(255, 255, 255, 0);
 }
+.submit::after{
+  border: none;
+}

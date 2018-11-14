@@ -10,7 +10,7 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view> -->
-  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"  class="userinfo" wx:if="{{!userInfo}}">
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"  class="userinfo" wx:if="{{!userInfo}}" data-page="index">
     <view class="username">点击注册/登录</view>
     <image class="userinfo-avatar" src="../../static/images/default-user.png"></image>
   </button>
@@ -37,28 +37,28 @@
   </view>
   <view class="user-service">
     <view>个人服务</view>
-    <view class="service-line" bindtap='toUserCenter'>
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="service-line" data-page='user'>
       <view class="line-l"></view>
       <view class='df'>
         <view class="line-c">个人信息</view>
       </view>
       <image src='../../static/images/more.png' class="line-img"></image>
-    </view>
-    <view class="service-line" bindtap='toCouponList'>
+    </button>
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="service-line" data-page='coupon'>
       <view class="line-l"></view>
       <view class='df'>
         <view class="line-c">我的优惠券</view>
         <view class="service-bubble">1</view>
       </view>
       <image src='../../static/images/more.png' class="line-img"></image>
-    </view>
-    <view class="service-line" bindtap='toOrderList'>
+    </button>
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="service-line" data-page='order'>
       <view class="line-l"></view>
       <view class='df'>
         <view class="line-c">订单和评价</view>
       </view>
       <image src='../../static/images/more.png' class="line-img"></image>
-    </view>
+    </button>
     <view class="service-line">
       <view class="line-l"></view>
       <view class='df'>

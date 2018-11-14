@@ -47,10 +47,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //设置默认的年份
-    this.setData({
-      choose_year: this.data.multiArray[0][0]
-    })
+    if(app.globalData.userInfo){
+      //设置默认的年份
+      this.setData({
+        choose_year: this.data.multiArray[0][0],
+        userInfo: app.globalData.userInfo,
+        time: app.globalData.userInfo.birthTime || "1990-02-24"
+      })
+    }
   },
 
   editUname: function(){

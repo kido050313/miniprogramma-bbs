@@ -40,12 +40,24 @@ Page({
   },
 
   getUserInfo: function(e) {
+    console.log(e.currentTarget.dataset)
+    let gotoPage = e.currentTarget.dataset.page
     let userInfo = {};
     if (e.detail.userInfo){
-      userInfo = e.detail.userInfo;
-      wx.navigateTo({
-        url: '../login/login?userInfo=' + JSON.stringify(userInfo),
-      })
+      if(app.globalData.userInfo){
+        if (gotoPage=="user"){
+          this.toUserCenter();
+        } else if (gotoPage == "coupon"){
+          this.toCouponList();
+        }else if(gotoPage == "order"){
+          this.toOrderList();
+        }
+      }else{
+        userInfo = e.detail.userInfo;
+        wx.navigateTo({
+          url: '../login/login?userInfo=' + JSON.stringify(userInfo),
+        })
+      }
     }
   },
 

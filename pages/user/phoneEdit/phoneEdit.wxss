@@ -53,6 +53,9 @@
   border: 1.81rpx solid rgba(255, 255, 255, 0);
   margin-top: 45.25rpx;
 }
+.phone-submit::after{
+  border: none;
+}
 .phone-tips{
   margin-top: 36.2rpx;
   width: 687.8rpx;

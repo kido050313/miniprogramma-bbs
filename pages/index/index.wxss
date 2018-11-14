@@ -159,6 +159,11 @@
   position: relative;
   display: flex;
   background-color: #fff;
+  width: 100%;
+  padding: 0;
+}
+.service-line::after{
+  border: none;
 }
 .service-bubble{
   width: 36.2rpx;
@@ -184,8 +189,13 @@
 .line-c{
   height: 112.22rpx;
   line-height: 112.22rpx;
-  width: 80%;
+  width: 100%;
   text-align: left;
+  font-size: 27.15rpx;
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+  color: rgba(85, 85, 85, 1);
 }
 .line-txt{
   height: 112.22rpx;
