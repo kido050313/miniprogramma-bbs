@@ -204,6 +204,7 @@
   font-size: 25.34rpx;
   text-align: center;
   font-family: PingFangSC-regular;
+  width:26%;
 }
 .line-img{
   width: 36.2rpx;
