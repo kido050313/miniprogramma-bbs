@@ -1,5 +1,5 @@
 <view class='container'>
-  <view class='p-name'>{{orderData.name}}</view>
+  <view class='p-name'>{{orderData.prouductName}}</view>
   <view class='p-store'>益田假日广场店</view>
   <view class='p-time'>{{orderData.orderedDate}}</view>
   <view class='line'>

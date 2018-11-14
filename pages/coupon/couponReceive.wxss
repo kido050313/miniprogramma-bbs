@@ -128,8 +128,8 @@
 }
 .r5{
   width: 177.38rpx;
-  height: 45.25rpx;
-  line-height: 45.25rpx;
+  height: 48.87rpx;
+  line-height: 48.87rpx;
   border-radius: 18.1rpx;
   background-color: rgba(82, 177, 230, 1);
   color: rgba(250, 250, 250, 1);
@@ -138,7 +138,9 @@
   font-family: -apple-system;
   margin-top: 25.34rpx;
   margin: 25.34rpx auto 0;
-  border: 1.81px solid rgba(255, 255, 255, 0);
+}
+.r5::after{
+  border: none;
 }
 .img{
   width:141.18rpx;
@@ -185,5 +187,4 @@
 .grey .r5{
   background-color: rgba(185, 185, 185, 1);
   color: rgba(250, 250, 250, 1);
-  border: 1.81rpx solid rgba(255, 255, 255, 0);
 }
