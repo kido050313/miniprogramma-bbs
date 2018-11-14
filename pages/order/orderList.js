@@ -12,7 +12,7 @@ Page({
     orderData: [],
     page: 1,
     pageSize: 5,
-    loading: true,
+    loading: false,
     canload: true
   },
 
@@ -22,7 +22,7 @@ Page({
   onLoad: function (options) {
     console.log(app.globalData.userInfo)
     if (app.globalData.userInfo){
-      this.queryOrderList()
+      // this.queryOrderList()
     } else{
       this.setData({loading: false})
     }

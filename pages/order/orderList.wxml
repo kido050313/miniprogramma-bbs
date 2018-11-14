@@ -2,6 +2,7 @@
   <view class='loading' wx:if="{{loading}}">加载中...</view>
   <view wx:elif="{{!orderData.length}}">
     <image class='empty' src='../../static/images/empty.png'></image>
+    <view class='empty-txt'>暂无订单记录</view>
   </view>
   <view wx:if="{{!loading && orderData.length}}" class='order-item' wx:for="{{orderData}}" wx:for-item="item" wx:key="{{index}}">
     <text class='order-id'>{{item.orderedDate}}</text>
