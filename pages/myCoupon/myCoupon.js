@@ -1,4 +1,8 @@
 // pages/myCoupon/myCoupon.js
+
+const util = require('../../utils/util.js');
+const api = require('../../config/api.js');
+const app = getApp()
 Page({
 
   /**
@@ -6,17 +10,52 @@ Page({
    */
   data: {
     TOP_MENU: {
-      0: { id: "t00", mean: "未使用", active: true, orderStatus: '' },
-      1: { id: "t01", mean: "已使用", active: false, orderStatus: 'WAIT_BUYER_PAY' },
-      2: { id: "t02", mean: "已过期", active: false, orderStatus: 'TRADE_GROUPPING' }
+      0: { id: "t00", mean: "未使用", active: true, couponStatus: '有效' },
+      1: { id: "t01", mean: "已使用", active: false, couponStatus: '已核销' },
+      2: { id: "t02", mean: "已过期", active: false, couponStatus: '已过期' }
     },
+    couponData:[],
+    customerInfo: {},
+    loading: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getMyCoupons('有效')
+  },
 
+  getMyCoupons: function (couponStatus){
+    let that = this;
+
+    that.setData({loading: true})
+
+    let queryString = `?phoneNum=${app.globalData.userInfo.phoneNumber}`
+    util.request(api.getMyCoupons + queryString, {}, "POST").then(function (res) {
+      if (res.status == "200") {
+        console.log(res.couponList)
+        let couponList = res.couponList, couponData = [], customerInfo = res.customerInfo;
+        couponList.map((item) => {
+          if (item.couponStatus == couponStatus) {
+            item.startTime = item.startTime && item.startTime.substring(0,10);
+            item.endTime = item.endTime && item.endTime.substring(0, 10);            
+            couponData.push(item)
+          }
+        })
+        console.log(couponData)
+        that.setData({
+          loading: false,
+          couponData: couponData,
+          customerInfo: customerInfo
+        })
+      } else {
+        wx.showModal({
+          content: res.message,
+          loading: false
+        });
+      }
+    })
   },
 
   switchCouponType: function (event) {
@@ -26,13 +65,13 @@ Page({
     for (let i in temp) {
       if (temp[i].id == id) {
         temp[i].active = true;
-        this.setData({ orderStatus: temp[i].orderStatus })
+        that.getMyCoupons(temp[i].couponStatus)
       } else {
         temp[i].active = false;
       }
     }
     this.setData({
-      TOP_MENU: temp, orderList: [], page: 1, size: 5, canload: true
+      TOP_MENU: temp, page: 1, size: 5, canload: true
     })
   },
 

@@ -2,9 +2,14 @@
 //获取应用实例
 const app = getApp()
 
+const util = require('../../utils/util.js');
+const api = require('../../config/api.js');
+
 Page({
   data: {
-    userInfo: undefined
+    userInfo: undefined,
+    couponCanReceive: 0,
+    myCouponCount: 0
   },
   
   //事件处理函数
@@ -25,6 +30,40 @@ Page({
         userInfo: app.globalData.userInfo
       })
     }
+    this.getAllCoupons();
+  },
+
+  getAllCoupons: function () {
+    let that = this;
+    util.request(api.couponReceiveQuery, {}, "POST").then(function (res) {
+      let couponData = res;
+      that.setData({
+        couponCanReceive: couponData.length,
+      });
+    })
+  },
+
+  getMyCoupons: function (couponStatus) {
+    let that = this;
+
+    let queryString = `?phoneNum=${app.globalData.userInfo.phoneNumber}`
+    util.request(api.getMyCoupons + queryString, {}, "POST").then(function (res) {
+      if (res.status == "200") {
+        let couponList = res.couponList, couponData = [], customerInfo = res.customerInfo;
+        couponList.map((item) => {
+          if (item.couponStatus == couponStatus) {
+            couponData.push(item)
+          }
+        })
+        that.setData({
+          myCouponCount: couponData.length
+        })
+      } else {
+        wx.showModal({
+          content: res.message
+        });
+      }
+    })
   },
 
   onReady: function () {
@@ -36,6 +75,7 @@ Page({
    */
   onShow: function () {
     if (app.globalData.userInfo){
+      this.getMyCoupons('有效')
       let customerNum = app.globalData.userInfo.customerNum;
       customerNum = customerNum.replace(/(\d{4})(?=\d)/g, '$1 ');
       console.log(customerNum)

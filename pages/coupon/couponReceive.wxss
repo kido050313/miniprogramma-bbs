@@ -18,7 +18,7 @@
 }
 .coupon-tips{
   width: 608.84rpx;
-  height: 231.68rpx;
+  /* height: 231.68rpx; */
   line-height: 36.2rpx;
   background-color: rgba(225, 244, 255, 1);
   color: rgba(7, 104, 159, 1);
@@ -99,7 +99,7 @@
   font-size: 28.96rpx;
   text-align: left;
   font-family: PingFangSC-regular;
-  margin-left: 20.82rpx;
+  /* margin-left: 20.82rpx; */
 }
 .box-r{
   text-align: center;
@@ -187,4 +187,8 @@
 .grey .r5{
   background-color: rgba(185, 185, 185, 1);
   color: rgba(250, 250, 250, 1);
+}
+.loading{
+  color:#a6a6a6;
+  font-size: 25.34rpx;
 }

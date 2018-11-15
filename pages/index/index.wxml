@@ -28,7 +28,7 @@
     <view class="usercoupon" bindtap='receiveCoupon'>
       <view class="coupon-txt">领优惠券</view>
       <image class="coupon-img" src='../../static/images/coupon_1.png'></image>
-      <view class="coupon-bubble">2</view>
+      <view wx:if="{{couponCanReceive}}" class="coupon-bubble">{{couponCanReceive}}</view>
     </view>
     <view class="h5-link">
       <view class="h5-txt">线上商城</view>
@@ -48,7 +48,7 @@
       <view class="line-l"></view>
       <view class='df'>
         <view class="line-c">我的优惠券</view>
-        <view wx:if="{{userInfo}}" class="service-bubble">1</view>
+        <view wx:if="{{userInfo}}" class="service-bubble">{{myCouponCount}}</view>
       </view>
       <image src='../../static/images/more.png' class="line-img"></image>
     </button>

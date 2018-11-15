@@ -1,4 +1,7 @@
 // pages/coupon/couponReceive.js
+const util = require('../../utils/util.js');
+const api = require('../../config/api.js');
+
 const app = getApp()
 Page({
 
@@ -6,7 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: ""
+    userInfo: "",
+    couponData: [],
+    loading: true
   },
 
   /**
@@ -17,7 +22,25 @@ Page({
       this.setData({
         userInfo: app.globalData.userInfo
       })
-    }
+    } 
+    this.getAllCoupons()
+  },
+
+  getAllCoupons: function(){
+    let that = this;
+    that.setData({ loading: true})
+    util.request(api.couponReceiveQuery, {}, "POST").then(function (res) {
+      console.log(res)
+      let couponData = res;
+      couponData.map((item)=>{
+        item.startTime = item.startTime && item.startTime.substring(0,10);
+        item.overdueTime = item.overdueTime && item.overdueTime.substring(0, 10);        
+      })
+      that.setData({
+        loading: false,
+        couponData: couponData,
+      });
+    })
   },
 
   getUserInfo: function (e) {
@@ -32,22 +55,42 @@ Page({
     }
   },
 
-  receive: function(){
-    wx.showToast({
-      title: '领取成功',
-      mask: true,
-      duration: 2000,
-      icon: "none"
-    })
-  },
+  receive: function(event){
+    let item = event.currentTarget.dataset.item;
+    console.log(item)
 
-  finished: function(){
-    wx.showToast({
-      title: '领取失败! 该券已被领取完',
-      mask: true,
-      duration: 2000,
-      icon: "none"
-    })
+    let that = this;
+    let {userInfo} = that.data;
+
+    if (item.receivedStatus){
+      let queryString = `?phoneNum=${userInfo.phoneNumber}&couponId=${item.couponId}`
+      util.request(api.couponReceive+queryString, {}, "POST").then(function (res) {
+        console.log(res)
+        if (res.status == "200") {
+          wx.showToast({
+            title: '领取成功',
+            mask: true,
+            duration: 2000,
+            icon: "none"
+          })
+        } else{
+          wx.showToast({
+            title: res.message,
+            mask: true,
+            duration: 2000,
+            icon: "none"
+          })
+        }
+      })
+      that.getAllCoupons()
+    }else{
+      wx.showToast({
+        title: '领取失败! 该券已被领取完',
+        mask: true,
+        duration: 2000,
+        icon: "none"
+      })
+    }
   },
 
   /**
