@@ -12,7 +12,7 @@
   </view>
   <view class="mtx" wx:if="{{!loading && couponData.length}}">
     <block wx:for="{{couponData}}" wx:for-item="item" wx:key="{{index}}">
-      <view class='coupon-box'>
+      <view class='{{TOP_MENU[0].active?"coupon-box":"coupon-box grey"}}'>
         <view class='box-l'>
           <view class='l1'>{{item.couponName}}</view>
           <view class='l2'>
@@ -24,6 +24,8 @@
           </view>
           <view wx:if="{{item.couponCondition!='0'}}" class='l4'>满{{item.couponCondition}}元可用</view>
           <view wx:else class='l4'>无使用门槛</view>
+          <image wx:if="{{TOP_MENU[1].active}}" class='img' src='../../static/images/used.png'></image>
+          <image wx:if="{{TOP_MENU[2].active}}" class='img' src='../../static/images/overdue.png'></image>
         </view>
         <view class='box-r'>
           <view class='r1'>有效期</view>
@@ -32,7 +34,7 @@
           <view class='r4'>{{item.endTime}}</view>
         </view>
       </view>
-      <view class='coupon-tips'>
+      <view class='{{TOP_MENU[0].active?"coupon-tips":"coupon-tips grey"}}'>
         <view class='txt'>使用须知：</view>
         <view class='txt'>每人限领取 {{item.receiveNum}} 张</view>
         <view class='txt'>不可与其他优惠同时使用</view>
