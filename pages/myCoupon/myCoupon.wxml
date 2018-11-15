@@ -1,3 +1,14 @@
+<wxs module="filters">
+  var filters = {
+    toFix: function(value) {
+    return value.toFixed(1) //此处2为保留两位小数
+  }
+  }
+  module.exports = {
+    toFix: filters.toFix
+  }
+</wxs>
+
 <view class='container'>
   <view class='couponTop'>
     <view class='top-item {{item.active?"active":""}}' wx:for-item="item" wx:for="{{TOP_MENU}}" bindtap="switchCouponType" wx:key="{{item.id}}" data-id="{{item.id}}">
@@ -19,7 +30,7 @@
             <text class='type'>{{item.couponType?"折扣券":"代金券"}}</text>
             <text class='couponId'>{{customerInfo.phoneNumber}}</text>
           </view>
-          <view class='l3'>{{item.couponType?item.conponRate*100:item.conponRate}}
+          <view class='l3'>{{item.couponType?filters.toFix(item.conponRate*10):item.conponRate}}
             <text class='unit'>{{item.couponType?"折":"元"}}</text>
           </view>
           <view wx:if="{{item.couponCondition!='0'}}" class='l4'>满{{item.couponCondition}}元可用</view>
