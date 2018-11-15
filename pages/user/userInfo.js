@@ -86,6 +86,12 @@ Page({
     that.setData({ showPicker: true})
   },
 
+  editProfession: function(){
+    wx.navigateTo({
+      url: './professionEdit/professionEdit',
+    })
+  },
+
   //获取时间日期
   bindMultiPickerChange: function (e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value)

@@ -42,4 +42,11 @@
       <image class='info-img' src='../../static/images/more.png'></image>
     </view>
   </view>
+  <view class='info-line' bindtap='editProfession'>
+    <view class='info-l'>职业</view>
+    <view class='info-r'>
+      <view class='info-value'>{{userInfo.profession||"请输入"}}</view>
+      <image class='info-img' src='../../static/images/more.png'></image>
+    </view>
+  </view>
 </view>

@@ -33,7 +33,7 @@
   width: 50%;
 }
 .info-customerNum{
-  font-size: 30.77rpx;
+  font-size: 25.34rpx;
   color: rgba(0, 0, 0, 1);
   text-align: right;
   font-family: PingFangSC-regular;
@@ -41,10 +41,10 @@
 .info-value{
   width: 233.49rpx;
   color: rgba(0, 0, 0, 1);
-  font-size: 30.77rpx;
+  font-size: 25.34rpx;
   text-align: right;
   font-family: PingFangSC-regular;
-  margin-right: 30.77rpx;
+  margin-right: 20.77rpx;
 }
 .info-img{
   width: 36.2rpx;
