@@ -26,6 +26,27 @@ Page({
     if (options.userInfo){
       this.setData({ userInfo: JSON.parse(options.userInfo) })
     }
+    this.getToken();
+  },
+
+  getToken(){
+    wx.request({
+      url: api.getToken,
+      data: {},
+      method: "POST",
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log('token==' + res.data.data)
+        if (res.statusCode == 200) {
+          wx.setStorageSync('token', res.data.data)
+        }
+      },
+      fail: function (err) {
+        console.log("failed")
+      }
+    })
   },
 
   //获取手机验证码

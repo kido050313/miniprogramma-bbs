@@ -49,13 +49,11 @@ App({
         if (res.statusCode == 200) {
           wx.setStorageSync('token', res.data.data)
         }
-
       },
       fail: function (err) {
         console.log("failed")
       }
     })
-
 
   },
   globalData: {

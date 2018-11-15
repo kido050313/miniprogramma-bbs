@@ -17,7 +17,7 @@
   background-color: #fff;
 }
 .info-l{
-  width: 60%;
+  width: 50%;
   height: 39.82rpx;
   color: rgba(16, 16, 16, 1);
   font-size: 28.96rpx;
@@ -30,6 +30,13 @@
   align-items: center;
   justify-content:space-between;
   padding-right: 61.54rpx;
+  width: 50%;
+}
+.info-customerNum{
+  font-size: 30.77rpx;
+  color: rgba(0, 0, 0, 1);
+  text-align: right;
+  font-family: PingFangSC-regular;
 }
 .info-value{
   width: 233.49rpx;

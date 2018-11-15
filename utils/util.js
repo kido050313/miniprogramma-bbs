@@ -14,6 +14,7 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+
 /**
  * 封封微信的的request
  */
@@ -32,9 +33,23 @@ function request(url, data = {}, method = "GET") {
         console.log(res)
 
         if (res.statusCode == 200) {
-            resolve(res.data);
+          resolve(res.data);
+        } else if (res.statusCode == 401){
+          console.log("用户身份过期,请重新登录!")
+          const app = getApp()
+          app.globalData.userInfo = undefined;
+          wx.showModal({
+            title: '',
+            content: '用户身份过期,请重新登录!',
+            showCancel: false,
+            success: function(res) {
+              wx.reLaunch({
+                url: '/pages/index/index'
+              })
+            }
+          })
         } else {
-            reject(res.errMsg);
+          reject(res.errMsg);
         }
 
       },

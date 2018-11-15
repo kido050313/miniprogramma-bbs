@@ -2,7 +2,7 @@
   <view class='info-line'>
     <view class='info-l'>会员ID</view>
     <view class='info-r'>
-      <view class='info-value'>{{userInfo.customerNum}}</view>
+      <view class='info-customerNum'>{{userInfo.customerNum}}</view>
     </view>
   </view>
   <view class='info-line' bindtap='editUname'>
