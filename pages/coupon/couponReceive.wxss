@@ -32,7 +32,7 @@
 }
 .txt{
   width: 582.82rpx;
-  height: 41.63rpx;
+  /* height: 41.63rpx; */
   color: rgba(7, 104, 159, 1);
   font-size: 25.34rpx;
   text-align: left;
