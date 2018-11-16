@@ -26,7 +26,9 @@ Page({
     if (options.userInfo){
       this.setData({ userInfo: JSON.parse(options.userInfo) })
     }
-    this.getToken();
+    if(!wx.getStorageSync("token")){
+      this.getToken();
+    }
   },
 
   getToken(){
