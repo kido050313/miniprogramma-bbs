@@ -82,7 +82,7 @@ Page({
           })
         }
       })
-      that.getAllCoupons()
+      // that.getAllCoupons()
     }else{
       wx.showToast({
         title: '领取失败! 该券已被领取完',

@@ -31,9 +31,9 @@ Page({
       })
     }
 
-    if(wx.getStorageSync("token")){
-      this.getAllCoupons();
-    }
+    // if(wx.getStorageSync("token")){
+    //   this.getAllCoupons();
+    // }
   },
 
   getAllCoupons: function () {
@@ -87,9 +87,9 @@ Page({
         userInfo: app.globalData.userInfo
       })
     }
-    // if (wx.getStorageSync("token")) {
-    //   this.getAllCoupons();
-    // }
+    if (wx.getStorageSync("token")) {
+      this.getAllCoupons();
+    }
     console.log(app.globalData.userInfo)
   },
 
