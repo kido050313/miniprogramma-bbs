@@ -28,7 +28,7 @@
           <view class='l1'>{{item.couponName}}</view>
           <view class='l2'>
             <text class='type'>{{item.couponType?"折扣券":"代金券"}}</text>
-            <text class='couponId'>{{customerInfo.phoneNumber}}</text>
+            <text class='couponId'>{{item.couponCode}}</text>
           </view>
           <view class='l3'>{{item.couponType?filters.toFix(item.conponRate*10):item.conponRate}}
             <text class='unit'>{{item.couponType?"折":"元"}}</text>
