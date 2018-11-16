@@ -43,6 +43,7 @@ function request(url, data = {}, method = "GET") {
             content: '用户身份过期,请重新登录!',
             showCancel: false,
             success: function(res) {
+              wx.removeStorageSync("token");
               wx.reLaunch({
                 url: '/pages/index/index'
               })

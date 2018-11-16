@@ -30,7 +30,10 @@ Page({
         userInfo: app.globalData.userInfo
       })
     }
-    this.getAllCoupons();
+
+    if(wx.getStorageSync("token")){
+      this.getAllCoupons();
+    }
   },
 
   getAllCoupons: function () {
