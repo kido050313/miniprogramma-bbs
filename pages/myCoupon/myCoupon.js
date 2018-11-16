@@ -39,7 +39,8 @@ Page({
         couponList.map((item) => {
           if (item.couponStatus == couponStatus) {
             item.startTime = item.startTime && item.startTime.substring(0,10);
-            item.endTime = item.endTime && item.endTime.substring(0, 10);            
+            item.endTime = item.endTime && item.endTime.substring(0, 10);   
+            item.couponDesc = item.couponDesc.split("\n");         
             couponData.push(item)
           }
         })

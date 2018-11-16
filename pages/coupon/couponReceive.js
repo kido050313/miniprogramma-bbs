@@ -34,7 +34,9 @@ Page({
       let couponData = res;
       couponData.map((item)=>{
         item.startTime = item.startTime && item.startTime.substring(0,10);
-        item.overdueTime = item.overdueTime && item.overdueTime.substring(0, 10);        
+        item.overdueTime = item.overdueTime && item.overdueTime.substring(0, 10);   
+        item.couponDesc = item.couponDesc.split("\n");  
+        console.log(item.couponDesc)    
       })
       that.setData({
         loading: false,

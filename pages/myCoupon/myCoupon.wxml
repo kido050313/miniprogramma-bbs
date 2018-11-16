@@ -49,7 +49,7 @@
         <view class='txt'>使用须知：</view>
         <view class='txt'>每人限领取 {{item.receiveNum}} 张</view>
         <!-- <view class='txt'>不可与其他优惠同时使用</view> -->
-        <view class='txt'>{{item.couponDesc}}</view>
+        <view wx:for="{{item.couponDesc}}" wx:for-item="item" wx:key="{{index}}" class='txt'>{{item}}</view>
       </view>
     </block>
   </view>
