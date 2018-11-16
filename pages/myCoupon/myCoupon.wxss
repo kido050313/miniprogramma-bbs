@@ -130,7 +130,7 @@
   display: flex;
 }
 .l3{
-  height: 114.03rpx;
+  height: 129.03rpx;
   color: rgba(16, 16, 16, 1);
   font-size: 81.45rpx;
   text-align: right;
@@ -200,11 +200,11 @@
   border: 1.81px solid rgba(255, 255, 255, 0);
 }
 .img{
-  width:141.18rpx;
+  width:196.18rpx;
   height:141.18rpx;
   position:absolute;
   top:108.6rpx;
-  left:40.68rpx;
+  left:18.68rpx;
 }
 .grey.coupon-box{
   border: 1.81rpx solid rgba(185, 185, 185, 1);

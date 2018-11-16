@@ -71,14 +71,12 @@ Page({
         if (res.status == "200") {
           wx.showToast({
             title: '领取成功',
-            mask: true,
             duration: 2000,
             icon: "none"
           })
         } else{
           wx.showToast({
             title: res.message,
-            mask: true,
             duration: 2000,
             icon: "none"
           })
@@ -88,7 +86,6 @@ Page({
     }else{
       wx.showToast({
         title: '领取失败! 该券已被领取完',
-        mask: true,
         duration: 2000,
         icon: "none"
       })
