@@ -38,7 +38,7 @@ App({
     // })
 
     wx.request({
-      url: api.getToken,
+      url: api.getToken +`?corpId=ww9fa669a713c72aba`,
       data: {},
       method: "POST",
       header: {

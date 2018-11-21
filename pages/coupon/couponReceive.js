@@ -28,7 +28,7 @@ Page({
 
   getAllCoupons: function(){
     let that = this;
-    that.setData({ loading: true})
+    // that.setData({ loading: true})
     util.request(api.couponReceiveQuery, {}, "POST").then(function (res) {
       console.log(res)
       let couponData = res;
@@ -82,7 +82,7 @@ Page({
           })
         }
       })
-      // that.getAllCoupons()
+      that.getAllCoupons()
     }else{
       wx.showToast({
         title: '领取失败! 该券已被领取完',

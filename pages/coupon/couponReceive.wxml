@@ -23,7 +23,7 @@
         <view wx:else class='l4'>无使用门槛</view>
         <image wx:if="{{!item.receivedStatus}}" class='img' src='../../static/images/finished.png'></image>
       </view>
-      <view class='box-r' wx:if="{{item.overdueType=='1'}}">
+      <view class='box-r' wx:if="{{item.overdueType=='0'}}">
         <view class='r1'>有效期</view>
         <view class='r2'>{{item.startTime}}</view>
         <view class='r3'>至</view>

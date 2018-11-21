@@ -33,7 +33,7 @@ Page({
 
   getToken(){
     wx.request({
-      url: api.getToken,
+      url: api.getToken + `?corpId=ww9fa669a713c72aba`,
       data: {},
       method: "POST",
       header: {
@@ -166,7 +166,7 @@ Page({
         that.login(form.phone, form.code);
       }else{
         wx.request({
-          url: api.getToken,
+          url: api.getToken + `?corpId=ww9fa669a713c72aba`,
           data: {},
           method: "POST",
           header: {
