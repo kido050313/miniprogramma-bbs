@@ -16,17 +16,17 @@
   margin-left: 30.77rpx;
 }
 .order-c{
-  width: 100%;
-  line-height: 36.2rpx;
-  background-color: rgba(255, 255, 255, 1);
-  color: rgba(16, 16, 16, 1);
-  font-size: 25.34rpx;
-  text-align: center;
-  font-family: -apple-system;
-  border: 1.81rpx solid rgba(255, 255, 255, 0);
-  margin-top: 1.81rpx;
-  margin-bottom: 5.43rpx;
-  padding-top: 32.58rpx;
+  width:90%;
+  line-height:36.2rpx;
+  background-color:rgba(255, 255, 255, 1);
+  color:rgba(16, 16, 16, 1);
+  font-size:25.34rpx;
+  text-align:center;
+  font-family:-apple-system;
+  border:1.81rpx solid rgba(255, 255, 255, 0);
+  padding-top:32.58rpx;
+  margin:1.81rpx auto 5.43rpx auto;
+  border-radius:18.1rpx;
 }
 .line{
   width: 100%;
@@ -39,8 +39,9 @@
   padding-bottom: 14.48rpx;
 }
 .line-l{
-  width: 22%;
-  text-align: right;
+  width:32%;
+  text-align:left;
+  padding-left:38.1rpx;
 }
 .line-r{
   width: 72%;
@@ -55,10 +56,10 @@
   text-align: right;
   font-family: PingFangSC-bold;
   border-top: 1.81rpx solid rgba(248, 248, 249, 1);
-  margin-right: 25.34rpx;
+  padding-right: 25.34rpx;
 }
 .order-b{
-  width: 100%;
+  width: 90%;
   height: 72.4rpx;
   line-height: 36.2rpx;
   background-color: rgba(255, 255, 255, 1);
@@ -69,9 +70,10 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  margin: 0 auto;
 }
 .toComment{
-  width: 144.8rpx;
+  width: 177.8rpx;
   height: 45.25rpx;
   line-height: 45.25rpx;
   border-radius: 18.1rpx;
@@ -84,7 +86,7 @@
   margin-right: 25.34rpx;
 }
 .hasComment{
-  width: 144.8rpx;
+  width: 177.8rpx;
   height: 45.25rpx;
   line-height: 45.25rpx;
   border-radius: 18.1rpx;
@@ -113,4 +115,5 @@
 .loading{
   color:#a6a6a6;
   font-size: 25.34rpx;
+  height: 43.44rpx;
 }

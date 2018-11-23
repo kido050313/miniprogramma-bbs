@@ -5,19 +5,22 @@
     <view class='empty-txt'>暂无订单记录</view>
   </view>
   <view wx:if="{{!loading && orderData.length}}" class='order-item' wx:for="{{orderData}}" wx:for-item="item" wx:key="{{index}}">
-    <text class='order-id'>{{item.orderedDate}}</text>
     <view class='order-c'>
       <view class='line'>
-        <text class='line-l'>订单号：</text>
+        <text class='line-l'>订单编号：</text>
         <text class='line-r'>{{item.orderExternalId}}</text>
       </view>
       <view class='line'>
-        <text class='line-l'>商品名：</text>
-        <text class='line-r'>{{item.prouductName}}</text>
+        <text class='line-l'>创建时间：</text>
+        <text class='line-r'>{{item.orderExternalId}}</text>
       </view>
       <view class='line'>
-        <text class='line-l'>订单来源：</text>
+        <text class='line-l'>终端/店铺名称：</text>
         <text class='line-r'>{{item.orderSource}}</text>
+      </view>
+      <view class='line'>
+        <text class='line-l'>优惠券码：</text>
+        <text class='line-r'>{{item.prouductName}}</text>
       </view>
       <view class='line'>
         <text class='line-l'>合计件数：</text>
@@ -26,7 +29,7 @@
       <view class='total'>实付款：{{item.orderAmount}}元</view>
     </view>
     <view class='order-b'>
-      <view class='{{recordTime || recordTime==""?"toComment":"hasComment"}}' bindtap='toComent' data-type="{{false}}" data-item="{{item}}">去评价</view>
+      <view class='{{recordTime || recordTime==""?"toComment":"hasComment"}}' bindtap='toComent' data-type="{{false}}" data-item="{{item}}">查看商品并评价</view>
     </view>
   </view>
   <view wx:if="{{!canload && orderData.length}}" class='loading'>{{canload?'':'没有更多了...'}}</view>

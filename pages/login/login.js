@@ -133,6 +133,7 @@ Page({
         console.log("info after------>")
         console.log(info)
         app.globalData.userInfo = info;
+        wx.setStorageSync("userInfo", info)
         wx.navigateBack({
           delta: 1,
         })

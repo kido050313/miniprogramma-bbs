@@ -272,4 +272,5 @@
 .loading{
   color:#a6a6a6;
   font-size: 25.34rpx;
+  height: 43.44rpx;
 }

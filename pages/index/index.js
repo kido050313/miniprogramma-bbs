@@ -21,6 +21,7 @@ Page({
 
   onLoad: function () {
     console.log(app.globalData.userInfo)
+    app.globalData.userInfo = wx.getStorageSync("userInfo")
     if (app.globalData.userInfo) {
       let customerNum = app.globalData.userInfo.customerNum;
       customerNum = customerNum.replace(/(\d{4})(?=\d)/g, '$1 ');
