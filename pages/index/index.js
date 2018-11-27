@@ -20,9 +20,10 @@ Page({
   },
 
   onLoad: function () {
+    let token = wx.getStorageSync("token")
     console.log(app.globalData.userInfo)
-    app.globalData.userInfo = wx.getStorageSync("userInfo")
-    if (app.globalData.userInfo) {
+    // app.globalData.userInfo = wx.getStorageSync("userInfo")
+    if (token && app.globalData.userInfo) {
       let customerNum = app.globalData.userInfo.customerNum;
       customerNum = customerNum.replace(/(\d{4})(?=\d)/g, '$1 ');
       console.log(customerNum)
@@ -70,15 +71,12 @@ Page({
     })
   },
 
-  onReady: function () {
-    
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (app.globalData.userInfo){
+    let token = wx.getStorageSync("token")
+    if (token && app.globalData.userInfo){
       this.getMyCoupons('有效')
       let customerNum = app.globalData.userInfo.customerNum;
       customerNum = customerNum.replace(/(\d{4})(?=\d)/g, '$1 ');
@@ -88,10 +86,35 @@ Page({
         userInfo: app.globalData.userInfo
       })
     }
-    if (wx.getStorageSync("token")) {
+    console.log(token)
+    if (token) {
       this.getAllCoupons();
+    }else{
+      this.getToken();
     }
     console.log(app.globalData.userInfo)
+  },
+
+  getToken() {
+    let that = this;
+    wx.request({
+      url: api.getToken + `?corpId=ww9fa669a713c72aba`,
+      data: {},
+      method: "POST",
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log('token==' + res.data.data)
+        if (res.statusCode == 200) {
+          wx.setStorageSync('token', res.data.data)
+          that.getAllCoupons();
+        }
+      },
+      fail: function (err) {
+        console.log("failed")
+      }
+    })
   },
 
   getUserInfo: function(e) {

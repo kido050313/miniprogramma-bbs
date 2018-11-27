@@ -184,9 +184,6 @@ Page({
           }
         })
       } else {
-        wx.navigateBack({
-          delta: 1
-        })
         wx.showModal({
           content: res.message,
           loading: false
