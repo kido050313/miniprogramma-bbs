@@ -1,7 +1,7 @@
 <view class='container'>
-  <view class='p-name'>{{orderData.prouductName}}</view>
-  <view class='p-store'>益田假日广场店</view>
-  <view class='p-time'>{{orderData.orderedDate}}</view>
+  <view class='p-name'>{{item.productName}}</view>
+  <view class='p-store'>{{orderItem.orderSource}}</view>
+  <view class='p-time'>{{orderItem.orderedDate}}</view>
   <view class='line'>
     <view class='c-title'>请对本次购买进行评价</view>
     <view class='star-box'>
@@ -11,21 +11,21 @@
         wx:for-item="item" 
         wx:key="index"
         data-index="{{index}}"
-        bindtap='{{type == "true"?"":"changeStarStatus"}}'
+        bindtap='{{hasComment == "true"?"":"changeStarStatus"}}'
         src='{{item?"../../../static/images/star_light.png":"../../../static/images/star_grey.png"}}'
       >
       </image>
     </view>
     <view class='label-box'>
       <view class='center'>
-        <view class='label-item{{item.checked?" checked":""}}' wx:for="{{labelList}}" wx:key="index" wx:for-item="item" data-index="{{index}}" bindtap='{{type == "true"?"":"changeLabelStatus"}}'>{{item.value}}</view>
+        <view class='label-item{{item.checked?" checked":""}}' wx:for="{{labelList}}" wx:key="index" wx:for-item="item" data-index="{{index}}" bindtap='{{hasComment == "true"? "" : "changeLabelStatus"}}'>{{item.evaluateTab}}</view>
       </view>
     </view>
   </view>
-  <textarea wx:if="{{type == 'true'}}" disabled='true' class='txta'>
-  产品非常好用，使用之后颈肩酸痛感觉有明细好转，会坚持使用。希望倍轻松的产品越做越好。
+  <textarea wx:if="{{hasComment == 'true'}}" disabled='true' class='txta'>
+  {{commentData.evaluateText}}
   </textarea>
   <textarea wx:else class='txta' placeholder='请输入文字评价'></textarea>
-  <view wx:if="{{type == 'false'}}" class='submit' bindtap='submit'>提 交</view>
-  <view wx:else class='comment-time'>评价时间： {{orderData.recordTime}}</view>
+  <view wx:if="{{hasComment == 'false'}}" class='submit' bindtap='submit'>提 交</view>
+  <view wx:else class='comment-time'>评价时间： {{item.creationDate}}</view>
 </view>

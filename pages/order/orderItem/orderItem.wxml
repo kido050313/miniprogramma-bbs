@@ -1,0 +1,45 @@
+<view class='container'>
+  <view class='order-body'>
+    <view class='order-c'>
+      <view class='line'>
+        <text class='line-l'>订单编号：</text>
+        <text class='line-r'>{{orderItem.orderId}}</text>
+      </view>
+      <view class='line'>
+        <text class='line-l'>创建时间：</text>
+        <text class='line-r'>{{orderItem.orderedDate}}</text>
+      </view>
+      <view class='line'>
+        <text class='line-l'>终端/店铺名称：</text>
+        <text class='line-r'>{{orderItem.orderSource}}</text>
+      </view>
+      <view class='line'>
+        <text class='line-l'>优惠券码：</text>
+        <text class='line-r'>{{orderItem.couponId==""?"未使用优惠券":orderItem.couponId}}</text>
+      </view>
+    </view>
+    <view wx:if="{{orderData.length}}" wx:for="{{orderData}}" wx:for-item="item" wx:key="{{index}}" class='order-c bt'>
+      <view class='line'>
+        <text class='line-l'>商品编号：</text>
+        <text class='line-r'>{{item.productCode}}</text>
+      </view>
+      <view class='prod-msg'>
+        <view class='p-name'>{{item.productName}}</view>
+        <view>
+          <view class='p-price'>{{item.productSalePrice}}元</view>
+          <view class='p-count'>x {{item.productNum}}件</view>
+        </view>
+      </view>
+      <view class='btn-box'>
+        <view 
+          class='{{item.evaluateLevel==""?"toComment":"btn"}}' 
+          bindtap='toComment' 
+          data-type='{{item.evaluateLevel== "" ? false : true }}'
+          data-item="{{item}}">{{item.evaluateLevel== "" ? "去评价" : "已评价 ("+(item.evaluateLevel||0)+"星)"}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='order-footer'><view class='text'>实付款：{{orderItem.orderAmount}}元</view></view>
+  <view class='loading'>没有更多了...</view>
+</view>

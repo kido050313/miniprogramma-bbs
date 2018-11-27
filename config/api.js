@@ -12,6 +12,11 @@ module.exports = {
 
   // Order
   orderQuery: BaseUrl + 'dmpCustomer/bizOrderHeaders/getOrders', //获取订单列表
+  OrderProdDetailQuery: BaseUrl + 'dmpCustomer/bizOrderHeaders/findOrderProdDetailByOrderExternalId', //查看订单行商品信息
+
+  // Comment
+  orderCommentQuery: BaseUrl + 'dmpCustomer/bizOrderEvaluate/getEvaluateDetail', //订单评价查看
+  getEvaluateTabsByLevel: BaseUrl + 'dmpCustomer/bizOrderEvaluate/getEvaluateTabsByLevel', // 根据评价级别获取评价标签
 
   // Coupon
   couponReceiveQuery: BaseUrl + 'dmpMarketing/mtkCoupon/getAllCoupons', // 获取可领券

@@ -12,7 +12,8 @@
     "pages/user/genderEdit/genderEdit",
     "pages/user/addressEdit/addressEdit",
     "pages/order/orderComment/orderComment",
-    "pages/user/professionEdit/professionEdit"
+    "pages/user/professionEdit/professionEdit",
+    "pages/order/orderItem/orderItem"
   ],
   "window": {
     "backgroundTextStyle": "light",

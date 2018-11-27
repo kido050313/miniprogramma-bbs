@@ -188,7 +188,7 @@
 .line-c{
   height: 112.22rpx;
   line-height: 112.22rpx;
-  width: 100%;
+  width: 90%;
   text-align: left;
   font-size: 27.15rpx;
   background-color: #fff;

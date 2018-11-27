@@ -54,10 +54,13 @@ Page({
     })
   },
 
-  toComent: function(event){
+  toCartItem: function(event){
     let {type,item} = event.currentTarget.dataset;
+    // wx.navigateTo({
+    //   url: `./orderComment/orderComment?type=${type}&item=${JSON.stringify(item)}`,
+    // })
     wx.navigateTo({
-      url: `./orderComment/orderComment?type=${type}&item=${JSON.stringify(item)}`,
+      url: `./orderItem/orderItem?orderItem=${JSON.stringify(item)}`,
     })
   },
 

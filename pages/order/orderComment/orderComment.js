@@ -1,4 +1,8 @@
 // pages/order/orderComment/orderComment.js
+const util = require('../../../utils/util.js');
+const api = require('../../../config/api.js');
+
+const app = getApp()
 Page({
 
   /**
@@ -7,22 +11,61 @@ Page({
   data: {
     starCheckedList:[false,false,false,false,false],
     labelList:[
-      { value: "产品性价比高", checked: false },
-      { value: "舒适好用", checked: false },
-      { value: "便携方便", checked: false },
-      { value: "服务良好", checked: false }
+      { evaluateTab: "产品性价比高", checked: false, evaluateTabId: "", evaluateConfigId: "" },
+      { evaluateTab: "舒适好用", checked: false, evaluateTabId: "", evaluateConfigId: "" },
+      { evaluateTab: "便携方便", checked: false, evaluateTabId: "", evaluateConfigId: "" },
+      { evaluateTab: "服务良好", checked: false, evaluateTabId: "", evaluateConfigId: ""  }
     ],
     hasComment: false,
-    orderData: []
+    item: {},
+    orderItem: {},
+    commentData: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     let that = this;
-    that.setData({ type: options.type, orderData: JSON.parse(options.item)})
+
+    let { type, item, orderItem} = options
+    item = JSON.parse(item);
+    orderItem = JSON.parse(orderItem);
+
+    that.setData({ hasComment: type, item, orderItem})
+
+    // 已经评价
+    if(type){
+      this.orderCommentQuery(orderItem.orderExternalId, item.productCode)
+    }else{
+
+    }
+  },
+
+  orderCommentQuery: function (orderExternalId, productCode){
+    let that = this;
+    let queryString = `?orderExternalId=${orderExternalId}&productCode=${productCode}`
+    util.request(api.orderCommentQuery + queryString, {}, "POST").then(function (res) {
+      if (res.status == "200") {
+        console.log(res)
+        let { commentData, evaluateTabDTO } = res.data, { starCheckedList } = that.data;
+        
+        for (let i = 0;i < Number(commentData.evaluateLevel); i++) {
+          starCheckedList[i] = true;
+        }
+
+        that.setData({
+          labelList: evaluateTabDTO,
+          starCheckedList: starCheckedList,
+          commentData: commentData
+        })
+      } else {
+        wx.showModal({
+          content: res.message,
+          loading: false
+        });
+      }
+    })
   },
 
   changeLabelStatus: function (event){
@@ -44,7 +87,24 @@ Page({
         starCheckedList[i] = false;
       }
     }
+
+    that.showEvaluateTabs(index)
     that.setData({ starCheckedList: starCheckedList })
+  },
+
+  showEvaluateTabs: function (evaluateLevel){
+    let that = this;
+    let queryString = `?evaluateLevel=${evaluateLevel}`
+    util.request(api.getEvaluateTabsByLevel + queryString, {}, "POST").then(function (res) {
+      if (res.status == "200") {
+        console.log(res)
+      } else {
+        wx.showModal({
+          content: res.message,
+          loading: false
+        });
+      }
+    })
   },
 
   submit: function(){
