@@ -4,7 +4,17 @@ var util = require('./utils/util.js');
 var api = require('./config/api.js');
 
 App({
+
+  globalData: {
+    appid: 'wx8a5d3e7d919b19d4',//appid需自己提供，此处的appid我随机编写
+    secret: 'f5a2ff5db0d7cd191529b4816b87f214',//secret需自己提供，此处的secret我随机编写
+    userInfo: null
+  },
+
   onLaunch: function () {
+
+    let that = this;
+
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -14,6 +24,25 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        if (res.code) {
+          var d = that.globalData;//这里存储了appid、secret、token串  
+          var l = 'https://api.weixin.qq.com/sns/jscode2session?appid=' + d.appid + '&secret=' + d.secret + '&js_code=' + res.code + '&grant_type=authorization_code';
+          wx.request({
+            url: l,
+            data: {},
+            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+            // header: {}, // 设置请求的 header  
+            success: function (res) {
+              var obj = {};
+              obj.openid = res.data.openid;
+              obj.expires_in = Date.now() + res.data.expires_in;
+              console.log(obj);
+              wx.setStorageSync('user', obj);//存储openid  
+            }
+          });
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
       }
     })
     // 获取用户信息
@@ -55,8 +84,5 @@ App({
       }
     })
 
-  },
-  globalData: {
-    userInfo: null
   }
 })
