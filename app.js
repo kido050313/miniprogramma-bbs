@@ -33,11 +33,8 @@ App({
             method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
             // header: {}, // 设置请求的 header  
             success: function (res) {
-              var obj = {};
-              obj.openid = res.data.openid;
-              obj.expires_in = Date.now() + res.data.expires_in;
-              console.log(obj);
-              wx.setStorageSync('user', obj);//存储openid  
+              var openid = res.data.openid;
+              wx.setStorageSync('openid', openid);//存储openid  
             }
           });
         } else {

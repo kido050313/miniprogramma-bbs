@@ -51,9 +51,7 @@ Page({
 
   toComment: function (event) {
     let { type, item } = event.currentTarget.dataset;
-    let { orderItem } = this.data
-
-    type = false
+    let { orderItem } = this.data;
 
     wx.navigateTo({ 
       url: `../orderComment/orderComment?type=${type}&item=${JSON.stringify(item)}&orderItem=${JSON.stringify(orderItem)}`,
@@ -71,7 +69,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let orderItem = this.data.orderItem
+    this.getOrderProdDetail(orderItem.orderExternalId)
   },
 
   /**

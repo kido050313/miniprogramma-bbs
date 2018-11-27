@@ -19,7 +19,9 @@ Page({
     hasComment: false,
     item: {},
     orderItem: {},
-    commentData: []
+    commentData: [],
+    commentValue: "",
+    evaluateLevel: '0'
   },
 
   /**
@@ -37,28 +39,33 @@ Page({
     // 已经评价
     if(type){
       this.orderCommentQuery(orderItem.orderExternalId, item.productCode)
-    }else{
-
     }
   },
 
   orderCommentQuery: function (orderExternalId, productCode){
     let that = this;
-    let queryString = `?orderExternalId=${orderExternalId}&productCode=${productCode}`
-    util.request(api.orderCommentQuery + queryString, {}, "POST").then(function (res) {
+    util.request(api.orderCommentQuery, {orderExternalId: orderExternalId,productCode: productCode}, "POST").then(function (res) {
       if (res.status == "200") {
         console.log(res)
-        let { commentData, evaluateTabDTO } = res.data, { starCheckedList } = that.data;
-        
-        for (let i = 0;i < Number(commentData.evaluateLevel); i++) {
-          starCheckedList[i] = true;
-        }
+        if(res.data && JSON.stringify(res.data)!="{}"){
+          let { creationDate, evaluateLevel, evaluateText, evaluateTabDTO } = res.data, { starCheckedList, item } = that.data;
+          item["creationDate"] = creationDate;
+          item["evaluateText"] = evaluateText;
 
-        that.setData({
-          labelList: evaluateTabDTO,
-          starCheckedList: starCheckedList,
-          commentData: commentData
-        })
+          for (let i = 0; i < Number(evaluateLevel); i++) {
+            starCheckedList[i] = true;
+          }
+
+          evaluateTabDTO && evaluateTabDTO.map((item)=>{
+            item.checked = true;
+          })
+
+          that.setData({
+            labelList: evaluateTabDTO,
+            starCheckedList: starCheckedList,
+            item: item
+          })
+        }
       } else {
         wx.showModal({
           content: res.message,
@@ -88,16 +95,22 @@ Page({
       }
     }
 
-    that.showEvaluateTabs(index)
-    that.setData({ starCheckedList: starCheckedList })
+    that.showEvaluateTabs(index+1)
+    that.setData({ starCheckedList: starCheckedList, evaluateLevel: index+1 })
   },
 
   showEvaluateTabs: function (evaluateLevel){
     let that = this;
-    let queryString = `?evaluateLevel=${evaluateLevel}`
-    util.request(api.getEvaluateTabsByLevel + queryString, {}, "POST").then(function (res) {
+    util.request(api.getEvaluateTabsByLevel, { evaluateLevel: evaluateLevel}, "POST").then(function (res) {
       if (res.status == "200") {
         console.log(res)
+        if(res.data){
+          let { evaluateLevelText, evaluateConfigTabModels } = res.data, labelList = [];
+          evaluateConfigTabModels && evaluateConfigTabModels.map((item)=>{
+            labelList.push({ evaluateTab: item.evaluateTab, checked: false, evaluateTabId: item.evaluateTabId, evaluateConfigId: item.evaluateConfigId })
+          })
+          that.setData({labelList: labelList})
+        }
       } else {
         wx.showModal({
           content: res.message,
@@ -107,9 +120,78 @@ Page({
     })
   },
 
+  inputTxt: function (event){
+    console.log('22222')
+    let value = event.detail.value;
+    this.setData({
+      commentValue: value
+    })
+    console.log(value)
+  },
+
   submit: function(){
-    wx.navigateBack({
-      delta: 1,
+    let that = this;
+    let { labelList, commentValue, evaluateLevel, orderItem, item } = that.data, evaluateTabDTO=[]
+    if (evaluateLevel == '0'){
+      labelList = null
+    }else{
+      labelList && labelList.map((item) => {
+        if (item.checked) {
+          evaluateTabDTO.push({ evaluateConfigId: item.evaluateConfigId })
+        }
+      })
+    }
+    
+    if (commentValue == ""){
+      wx.showModal({
+        title: '提示',
+        content: '请输入文字评价',
+        showCancel: false
+      });
+    }else{
+      that.submitComment(commentValue, orderItem.orderExternalId, item.productCode, evaluateTabDTO )
+    }
+
+  },
+
+  submitComment: function (evaluateText, orderExternalId, productCode, evaluateTabDTO){
+    let that = this, params = {};
+    if (evaluateTabDTO){
+      params = {
+        evaluateText: evaluateText,
+        orderExternalId: orderExternalId,
+        productCode: productCode,
+        evaluateTabDTO: evaluateTabDTO
+      }
+    }else{
+      params = {
+        evaluateText: evaluateText,
+        orderExternalId: orderExternalId,
+        productCode: productCode
+      }
+    }
+    
+    util.request(api.submitComment, params, "POST").then(function (res) {
+      if (res.status == "2000000") {
+        wx.showToast({
+          title: '评价成功',
+          icon: "none",
+          duration: 3000,
+          success: () => {
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+        })
+      } else {
+        wx.navigateBack({
+          delta: 1
+        })
+        wx.showModal({
+          content: res.message,
+          loading: false
+        });
+      }
     })
   },
 
