@@ -10,12 +10,7 @@ Page({
    */
   data: {
     starCheckedList:[false,false,false,false,false],
-    labelList:[
-      { evaluateTab: "产品性价比高", checked: false, evaluateTabId: "", evaluateConfigId: "" },
-      { evaluateTab: "舒适好用", checked: false, evaluateTabId: "", evaluateConfigId: "" },
-      { evaluateTab: "便携方便", checked: false, evaluateTabId: "", evaluateConfigId: "" },
-      { evaluateTab: "服务良好", checked: false, evaluateTabId: "", evaluateConfigId: ""  }
-    ],
+    labelList:[],
     hasComment: false,
     item: {},
     orderItem: {},
@@ -132,32 +127,37 @@ Page({
   submit: function(){
     let that = this;
     let { labelList, commentValue, evaluateLevel, orderItem, item } = that.data, evaluateTabDTO=[]
-    if (evaluateLevel == '0'){
-      labelList = null
-    }else{
+    console.log(evaluateLevel)
+    console.log(labelList)
+    console.log(commentValue)
+
+    if(evaluateLevel == '0'){
+      wx.showModal({
+        title: '提示',
+        content: '请至少完成“星级评分”方可提交评价噢',
+        showCancel: false
+      });
+    } else{
+      let labelCheckedLen = 0
       labelList && labelList.map((item) => {
         if (item.checked) {
+          labelCheckedLen ++;
           evaluateTabDTO.push({ evaluateConfigId: item.evaluateConfigId })
         }
       })
-    }
-    
-    if (commentValue == ""){
-      wx.showModal({
-        title: '提示',
-        content: '请输入文字评价',
-        showCancel: false
-      });
-    }else{
-      that.submitComment(commentValue, orderItem.orderExternalId, item.productCode, evaluateTabDTO )
-    }
 
+      if (labelCheckedLen == 0){
+        evaluateTabDTO = null
+      }
+      that.submitComment(evaluateLevel, commentValue, orderItem.orderExternalId, item.productCode, evaluateTabDTO)
+    }
   },
 
-  submitComment: function (evaluateText, orderExternalId, productCode, evaluateTabDTO){
+  submitComment: function (evaluateLevel, evaluateText, orderExternalId, productCode, evaluateTabDTO){
     let that = this, params = {};
     if (evaluateTabDTO){
       params = {
+        evaluateLevel: evaluateLevel,
         evaluateText: evaluateText,
         orderExternalId: orderExternalId,
         productCode: productCode,
@@ -165,6 +165,7 @@ Page({
       }
     }else{
       params = {
+        evaluateLevel: evaluateLevel,
         evaluateText: evaluateText,
         orderExternalId: orderExternalId,
         productCode: productCode
