@@ -25,7 +25,7 @@
   <textarea wx:if="{{hasComment == 'true'}}" disabled='true' class='txta'>
   {{item.evaluateText}}
   </textarea>
-  <textarea wx:else bindinput='inputTxt' class='txta' placeholder='请输入文字评价' value="{{commentValue}}">{{commentValue}}</textarea>
+  <textarea wx:else bindinput='inputTxt' class='txta' placeholder='请输入文字评价' value="{{commentValue}}"></textarea>
   <view wx:if="{{hasComment == 'false'}}" class='submit' bindtap='submit'>提 交</view>
   <view wx:else class='comment-time'>评价时间： {{item.creationDate}}</view>
 </view>
