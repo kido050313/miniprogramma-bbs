@@ -29,7 +29,7 @@
       <view class='total'>实付款：{{item.orderAmount}}元</view>
     </view>
     <view class='order-b'>
-      <view class='{{recordTime || recordTime==""?"toComment":"hasComment"}}' bindtap='toCartItem' data-item="{{item}}">查看商品并评价</view>
+      <view class='{{recordTime || recordTime==""?"toComment":"hasComment"}}' bindtap='toCartItem' data-item="{{item}}">{{recordTime || recordTime==""?"查看商品并评价":"查看商品与评价"}}</view>
     </view>
   </view>
   <view wx:if="{{!canload && orderData.length}}" class='loading'>{{canload?'':'没有更多了...'}}</view>
