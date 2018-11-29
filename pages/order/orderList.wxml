@@ -8,11 +8,11 @@
     <view class='order-c'>
       <view class='line'>
         <text class='line-l'>订单编号：</text>
-        <text class='line-r'>{{item.orderId}}</text>
+        <text class='line-r'>{{item.orderExternalId}}</text>
       </view>
       <view class='line'>
         <text class='line-l'>创建时间：</text>
-        <text class='line-r'>{{item.orderedDate}}</text>
+        <text class='line-r'>{{item.orderDate}}</text>
       </view>
       <view class='line'>
         <text class='line-l'>终端/店铺名称：</text>
@@ -20,11 +20,11 @@
       </view>
       <view class='line'>
         <text class='line-l'>优惠券码：</text>
-        <text class='line-r'>{{item.couponId}}</text>
+        <text class='line-r'>{{item.couponId||"未使用优惠券"}}</text>
       </view>
       <view class='line'>
         <text class='line-l'>合计件数：</text>
-        <text class='line-r'>{{item.orderNumber}} 件</text>
+        <text class='line-r'>{{item.prodCount}} 件</text>
       </view>
       <view class='total'>实付款：{{item.orderAmount}}元</view>
     </view>

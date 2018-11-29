@@ -25,7 +25,7 @@ Page({
     
     this.setData({ orderItem: orderItem})
 
-    this.getOrderProdDetail(orderItem.orderExternalId)
+    // this.getOrderProdDetail(orderItem.orderExternalId)
   },
 
   getOrderProdDetail: function (orderExternalId){

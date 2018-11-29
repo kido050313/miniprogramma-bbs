@@ -3,11 +3,11 @@
     <view class='order-c'>
       <view class='line'>
         <text class='line-l'>订单编号：</text>
-        <text class='line-r'>{{orderItem.orderId}}</text>
+        <text class='line-r'>{{orderItem.orderExternalId}}</text>
       </view>
       <view class='line'>
         <text class='line-l'>创建时间：</text>
-        <text class='line-r'>{{orderItem.orderedDate}}</text>
+        <text class='line-r'>{{orderItem.orderDate}}</text>
       </view>
       <view class='line'>
         <text class='line-l'>终端/店铺名称：</text>
@@ -15,7 +15,7 @@
       </view>
       <view class='line'>
         <text class='line-l'>优惠券码：</text>
-        <text class='line-r'>{{orderItem.couponId==""?"未使用优惠券":orderItem.couponId}}</text>
+        <text class='line-r'>{{(orderItem.couponId==""||!orderItem.couponId)?"未使用优惠券":orderItem.couponId}}</text>
       </view>
     </view>
     <view wx:if="{{orderData.length}}" wx:for="{{orderData}}" wx:for-item="item" wx:key="{{index}}" class='order-c bt'>

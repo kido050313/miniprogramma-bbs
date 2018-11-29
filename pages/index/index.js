@@ -22,7 +22,7 @@ Page({
   onLoad: function () {
     let token = wx.getStorageSync("token")
     console.log(app.globalData.userInfo)
-    // app.globalData.userInfo = wx.getStorageSync("userInfo")
+    app.globalData.userInfo = wx.getStorageSync("userInfo")
     if (token && app.globalData.userInfo) {
       let customerNum = app.globalData.userInfo.customerNum;
       customerNum = customerNum.replace(/(\d{4})(?=\d)/g, '$1 ');

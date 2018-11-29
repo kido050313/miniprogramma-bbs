@@ -57,9 +57,9 @@ Page({
     }
   },
 
-  receive: function(event){
-    let item = event.currentTarget.dataset.item;
-    console.log(item)
+  receive: function (item){
+    // let item = event.currentTarget.dataset.item;
+    // console.log(item)
 
     let that = this;
     let {userInfo} = that.data;
@@ -91,6 +91,17 @@ Page({
         icon: "none"
       })
     }
+  },
+
+  formSubmit: function (event){
+    console.log(event.detail.value)
+    let {item} = event.detail.value, formId = event.detail.formId ;
+
+    item = JSON.parse(item)
+    console.log(item)
+    console.log("formId="+formId)
+
+    this.receive(item)
   },
 
   sendTemplate: function(item){

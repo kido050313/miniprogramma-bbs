@@ -11,7 +11,7 @@ module.exports = {
   userQuery: BaseUrl + 'dmpCustomer/custCustomers/getCustomer', //用户信息查询
 
   // Order
-  orderQuery: BaseUrl + 'dmpCustomer/bizOrderHeaders/getOrders', //获取订单列表
+  orderQuery: BaseUrl + 'dmpCustomer/bizOrderHeaders/getOrderRecords', //获取订单列表
   OrderProdDetailQuery: BaseUrl + 'dmpCustomer/bizOrderHeaders/findOrderProdDetailByOrderExternalId', //查看订单行商品信息
 
   // Comment

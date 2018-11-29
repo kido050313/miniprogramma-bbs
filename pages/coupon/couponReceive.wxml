@@ -1,11 +1,16 @@
 <wxs module="filters">
   var filters = {
-    toFix: function(value) {
-    return value.toFixed(1) //此处2为保留两位小数
-  }
+      toFix: function(value) {
+        return value.toFixed(1) //此处2为保留两位小数
+      },
+      stringify: function(value){
+        console.log(JSON.stringify(value))
+        return JSON.stringify(value)
+      }
   }
   module.exports = {
-    toFix: filters.toFix
+    toFix: filters.toFix,
+    stringify: filters.stringify
   }
 </wxs>
 
@@ -29,7 +34,13 @@
         <view class='r3'>至</view>
         <view class='r4'>{{item.overdueTime}}</view>
         <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" wx:if="{{!userInfo}}" class='r5'>立即领取</button>
-        <view wx:else class='r5' data-item='{{item}}' bindtap='receive'>立即领取</view>
+        <!-- <view wx:else class='r5' data-item='{{item}}' bindtap='receive'>立即领取</view> -->
+        <view wx:else>
+          <form bindsubmit="formSubmit" report-submit='true'>
+            <textarea style='display: none' maxlength='-1' name="item" value="{{filters.stringify(item)}}"></textarea>
+            <button form-type='submit' class='r5'>立即领取</button>
+          </form>
+        </view>
       </view>
       <view class='box-r' wx:else>
         <view class='r1'>有效期</view>
@@ -40,7 +51,14 @@
         </view>
         <view class='r4'>有效期 <text class='orange'>{{item.effectDay}}</text> 天</view>
         <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" wx:if="{{!userInfo}}" class='r5'>立即领取</button>
-        <view wx:else class='r5' data-item='{{item}}' bindtap="receive">立即领取</view>
+        <!-- <view wx:else class='r5' data-item='{{item}}' bindtap="receive">立即领取</view> -->
+
+        <view wx:else>
+          <form bindsubmit="formSubmit" report-submit='true'>
+            <textarea style='display: none' maxlength='-1' name="item" value="{{filters.stringify(item)}}"></textarea>
+            <button form-type='submit' class='r5'>立即领取</button>
+          </form>
+        </view>
       </view>
     </view>
     <view class='{{item.receivedStatus?"coupon-tips":"coupon-tips grey"}}'>
