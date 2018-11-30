@@ -16,7 +16,7 @@
       </view>
       <view class='line'>
         <text class='line-l'>终端/店铺名称：</text>
-        <text class='line-r'>{{item.orderSource}}</text>
+        <text class='line-r'>{{item.terminalName}}</text>
       </view>
       <view class='line'>
         <text class='line-l'>优惠券码：</text>
