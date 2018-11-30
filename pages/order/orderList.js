@@ -20,12 +20,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.userInfo)
-    if (app.globalData.userInfo){
-      this.queryOrderList()
-    } else{
-      this.setData({loading: false})
-    }
+    
   },
 
   queryOrderList: function(){
@@ -75,7 +70,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log(app.globalData.userInfo)
+    if (app.globalData.userInfo) {
+      this.setData({ orderData: []})
+      this.queryOrderList()
+    } else {
+      this.setData({ loading: false })
+    }
   },
 
   /**
