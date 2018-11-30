@@ -1,7 +1,7 @@
 <view class='container'>
   <view class='p-name'>{{item.productName}}</view>
   <view class='p-store'>{{orderItem.orderSource}}</view>
-  <view class='p-time'>{{orderItem.orderedDate}}</view>
+  <view class='p-time'>{{orderItem.orderDate}}</view>
   <view class='line'>
     <view class='c-title'>请对本次购买进行评价</view>
     <view class='star-box'>
