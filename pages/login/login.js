@@ -37,7 +37,7 @@ Page({
       data: {},
       method: "POST",
       header: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'json'
       },
       success: function (res) {
         console.log('token==' + res.data.data)
@@ -133,6 +133,7 @@ Page({
         console.log("info after------>")
         console.log(info)
         app.globalData.userInfo = info;
+        // 将userInfo存入本地缓存
         // wx.setStorageSync("userInfo", info)
         wx.navigateBack({
           delta: 1,
@@ -171,7 +172,7 @@ Page({
           data: {},
           method: "POST",
           header: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'json'
           },
           success: function (res) {
             console.log('token==' + res.data.data)

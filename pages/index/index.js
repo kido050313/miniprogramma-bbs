@@ -22,6 +22,7 @@ Page({
   onLoad: function () {
     let token = wx.getStorageSync("token")
     console.log(app.globalData.userInfo)
+    // 从本地缓存中取出userInfo（注释）
     // app.globalData.userInfo = wx.getStorageSync("userInfo")
     if (token && app.globalData.userInfo) {
       let customerNum = app.globalData.userInfo.customerNum;
@@ -102,12 +103,14 @@ Page({
       data: {},
       method: "POST",
       header: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'json'
       },
       success: function (res) {
-        console.log('token==' + res.data.data)
+        // console.log('token==' + res.data.data)
+        console.log(res.statusCode)
         if (res.statusCode == 200) {
           wx.setStorageSync('token', res.data.data)
+          console.log(wx.getStorageSync('token'))
           that.getAllCoupons();
         }
       },

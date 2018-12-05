@@ -68,7 +68,7 @@ App({
       data: {},
       method: "POST",
       header: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'json'
       },
       success: function (res) {
         console.log('token=='+res.data.data)
