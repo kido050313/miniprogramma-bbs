@@ -20,12 +20,14 @@ const formatNumber = n => {
  */
 function request(url, data = {}, method = "GET") {
   return new Promise(function (resolve, reject) {
+    console.log(data)    
+    console.log(JSON.stringify(data))
     wx.request({
       url: url,
       data: JSON.stringify(data),
       method: method,
       header: {
-        'Content-Type': 'json',
+        'Content-Type': 'json;charset=UTF-8',
         'Authorization': wx.getStorageSync('token')
       },
       success: function (res) {

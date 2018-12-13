@@ -39,7 +39,7 @@ Page({
 
   orderCommentQuery: function (orderExternalId, productCode){
     let that = this;
-    util.request(api.orderCommentQuery, {orderExternalId: orderExternalId,productCode: productCode}, "POST").then(function (res) {
+    util.request(api.orderCommentQuery, {"orderExternalId": orderExternalId,"productCode": productCode}, "POST").then(function (res) {
       if (res.status == "200") {
         console.log(res)
         if(res.data && JSON.stringify(res.data)!="{}"){

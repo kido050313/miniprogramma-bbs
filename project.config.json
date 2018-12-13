@@ -1,5 +1,5 @@
 {
-	"description": "项目配置文件",
+	"description": "Breo项目配置文件",
 	"packOptions": {
 		"ignore": []
 	},
@@ -11,9 +11,9 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.2.1",
-	"appid": "wx8a5d3e7d919b19d4",
-	"projectname": "BQS",
+	"libVersion": "2.4.1",
+	"appid": "wxbcdaa51d5443fa77",
+	"projectname": "Breo",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
