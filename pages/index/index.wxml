@@ -30,7 +30,7 @@
       <image class="coupon-img" src='../../static/images/coupon_1.png'></image>
       <view wx:if="{{couponCanReceive}}" class="coupon-bubble">{{couponCanReceive}}</view>
     </view>
-    <view class="h5-link">
+    <view class="h5-link" bindtap='toYouZan'>
       <view class="h5-txt">线上商城</view>
       <image class="h5-img" src="../../static/images/h5_link.png"></image>
     </view>

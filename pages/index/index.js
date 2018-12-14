@@ -170,5 +170,11 @@ Page({
     wx.navigateTo({
       url: '../order/orderList',
     })
+  },
+
+  toYouZan: function(){
+    wx.navigateTo({
+      url: '../youzan/youzan',
+    })
   }
 })

@@ -13,7 +13,8 @@
     "pages/user/addressEdit/addressEdit",
     "pages/order/orderComment/orderComment",
     "pages/user/professionEdit/professionEdit",
-    "pages/order/orderItem/orderItem"
+    "pages/order/orderItem/orderItem",
+    "pages/youzan/youzan"
   ],
   "window": {
     "backgroundTextStyle": "light",
