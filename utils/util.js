@@ -27,7 +27,7 @@ function request(url, data = {}, method = "GET") {
       data: JSON.stringify(data),
       method: method,
       header: {
-        'Content-Type': 'json',
+        'Content-Type': 'application/json',
         'Authorization': wx.getStorageSync('token')
       },
       success: function (res) {

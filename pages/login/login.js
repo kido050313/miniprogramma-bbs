@@ -37,7 +37,7 @@ Page({
       data: {},
       method: "POST",
       header: {
-        'Content-Type': 'json'
+        'Content-Type': 'application/json'
       },
       success: function (res) {
         console.log('token==' + res.data.data)
@@ -113,7 +113,7 @@ Page({
 
   login: function (phone, code){
     let that = this;
-    let queryString = `?phoneNumber=${phone}&code=${code}&source="小程序"`
+    let queryString = `?phoneNumber=${phone}&code=${code}&source=小程序`
     util.request(api.login + queryString, {}, "POST").then(function (res) {
       if (res.status == "200") {
         wx.showToast({
@@ -133,6 +133,9 @@ Page({
         console.log("info after------>")
         console.log(info)
         app.globalData.userInfo = info;
+
+        that.saveNickName(userInfo.nickName)
+
         // 将userInfo存入本地缓存
         // wx.setStorageSync("userInfo", info)
         wx.navigateBack({
@@ -147,6 +150,19 @@ Page({
     })
   },
 
+  saveNickName: function (nickname){
+    util.request(api.userUpdate, { nickname: nickname, customerId: app.globalData.userInfo.customerId }, "POST").then(function (res) {
+      if (res.status == "200") {
+        console.log("保存微信昵称成功：微信昵称为->"+nickname)
+      } else {
+        wx.showModal({
+          content: res.message,
+          showCancel: false
+        });
+      }
+    })
+  },
+  
   formSubmit: function (e) {
     let that = this;
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
@@ -172,7 +188,7 @@ Page({
           data: {},
           method: "POST",
           header: {
-            'Content-Type': 'json'
+            'Content-Type': 'application/json'
           },
           success: function (res) {
             console.log('token==' + res.data.data)
