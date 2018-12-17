@@ -4,6 +4,7 @@ module.exports = {
   
   getToken: BaseUrl + 'dmpWeixin/init/getToken', //获取Token
   getCode: BaseUrl + 'dmpMessage/custMessage/getMessage', // 获取验证码
+  getOpenId: BaseUrl + 'dmpWeixin/smallProgramAccessConfig/jscode2session',//code换取openid
 
   // User
   login: BaseUrl + 'dmpCustomer/custCustomers/customerLogin', //登录注册
@@ -25,6 +26,6 @@ module.exports = {
   getMyCoupons: BaseUrl + 'dmpMarketing/mtkCouponCustomer/getReceivedCoupons', // 我的优惠券查询
 
   // Template
-  sendTemplateMsg: BaseUrl + 'dmpMarketing/smallProgramAccessConfig/sendMsg' //领券后推送模版消息给用户
+  sendTemplateMsg: BaseUrl + 'dmpWeixin/smallProgramAccessConfig/sendMsg' //领券后推送模版消息给用户
 
 };

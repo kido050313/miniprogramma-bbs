@@ -20,28 +20,6 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        if (res.code) {
-          var d = that.globalData;//这里存储了appid、secret、token串  
-          var l = 'https://api.weixin.qq.com/sns/jscode2session?appid=' + d.appid + '&secret=' + d.secret + '&js_code=' + res.code + '&grant_type=authorization_code';
-          wx.request({
-            url: l,
-            data: {},
-            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
-            // header: {}, // 设置请求的 header  
-            success: function (res) {
-              var openid = res.data.openid;
-              wx.setStorageSync('openid', openid);//存储openid  
-            }
-          });
-        } else {
-          console.log('获取用户登录态失败！' + res.errMsg)
-        }
-      }
-    })
     // 获取用户信息
     // wx.getSetting({
     //   success: res => {
@@ -74,6 +52,35 @@ App({
         console.log('token=='+res.data.data)
         if (res.statusCode == 200) {
           wx.setStorageSync('token', res.data.data)
+
+          // 登录
+          wx.login({
+            success: res => {
+              // 发送 res.code 到后台换取 openId, sessionKey, unionId
+              if (res.code) {
+                console.log("code==" + res.code)
+                var d = that.globalData;//这里存储了appid、secret、token串  
+
+                wx.request({
+                  url: api.getOpenId,
+                  data: {appid: d.appid,secret: d.secret,js_code: res.code,grant_type: "authorization_code"},
+                  method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+                  header: {
+                    'Content-Type': 'application/json',
+                    'Authorization': wx.getStorageSync('token')
+                  }, // 设置请求的 header  
+                  success: function (res) {
+                    var openid = res.data.openid;
+                    var unionid = res.data.unionid;
+                    wx.setStorageSync('openid', openid);//存储openid  
+                    wx.setStorageSync('unionid', unionid);//存储openid  
+                  }
+                });
+              } else {
+                console.log('获取用户登录态失败！' + res.errMsg)
+              }
+            }
+          })
         }
       },
       fail: function (err) {

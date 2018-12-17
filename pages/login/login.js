@@ -151,7 +151,12 @@ Page({
   },
 
   saveNickName: function (nickname){
-    util.request(api.userUpdate, { nickname: nickname, customerId: app.globalData.userInfo.customerId }, "POST").then(function (res) {
+    util.request(api.userUpdate, { 
+      nickname: nickname, 
+      customerId: app.globalData.userInfo.customerId,
+      wxOpenid: wx.getStorageSync("openid"),
+      wxUnionId: wx.getStorageSync("unionid")
+      }, "POST").then(function (res) {
       if (res.status == "200") {
         console.log("保存微信昵称成功：微信昵称为->"+nickname)
       } else {
