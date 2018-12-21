@@ -176,5 +176,11 @@ Page({
     wx.navigateTo({
       url: '../youzan/youzan',
     })
+  },
+
+  toService: function(){
+    wx.navigateTo({
+      url: '../service/service',
+    })
   }
 })

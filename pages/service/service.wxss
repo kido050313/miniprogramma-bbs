@@ -1,0 +1,53 @@
+.container{
+  background-color: #f8f8f8;
+  width: 100%;
+  padding: 23.53rpx 0 0;
+}
+.card{
+  width: 94%;
+  margin-bottom: 36.2rpx;
+  background-color: #fff;
+  line-height: 36.2rpx;
+  border-radius: 12.67rpx;
+  color: rgba(16, 16, 16, 1);
+  font-size: 25.34rpx;
+  text-align: center;
+  box-shadow: 3.62rpx 3.62rpx 18.1rpx 0px rgba(221, 221, 221, 1);
+  font-family: -apple-system;
+  border: 1.81rpx solid rgba(255, 255, 255, 0);
+}
+.title{
+  width: 90%;
+  margin: 0 auto;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1.81rpx solid rgba(185, 185, 185, 1);
+  padding-left: 22rpx;
+  padding-right: 22rpx;
+}
+.img{
+  width: 54.3rpx;
+  height: 54.3rpx;
+}
+.txt{
+  height: 39.82rpx;
+  color: rgba(96, 96, 96, 1);
+  font-size: 28.96rpx;
+  text-align: left;
+  font-family: PingFangSC-bold;
+  margin-left: 22rpx;
+}
+.content{
+  width: 90%;
+  margin: 20rpx auto;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgba(136, 136, 136, 1);
+  font-size: 28.96rpx;
+  text-align: left;
+  font-family: -apple-system;
+  border: 1.81px solid rgba(255, 255, 255, 0);
+  padding-left: 22rpx;
+  padding-right: 22rpx;
+  line-height: 50rpx;
+}

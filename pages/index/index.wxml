@@ -30,9 +30,13 @@
       <image class="coupon-img" src='../../static/images/coupon_1.png'></image>
       <view wx:if="{{couponCanReceive}}" class="coupon-bubble">{{couponCanReceive}}</view>
     </view>
-    <view class="h5-link" bindtap='toYouZan'>
+    <!-- <view class="h5-link" bindtap='toYouZan'>
       <view class="h5-txt">线上商城</view>
       <image class="h5-img" src="../../static/images/h5_link.png"></image>
+    </view> -->
+    <view class="h5-link" bindtap='toService'>
+      <view class="h5-txt">售后服务</view>
+      <image class="h5-img" src="../../static/images/service.png"></image>
     </view>
   </view>
   <view class="user-service">
@@ -59,13 +63,13 @@
       </view>
       <image src='../../static/images/more.png' class="line-img"></image>
     </button>
-    <view class="service-line">
+    <!-- <view class="service-line">
       <view class="line-l"></view>
       <view class='df'>
         <view class="line-c">售后服务</view>
         <view class="line-txt">敬请期待</view>
       </view>
       <image src='../../static/images/more.png' class="line-img"></image>
-    </view>
+    </view> -->
   </view>
 </view>

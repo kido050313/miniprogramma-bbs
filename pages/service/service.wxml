@@ -1,0 +1,23 @@
+<view class='container'>
+  <view class='card'>
+    <view class='title'>
+      <image class='img' src='../../static/images/list.png'></image>
+      <text class='txt'>售后条款</text>
+    </view>
+    <view class='content'>
+      <view>· 倍轻松产品自购买之日起享受1年质保服务</view>
+      <view>· 产品购买时间在7天内可享受退换货服务</view>
+      <view>· 产品购买时间在15天内可享受换货服务</view>
+      <view>· 产品购买时间在1年内属产品功能性质量问题的 可享受1年质保服务</view>
+    </view>
+  </view>
+  <view class='card'>
+    <view class='title'>
+      <image class='img' src='../../static/images/phone.png'></image>
+      <text class='txt'>售后电话</text>
+    </view>
+    <view class='content'>
+     4008309700按1转2
+    </view>
+  </view>
+</view>
