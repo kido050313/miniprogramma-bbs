@@ -33,7 +33,8 @@ Page({
 
   getToken(){
     wx.request({
-      url: api.getToken + `?corpId=ww9fa669a713c72aba`,
+      // url: api.getToken + `?corpId=ww9fa669a713c72aba`,
+      url: api.getToken + `?corpId=ww6513f60f6da03c2e`,
       data: {},
       method: "POST",
       header: {
@@ -189,7 +190,8 @@ Page({
         that.login(form.phone, form.code);
       }else{
         wx.request({
-          url: api.getToken + `?corpId=ww9fa669a713c72aba`,
+          // url: api.getToken + `?corpId=ww9fa669a713c72aba`,
+          url: api.getToken + `?corpId=ww6513f60f6da03c2e`,
           data: {},
           method: "POST",
           header: {

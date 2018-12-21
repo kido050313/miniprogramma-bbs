@@ -17,7 +17,7 @@
       <text class='txt'>售后电话</text>
     </view>
     <view class='content'>
-     4008309700按1转2
+     <text bindlongtap='makePhoneCall' data-phone='4008309700'>4008309700</text>按1转2
     </view>
   </view>
 </view>
