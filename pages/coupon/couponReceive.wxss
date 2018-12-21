@@ -188,6 +188,20 @@
   background-color: rgba(185, 185, 185, 1);
   color: rgba(250, 250, 250, 1);
 }
+.empty{
+  width: 284.17rpx;
+  height: 231.68rpx;
+  margin-top: 50%;
+}
+.empty-txt{
+  width: 100%;
+  text-align: center;
+  height: 50.68rpx;
+  color: rgba(185, 185, 185, 1);
+  font-size: 36.2rpx;
+  font-family: PingFangSC-regular;
+  margin-top: 81.45rpx;
+}
 .loading{
   color:#a6a6a6;
   font-size: 25.34rpx;

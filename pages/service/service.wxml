@@ -20,4 +20,5 @@
      <text bindlongtap='makePhoneCall' data-phone='4008309700'>4008309700</text>按1转2
     </view>
   </view>
+  <view class='tips'>* 长按号码直接拨打</view>
 </view>

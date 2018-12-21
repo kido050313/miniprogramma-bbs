@@ -40,7 +40,7 @@
 }
 .content{
   width: 90%;
-  margin: 20rpx auto;
+  margin: 0 auto 20rpx;
   background-color: rgba(255, 255, 255, 0);
   color: rgba(136, 136, 136, 1);
   font-size: 28.96rpx;
@@ -50,4 +50,11 @@
   padding-left: 22rpx;
   padding-right: 22rpx;
   line-height: 50rpx;
+}
+.tips{
+  width: 90%;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 26rpx;
+  color: rgba(136, 136, 136, 1);
 }
