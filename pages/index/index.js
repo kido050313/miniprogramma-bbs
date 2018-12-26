@@ -23,7 +23,7 @@ Page({
     let token = wx.getStorageSync("token")
     console.log(app.globalData.userInfo)
     // 从本地缓存中取出userInfo（注释）
-    // app.globalData.userInfo = wx.getStorageSync("userInfo")
+    app.globalData.userInfo = wx.getStorageSync("userInfo")
     if (token && app.globalData.userInfo) {
       let customerNum = app.globalData.userInfo.customerNum;
       customerNum = customerNum.replace(/(\d{4})(?=\d)/g, '$1 ');
@@ -77,23 +77,37 @@ Page({
    */
   onShow: function () {
     let token = wx.getStorageSync("token")
-    if (token && app.globalData.userInfo){
-      this.getMyCoupons('有效')
-      let customerNum = app.globalData.userInfo.customerNum;
-      customerNum = customerNum.replace(/(\d{4})(?=\d)/g, '$1 ');
-      console.log(customerNum)
-      app.globalData.userInfo.customerNum = customerNum;
-      this.setData({
-        userInfo: app.globalData.userInfo
-      })
-    }
-    console.log(token)
+
     if (token) {
       this.getAllCoupons();
-    }else{
+      this.updateUserInfo();
+      if (app.globalData.userInfo){
+        this.getMyCoupons('有效')
+      }
+    } else {
       this.getToken();
     }
-    console.log(app.globalData.userInfo)
+  },
+
+  updateUserInfo() {
+    let that = this;
+    console.log(app.globalData.userInfo.customerId)
+    let queryString = `?customerId=${app.globalData.userInfo.customerId}`
+    util.request(api.userQuery + queryString, {}, "POST").then(function (res) {
+      if (res.status == "200") {
+        
+        let { photoUrl, customerNum }  = app.globalData.userInfo;
+        customerNum = customerNum.replace(/(\d{4})(?=\d)/g, '$1 ');
+
+        app.globalData.userInfo = res.data;
+        app.globalData.userInfo.photoUrl = photoUrl;
+        app.globalData.userInfo.customerNum = customerNum;
+
+        that.setData({
+          userInfo: app.globalData.userInfo
+        })
+      }
+    })
   },
 
   getToken() {
@@ -113,6 +127,7 @@ Page({
           wx.setStorageSync('token', res.data.data)
           console.log(wx.getStorageSync('token'))
           that.getAllCoupons();
+          that.updateUserInfo();
         }
       },
       fail: function (err) {

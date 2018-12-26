@@ -138,7 +138,7 @@ Page({
         that.saveNickName(userInfo.nickName)
 
         // 将userInfo存入本地缓存
-        // wx.setStorageSync("userInfo", info)
+        wx.setStorageSync("userInfo", info)
         wx.navigateBack({
           delta: 1,
         })

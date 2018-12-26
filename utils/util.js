@@ -42,18 +42,9 @@ function request(url, data = {}, method = "GET") {
           resolve(res.data);
         } else if (res.statusCode == 401){
           console.log("用户身份过期,请重新登录!")
-          const app = getApp()
-          app.globalData.userInfo = undefined;
-          wx.showModal({
-            title: '',
-            content: '用户身份过期,请重新登录!',
-            showCancel: false,
-            success: function(res) {
-              wx.removeStorageSync("token");
-              wx.reLaunch({
-                url: '/pages/index/index'
-              })
-            }
+          wx.removeStorageSync("token"); 
+          wx.reLaunch({
+            url: '/pages/index/index'
           })
         } else {
           reject(res.errMsg);
