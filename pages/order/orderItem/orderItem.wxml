@@ -35,7 +35,7 @@
           class='{{item.evaluateLevel==""?"toComment":"btn"}}' 
           bindtap='toComment' 
           data-type='{{item.evaluateLevel== "" ? false : true }}'
-          data-item="{{item}}">{{item.evaluateLevel== "" ? "去评价" : "已评价 ("+(item.evaluateLevel||0)+"星)"}}
+          data-item="{{item}}">{{item.isAvaluate == 0 ? "去评价" : "已评价 ("+(item.evaluateLevel||0)+"星)"}}
         </view>
       </view>
     </view>

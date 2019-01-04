@@ -33,13 +33,13 @@ Page({
 
     // 已经评价
     if(type){
-      this.orderCommentQuery(orderItem.orderExternalId, item.productCode)
+      this.orderCommentQuery(item.orderId)
     }
   },
 
-  orderCommentQuery: function (orderExternalId, productCode){
+  orderCommentQuery: function (orderId){
     let that = this;
-    util.request(api.orderCommentQuery, {"orderExternalId": orderExternalId,"productCode": productCode}, "POST").then(function (res) {
+    util.request(api.orderCommentQuery, { "orderId": orderId}, "POST").then(function (res) {
       if (res.status == "200") {
         console.log(res)
         if(res.data && JSON.stringify(res.data)!="{}"){
@@ -127,9 +127,8 @@ Page({
   submit: function(){
     let that = this;
     let { labelList, commentValue, evaluateLevel, orderItem, item } = that.data, evaluateTabDTO=[]
-    console.log(evaluateLevel)
-    console.log(labelList)
-    console.log(commentValue)
+    console.log(orderItem)
+    console.log(item)
 
     if(evaluateLevel == '0'){
       wx.showModal({
@@ -149,14 +148,15 @@ Page({
       if (labelCheckedLen == 0){
         evaluateTabDTO = null
       }
-      that.submitComment(evaluateLevel, commentValue, orderItem.orderExternalId, item.productCode, evaluateTabDTO)
+      that.submitComment(evaluateLevel, commentValue, orderItem.orderExternalId, item.productCode, item.orderId, evaluateTabDTO)
     }
   },
 
-  submitComment: function (evaluateLevel, evaluateText, orderExternalId, productCode, evaluateTabDTO){
+  submitComment: function (evaluateLevel, evaluateText, orderExternalId, productCode, orderId, evaluateTabDTO){
     let that = this, params = {};
     if (evaluateTabDTO){
       params = {
+        orderId: orderId,
         evaluateLevel: evaluateLevel,
         evaluateText: evaluateText,
         orderExternalId: orderExternalId,
@@ -165,6 +165,7 @@ Page({
       }
     }else{
       params = {
+        orderId: orderId,
         evaluateLevel: evaluateLevel,
         evaluateText: evaluateText,
         orderExternalId: orderExternalId,

@@ -1,5 +1,5 @@
-var BaseUrl = "https://crm.breo.com.cn:18081/api/";
-// var BaseUrl = "http://www.51shoop.cn:18002/api/";
+// var BaseUrl = "https://crm.breo.com.cn:18081/api/";
+var BaseUrl = "http://www.51shoop.cn:18002/api/";
 
 module.exports = {
   
