@@ -28,7 +28,11 @@
   </view>
   <view class='info-line' bindtap='editBirthday'>
     <view class='info-l'>生日</view>
-    <view class='info-r'>
+    <view class='info-r' wx:if="{{time && time!= ''}}">
+        <view class='info-value'>{{time}}</view>
+      <image class='info-img' src='../../static/images/more.png'></image>
+    </view>
+    <view class='info-r' wx:else>
       <picker class='picker' mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
         <view class='info-value'>{{time||"请选择"}}</view>
       </picker>
