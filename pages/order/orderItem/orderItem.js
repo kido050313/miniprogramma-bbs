@@ -30,11 +30,9 @@ Page({
 
   getOrderProdDetail: function (orderExternalId){
     let that = this;
-
     that.setData({ loading: true })
-
-    let queryString = `?orderExternalId=${orderExternalId}`
-    util.request(api.OrderProdDetailQuery + queryString, {}, "POST").then(function (res) {
+    
+    util.request(api.OrderProdDetailQuery, { orderExternalId: orderExternalId}, "POST", "form").then(function (res) {
       if (res.status == "200") {
         console.log(res)
         that.setData({

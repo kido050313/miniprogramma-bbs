@@ -26,8 +26,7 @@ Page({
   queryOrderList: function(){
     let that = this;
     that.setData({ loading: true})
-    let queryString = `?customerId=${app.globalData.userInfo.customerId}&page=${that.data.page}&pageSize=${that.data.pageSize}`
-    util.request(api.orderQuery + queryString, {}, "POST").then(function (res) {
+    util.request(api.orderQuery, { customerId: app.globalData.userInfo.customerId, page: that.data.page, pageSize: that.data.pageSize}, "POST", "form").then(function (res) {
       if (res.status == "200") {
         let canload = true;
         let orderData = that.data.orderData.concat(res.data.rows);

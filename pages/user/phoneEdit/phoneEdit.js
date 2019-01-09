@@ -41,8 +41,7 @@ Page({
   //发送验证码
   sendCheckCode: function () {
     let that = this;
-    let queryString = `?phoneNumber=${that.data.phone}`
-    util.request(api.getCode + queryString, {}, "POST").then(function (res) {
+    util.request(api.getCode, { phoneNumber: that.data.phone}, "POST", "form").then(function (res) {
       if (res.status == "200") {
         that.setData({
           showCountdown: true,
@@ -101,8 +100,7 @@ Page({
     } else {
       app.globalData.userInfo && util.request(api.userUpdate, { phoneNumber: form.phone, phoneCode: form.code, customerId: app.globalData.userInfo.customerId }, "POST").then(function (res) {
         if (res.status == "200") {
-          let queryString = `?customerId=${app.globalData.userInfo.customerId}`
-          util.request(api.userQuery + queryString, {}, "POST").then(function (res) {
+          util.request(api.userQuery, { customerId: app.globalData.userInfo.customerId }, "POST", "form").then(function (res) {
             if (res.status == "200") {
               console.log('查询信息-->')
               console.log(res.data)

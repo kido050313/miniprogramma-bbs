@@ -65,8 +65,7 @@ Page({
     let {userInfo} = that.data;
 
     if (item.receivedStatus){
-      let queryString = `?phoneNum=${userInfo.phoneNumber}&couponId=${item.couponId}`
-      util.request(api.couponReceive+queryString, {}, "POST").then(function (res) {
+      util.request(api.couponReceive, { phoneNum: userInfo.phoneNumber, couponId: item.couponId}, "POST", "form").then(function (res) {
         console.log(res)
         if (res.status == "200") {
           that.sendTemplate(item, formId)

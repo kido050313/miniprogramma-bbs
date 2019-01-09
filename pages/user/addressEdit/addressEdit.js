@@ -75,8 +75,7 @@ Page({
       console.log(addressDetail.join(" "))
       app.globalData.userInfo && util.request(api.userUpdate, { addressDetail: addressDetail.join(" "), customerId: app.globalData.userInfo.customerId }, "POST").then(function (res) {
         if (res.status == "200") {
-          let queryString = `?customerId=${app.globalData.userInfo.customerId}`
-          util.request(api.userQuery + queryString, {}, "POST").then(function (res) {
+          util.request(api.userQuery, { customerId: app.globalData.userInfo.customerId }, "POST", "form").then(function (res) {
             if (res.status == "200") {
               console.log('查询信息-->')
               console.log(res.data)

@@ -51,9 +51,7 @@ Page({
 
   getMyCoupons: function (couponStatus) {
     let that = this;
-
-    let queryString = `?phoneNum=${app.globalData.userInfo.phoneNumber}`
-    util.request(api.getMyCoupons + queryString, {}, "POST").then(function (res) {
+    util.request(api.getMyCoupons, { phoneNum: app.globalData.userInfo.phoneNumber}, "POST", "form").then(function (res) {
       if (res.status == "200") {
         let couponList = res.couponList, couponData = [], customerInfo = res.customerInfo;
         couponList.map((item) => {
@@ -92,8 +90,7 @@ Page({
   updateUserInfo() {
     let that = this;
     console.log(app.globalData.userInfo.customerId)
-    let queryString = `?customerId=${app.globalData.userInfo.customerId}`
-    util.request(api.userQuery + queryString, {}, "POST").then(function (res) {
+    util.request(api.userQuery, { customerId: app.globalData.userInfo.customerId}, "POST", "form").then(function (res) {
       if (res.status == "200") {
         
         let { photoUrl, customerNum }  = app.globalData.userInfo;

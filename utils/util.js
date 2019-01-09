@@ -22,16 +22,21 @@ const formatNumber = n => {
 /**
  * 封封微信的的request
  */
-function request(url, data = {}, method = "GET") {
+function request(url, data = {}, method = "GET", type = "json") {
   return new Promise(function (resolve, reject) {
     console.log(data)    
-    console.log(JSON.stringify(data))
+    let contentType = "application/json"
+    if (type == "json"){
+      data = JSON.stringify(data);
+    }else{
+      contentType = "application/x-www-form-urlencoded"
+    }
     wx.request({
       url: url,
-      data: JSON.stringify(data),
+      data: data,
       method: method,
       header: {
-        'Content-Type': 'application/json;charset=utf-8',
+        'Content-Type': contentType,
         'Authorization': wx.getStorageSync('token')
       },
       success: function (res) {

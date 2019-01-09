@@ -70,8 +70,7 @@ Page({
   //发送验证码
   sendCheckCode: function () {
     let that = this;
-    let queryString = `?phoneNumber=${that.data.phone}`
-    util.request(api.getCode + queryString, {}, "POST").then(function (res) {
+    util.request(api.getCode, { phoneNumber: that.data.phone}, "POST", "form").then(function (res) {
       if (res.status == "200") {
         that.setData({
           showCountdown: true,
@@ -114,8 +113,7 @@ Page({
 
   login: function (phone, code){
     let that = this;
-    let queryString = `?phoneNumber=${phone}&code=${code}&source=小程序`
-    util.request(api.login + queryString, {}, "POST").then(function (res) {
+    util.request(api.login, { phoneNumber: phone, code: code, source: "小程序"}, "POST", "form").then(function (res) {
       if (res.status == "200") {
         wx.showToast({
           title: '登录成功',
