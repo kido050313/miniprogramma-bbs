@@ -34,7 +34,7 @@
     </view>
     <view class='info-r' wx:else>
       <picker class='picker' mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-        <view class='info-value'>{{time||"请选择"}}</view>
+        <view class='info-value'>{{time||"填写后不可修改"}}</view>
       </picker>
       <image class='info-img' src='../../static/images/more.png'></image>
     </view>
