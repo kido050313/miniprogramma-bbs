@@ -53,25 +53,31 @@ Page({
   },
 
   getAllAddress: function(){
-    let that = this;
-    util.request(api.addressQuery,{}, "POST").then(function (res) {
-      if (res.status == "200") {
-        let data = res.data, provinces=[]
-        data && data.map(province=>{
-          let citys = []
-          province && province.cityBeanList.map(city=>{
-            citys.push({ id: city.id, name: city.name, regions: city.regionBeanList})
+    let that = this, provinces = wx.getStorageSync("allAddressData");
+    if (provinces){
+      that.setData({
+        shengshi: provinces
+      }, () => { that.jilian() });
+    }else{
+      util.request(api.addressQuery, {}, "POST").then(function (res) {
+        if (res.status == "200") {
+          let data = res.data, provinces = []
+          data && data.map(province => {
+            let citys = []
+            province && province.cityBeanList.map(city => {
+              citys.push({ id: city.id, name: city.name, regions: city.regionBeanList })
+            })
+            provinces.push({ id: province.id, name: province.name, regions: citys })
           })
-          provinces.push({ id: province.id, name: province.name, regions: citys })
-        })
-        console.log(provinces)
 
-        that.setData({
-          shengshi: provinces
-        }, () => { that.jilian() });
-        console.log(that.data.shengshi)
-      } 
-    })
+          wx.setStorageSync("allAddressData", provinces)
+
+          that.setData({
+            shengshi: provinces
+          }, () => { that.jilian() });
+        }
+      })
+    }
   },
 
   clear: function(event){
