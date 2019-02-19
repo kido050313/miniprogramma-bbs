@@ -32,7 +32,7 @@ Page({
     let that = this;
     that.setData({ loading: true })
     
-    util.request(api.OrderProdDetailQuery, { orderExternalId: orderExternalId}, "POST", "form").then(function (res) {
+    util.request(api.orderProdDetailQuery, { orderExternalId: orderExternalId}, "POST", "form").then(function (res) {
       if (res.status == "200") {
         console.log(res)
         that.setData({

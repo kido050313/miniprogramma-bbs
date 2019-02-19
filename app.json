@@ -15,7 +15,8 @@
     "pages/user/professionEdit/professionEdit",
     "pages/order/orderItem/orderItem",
     "pages/youzan/youzan",
-    "pages/service/service"
+    "pages/service/service",
+    "pages/temp/cascade"
   ],
   "window": {
     "backgroundTextStyle": "light",

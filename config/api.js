@@ -11,10 +11,11 @@ module.exports = {
   login: BaseUrl + 'dmpCustomer/custCustomers/customerLogin', //登录注册
   userUpdate: BaseUrl + 'dmpCustomer/custCustomers/updateCustomerInfo', //用户信息修改
   userQuery: BaseUrl + 'dmpCustomer/custCustomers/getCustomer', //用户信息查询
+  addressQuery: BaseUrl + 'dmpCustomer/custAddress/getAllAddress',//所有省市区数据
 
   // Order
   orderQuery: BaseUrl + 'dmpCustomer/bizOrderHeaders/getOrderRecords', //获取订单列表
-  OrderProdDetailQuery: BaseUrl + 'dmpCustomer/bizOrderHeaders/findOrderProdDetailByOrderExternalId', //查看订单行商品信息
+  orderProdDetailQuery: BaseUrl + 'dmpCustomer/bizOrderHeaders/findOrderProdDetailByOrderExternalId', //查看订单行商品信息
 
   // Comment
   submitComment: BaseUrl + 'dmpCustomer/bizOrderEvaluate/orderEvaluate', //添加评价

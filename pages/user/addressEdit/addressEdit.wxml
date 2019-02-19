@@ -1,23 +1,24 @@
+<import src="../../temp/cascade.wxml"/>
 <view class='container'>
-  <form bindsubmit="formSubmit" class='form'>
+  <view class='form'>
     <view class='ads-edit'>
       <view class='ads-l'>所在省</view>
       <view class='ads-r'>
-        <input name="province" bindinput='inputProvince' class='ads-v' value='{{province}}'></input>
+        <view name="province" bindtap="dianji" class='ads-v'>{{jieguo.sheng}}</view>
         <image bindtap='clear' data-type="province" class='ads-img' src="../../../static/images/clear.png"></image>
       </view>
     </view>
     <view class='ads-edit'>
       <view class='ads-l'>所在市</view>
       <view class='ads-r'>
-        <input name="city" bindinput='inputCity' class='ads-v' value='{{city}}'></input>
+        <view name="city" bindtap="dianji" class='ads-v'>{{jieguo.shi}}</view>
         <image bindtap='clear' data-type="city" class='ads-img' src="../../../static/images/clear.png"></image>
       </view>
     </view>
     <view class='ads-edit'>
       <view class='ads-l'>所在区/县</view>
       <view class='ads-r'>
-        <input name="region" bindinput='inputRegion' class='ads-v' value='{{region}}'></input>
+        <view name="region" bindtap="dianji" class='ads-v'>{{jieguo.qu}}</view>
         <image bindtap='clear' data-type="region" class='ads-img' src="../../../static/images/clear.png"></image>
       </view>
     </view>
@@ -28,6 +29,7 @@
         <image bindtap='clear' data-type="detail" class='ads-img' src="../../../static/images/clear.png"></image>
       </view>
     </view>
-    <button class='ads-submit' formType="submit">保 存</button>
-  </form>
+    <button class='ads-submit' bindtap="submit">保 存</button>
+  </view>
 </view>
+<template is="cascade" data="{{animationData:animationData,sheng:sheng,shi:shi,qu:qu}}"/>
