@@ -32,4 +32,5 @@
     <button class='ads-submit' bindtap="submit">保 存</button>
   </view>
 </view>
-<template is="cascade" data="{{animationData:animationData,sheng:sheng,shi:shi,qu:qu}}"/>
+
+<template wx:if="{{show}}" is="cascade" data="{{animationData:animationData,sheng:sheng,shi:shi,qu:qu}}" />
