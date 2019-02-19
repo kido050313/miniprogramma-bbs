@@ -127,8 +127,6 @@ Page({
         if (res.status == "200") {
           util.request(api.userQuery, { customerId: app.globalData.userInfo.customerId }, "POST", "form").then(function (res) {
             if (res.status == "200") {
-              console.log('查询信息-->')
-              console.log(res.data)
               app.globalData.userInfo.province = res.data.province;
               app.globalData.userInfo.city = res.data.city;
               app.globalData.userInfo.region = res.data.region;
@@ -214,7 +212,6 @@ Page({
     // this.setData({
     //   jieguo: {}
     // });
-    console.log(this.data.jieguo);
   },
   //确认按钮
   queren: function () {
@@ -259,13 +256,10 @@ Page({
       shi_index = that.data.shi_index,
       sheng_index = that.data.sheng_index;
 
-      console.log(shengshi)
     //遍历所有的省，将省的名字存到sheng这个数组中
     for (let i = 0; i < shengshi.length; i++) {
       sheng.push(shengshi[i].name)
     }
-    console.log("所有的省----------》")
-    console.log(sheng)
 
     if (shengshi[sheng_index].regions) {//这里判断这个省级里面有没有市（如数据中的香港、澳门等就没有写市）
       if (shengshi[sheng_index].regions[shi_index]) {//这里是判断这个选择的省里面，有没有相应的下标为shi_index的市，因为这里的下标是前一次选择后的下标，比如之前选择的一个省有10个市，我刚好滑到了第十个市，现在又重新选择了省，但是这个省最多只有5个市，但是这时候的shi_index为9，而这里的市根本没有那么多，所以会报错
@@ -280,7 +274,7 @@ Page({
             console.log('这里判断有没有进区里');
             　　　　　　　　　　　　//有的话，把选择的这个市里面的所有的区县名字保存到qu这个数组中
             for (let i = 0; i < shengshi[sheng_index].regions[shi_index].regions.length; i++) {
-              console.log('这里是写区得');
+              console.log('这里是写区的');
               qu.push(shengshi[sheng_index].regions[shi_index].regions[i].name);
             }
           } else {
