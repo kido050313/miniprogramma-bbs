@@ -53,8 +53,11 @@
 }
 .tips{
   width: 90%;
-  margin: 0 auto;
+  margin: 0 auto 30rpx;
   text-align: left;
   font-size: 26rpx;
   color: rgba(136, 136, 136, 1);
+}
+.mt30{
+  margin-top: 30rpx;
 }
