@@ -51,7 +51,7 @@ Page({
 
   getMyCoupons: function (couponStatus) {
     let that = this;
-    util.request(api.getMyCoupons, { phoneNum: app.globalData.userInfo.phoneNumber}, "POST", "form").then(function (res) {
+    util.request(api.getMyCoupons, { customerId: app.globalData.userInfo.customerId}, "POST", "form").then(function (res) {
       if (res.status == "200") {
         let couponList = res.couponList, couponData = [], customerInfo = res.customerInfo;
         couponList.map((item) => {
@@ -84,6 +84,10 @@ Page({
       }
     } else {
       this.getToken();
+      if (wx.getStorageSync("token")){
+        that.getAllCoupons();
+        that.updateUserInfo();
+      }
     }
   },
 
@@ -94,7 +98,7 @@ Page({
       if (res.status == "200") {
         
         let { photoUrl, customerNum }  = app.globalData.userInfo;
-        customerNum = customerNum.replace(/(\d{4})(?=\d)/g, '$1 ');
+        customerNum = customerNum && customerNum.replace(/(\d{4})(?=\d)/g, '$1 ');
 
         app.globalData.userInfo = res.data;
         app.globalData.userInfo.photoUrl = photoUrl;
@@ -123,8 +127,7 @@ Page({
         if (res.statusCode == 200) {
           wx.setStorageSync('token', res.data.data)
           console.log(wx.getStorageSync('token'))
-          that.getAllCoupons();
-          that.updateUserInfo();
+          
         }
       },
       fail: function (err) {

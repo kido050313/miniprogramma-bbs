@@ -30,7 +30,7 @@ Page({
     let that = this;
 
     that.setData({loading: true})
-    util.request(api.getMyCoupons, { phoneNum: app.globalData.userInfo.phoneNumber}, "POST", "form").then(function (res) {
+    util.request(api.getMyCoupons, { customerId: app.globalData.userInfo.customerId}, "POST", "form").then(function (res) {
       if (res.status == "200") {
         console.log(res.couponList)
         let couponList = res.couponList, couponData = [], customerInfo = res.customerInfo;

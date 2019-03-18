@@ -33,7 +33,7 @@ Page({
 
   getToken(){
     wx.request({
-      // url: api.getToken + `?corpId=ww9fa669a713c72aba`,
+      // url: api.getToken + `?corpId=ww9fa669a713c72aba`,//测试
       url: api.getToken + `?corpId=ww6513f60f6da03c2e`,
       data: {},
       method: "POST",

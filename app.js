@@ -18,8 +18,8 @@ App({
     wx.setStorageSync('logs', logs)
 
     wx.request({
-      url: api.getToken + `?corpId=ww6513f60f6da03c2e`,
-      // url: api.getToken + `?corpId=ww9fa669a713c72aba`,
+      url: api.getToken + `?corpId=ww6513f60f6da03c2e`,//prod
+      // url: api.getToken + `?corpId=ww9fa669a713c72aba`,//test
       data: {},
       method: "POST",
       header: {
