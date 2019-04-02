@@ -191,8 +191,8 @@ Page({
       "emphasis_keyword": "keyword1.value" //模板需要放大的关键词，不填则默认无放大
     }
 
-    // console.log("params")
-    // console.log(params)
+    console.log("params")
+    console.log(params)
 
 
     util.request(api.sendTemplateMsg, params, "POST").then(function(res) {
@@ -248,9 +248,11 @@ Page({
    */
   onUnload: function() {
     if (this.data.shouldItUnload) {
-      wx.reLaunch({
-        url: '../index/index',
-      })
+      setTimeout(function () {
+        wx.redirectTo({
+          url: '../index/index',
+        })
+      }, 200)
     }
   },
 

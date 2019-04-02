@@ -14,7 +14,7 @@ Page({
   },
   toChoiceCoupon: function () {
     wx.reLaunch({
-      url: '../choiceCoupon/choiceCoupon?couponId=85690a423f94407c9ef6de2ffa4fa9a4',
+      url: '../choiceCoupon/choiceCoupon?couponId=45f3bb23332b4703bf10e845f44a376f',
     })
   },
   onHide:function(){

@@ -223,11 +223,11 @@ Page({
     })
   },
 
-  toChoiceCoupon: function () {
-    wx.navigateTo({
-      url: '../logs/logs',
-    })
-  },
+  // toChoiceCoupon: function () {
+  //   wx.navigateTo({
+  //     url: '../logs/logs',
+  //   })
+  // },
 
   toService: function() {
     wx.navigateTo({
