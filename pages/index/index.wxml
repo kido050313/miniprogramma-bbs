@@ -10,7 +10,7 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view> -->
-  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"  class="userinfo" wx:if="{{!userInfo}}" data-page="index">
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="userinfo" wx:if="{{!userInfo}}" data-page="index">
     <view class="username">点击注册/登录</view>
     <image class="userinfo-avatar" src="../../static/images/default-user.png"></image>
   </button>
@@ -63,6 +63,13 @@
       </view>
       <image src='../../static/images/more.png' class="line-img"></image>
     </button>
+    <!-- <button bindtap='toChoiceCoupon'>
+      <view class="line-l"></view>
+      <view class='df'>
+        <view class="line-c">测试</view>
+      </view>
+      <image src='../../static/images/more.png' class="line-img"></image>
+    </button> -->
     <!-- <view class="service-line">
       <view class="line-l"></view>
       <view class='df'>

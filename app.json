@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/choiceCoupon/choiceCoupon",
     "pages/logs/logs",
     "pages/login/login",
     "pages/coupon/couponReceive",

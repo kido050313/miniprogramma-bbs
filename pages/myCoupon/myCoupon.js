@@ -10,39 +10,65 @@ Page({
    */
   data: {
     TOP_MENU: {
-      0: { id: "t00", mean: "未使用", active: true, couponStatus: '有效' },
-      1: { id: "t01", mean: "已使用", active: false, couponStatus: '已核销' },
-      2: { id: "t02", mean: "已过期", active: false, couponStatus: '已过期' }
+      0: {
+        id: "t00",
+        mean: "未使用",
+        active: true,
+        couponStatus: '有效'
+      },
+      1: {
+        id: "t01",
+        mean: "已使用",
+        active: false,
+        couponStatus: '已核销'
+      },
+      2: {
+        id: "t02",
+        mean: "已过期",
+        active: false,
+        couponStatus: '已过期'
+      }
     },
-    couponData:[],
+    couponData: [],
     customerInfo: {},
-    loading: true
+    loading: true,
+    fromWhere: '0'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
+    this.setData({
+      fromWhere: options.fromWhere
+    })
+    console.log(options)
     this.getMyCoupons('有效')
   },
 
-  getMyCoupons: function (couponStatus){
+  getMyCoupons: function(couponStatus) {
     let that = this;
 
-    that.setData({loading: true})
-    util.request(api.getMyCoupons, { customerId: app.globalData.userInfo.customerId}, "POST", "form").then(function (res) {
+    that.setData({
+      loading: true
+    })
+    util.request(api.getMyCoupons, {
+      customerId: app.globalData.userInfo.customerId
+    }, "POST", "form").then(function(res) {
       if (res.status == "200") {
-        console.log(res.couponList)
-        let couponList = res.couponList, couponData = [], customerInfo = res.customerInfo;
+        // console.log(res.couponList)
+        let couponList = res.couponList,
+          couponData = [],
+          customerInfo = res.customerInfo;
         couponList.map((item) => {
           if (item.couponStatus == couponStatus) {
-            item.startTime = item.startTime && item.startTime.substring(0,10);
-            item.endTime = item.endTime && item.endTime.substring(0, 10);   
-            item.couponDesc = item.couponDesc.split("\n");         
+            item.startTime = item.startTime && item.startTime.substring(0, 10);
+            item.endTime = item.endTime && item.endTime.substring(0, 10);
+            item.couponDesc = item.couponDesc.split("\n");
             couponData.push(item)
           }
         })
-        console.log(couponData)
+        // console.log(couponData)
         that.setData({
           loading: false,
           couponData: couponData,
@@ -57,7 +83,7 @@ Page({
     })
   },
 
-  switchCouponType: function (event) {
+  switchCouponType: function(event) {
     let that = this;
     let temp = that.data.TOP_MENU;
     let id = event.currentTarget.dataset.id;
@@ -70,57 +96,67 @@ Page({
       }
     }
     this.setData({
-      TOP_MENU: temp, page: 1, size: 5, canload: true
+      TOP_MENU: temp,
+      page: 1,
+      size: 5,
+      canload: true
     })
   },
 
+  switchBack: function() {
+    if (this.data.fromWhere == '1') {
+      console.log('goback to index')
+      this.setData({
+        fromWhere: 0
+      })
+      wx.redirectTo({
+        url: '../index/index',
+      })
+    }
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
-  },
+  onReady: function() {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-  },
+  onShow: function() {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-
+  onHide: function() {
+    this.onUnload()
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
+  onUnload: function() {
+    this.switchBack()
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

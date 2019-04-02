@@ -11,7 +11,7 @@ Page({
     couponCanReceive: 0,
     myCouponCount: 0
   },
-  
+
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
@@ -19,9 +19,9 @@ Page({
     })
   },
 
-  onLoad: function () {
+  onLoad: function() {
     let token = wx.getStorageSync("token")
-    console.log(app.globalData.userInfo)
+    // console.log(app.globalData.userInfo)
     // 从本地缓存中取出userInfo（注释）
     app.globalData.userInfo = wx.getStorageSync("userInfo")
     if (token && app.globalData.userInfo) {
@@ -41,7 +41,9 @@ Page({
 
   getAllCoupons: function () {
     let that = this;
-    util.request(api.couponReceiveQuery, {}, "POST").then(function (res) {
+    util.request(api.couponReceiveQuery, {
+      activityType:'0'
+    }, "POST").then(function (res) {
       let couponData = res;
       that.setData({
         couponCanReceive: couponData.length,
@@ -49,11 +51,27 @@ Page({
     })
   },
 
-  getMyCoupons: function (couponStatus) {
+  getAllCoupons: function() {
     let that = this;
-    util.request(api.getMyCoupons, { customerId: app.globalData.userInfo.customerId}, "POST", "form").then(function (res) {
+    util.request(api.couponReceiveQuery, {
+      activityType: '0'
+    }, "POST", "form").then(function(result) {
+      let couponData = result;
+      that.setData({
+        couponCanReceive: couponData.length,
+      });
+    })
+  },
+
+  getMyCoupons: function(couponStatus) {
+    let that = this;
+    util.request(api.getMyCoupons, {
+      customerId: app.globalData.userInfo.customerId
+    }, "POST", "form").then(function(res) {
       if (res.status == "200") {
-        let couponList = res.couponList, couponData = [], customerInfo = res.customerInfo;
+        let couponList = res.couponList,
+          couponData = [],
+          customerInfo = res.customerInfo;
         couponList.map((item) => {
           if (item.couponStatus == couponStatus) {
             couponData.push(item)
@@ -73,31 +91,43 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     let token = wx.getStorageSync("token")
 
     if (token) {
       this.getAllCoupons();
       this.updateUserInfo();
-      if (app.globalData.userInfo){
+      if (app.globalData.userInfo) {
         this.getMyCoupons('有效')
       }
     } else {
       this.getToken();
-      if (wx.getStorageSync("token")){
+      if (wx.getStorageSync("token")) {
         that.getAllCoupons();
         that.updateUserInfo();
       }
     }
   },
 
+  onHide:function(){
+    this.onUnload()
+  },
+
+  onUnload:function(){
+  },
+
   updateUserInfo() {
     let that = this;
     console.log(app.globalData.userInfo.customerId)
-    util.request(api.userQuery, { customerId: app.globalData.userInfo.customerId}, "POST", "form").then(function (res) {
+    util.request(api.userQuery, {
+      customerId: app.globalData.userInfo.customerId
+    }, "POST", "form").then(function(res) {
       if (res.status == "200") {
-        
-        let { photoUrl, customerNum }  = app.globalData.userInfo;
+
+        let {
+          photoUrl,
+          customerNum
+        } = app.globalData.userInfo;
         customerNum = customerNum && customerNum.replace(/(\d{4})(?=\d)/g, '$1 ');
 
         app.globalData.userInfo = res.data;
@@ -121,16 +151,15 @@ Page({
       header: {
         'Content-Type': 'application/json'
       },
-      success: function (res) {
+      success: function(res) {
         // console.log('token==' + res.data.data)
         console.log(res.statusCode)
         if (res.statusCode == 200) {
           wx.setStorageSync('token', res.data.data)
           console.log(wx.getStorageSync('token'))
-          
         }
       },
-      fail: function (err) {
+      fail: function(err) {
         console.log("failed")
       }
     })
@@ -140,16 +169,16 @@ Page({
     console.log(e.currentTarget.dataset)
     let gotoPage = e.currentTarget.dataset.page
     let userInfo = {};
-    if (e.detail.userInfo){
-      if(app.globalData.userInfo){
-        if (gotoPage=="user"){
+    if (e.detail.userInfo) {
+      if (app.globalData.userInfo) {
+        if (gotoPage == "user") {
           this.toUserCenter();
-        } else if (gotoPage == "coupon"){
+        } else if (gotoPage == "coupon") {
           this.toCouponList();
-        }else if(gotoPage == "order"){
+        } else if (gotoPage == "order") {
           this.toOrderList();
         }
-      }else{
+      } else {
         userInfo = e.detail.userInfo;
         wx.navigateTo({
           url: '../login/login?userInfo=' + JSON.stringify(userInfo),
@@ -158,45 +187,51 @@ Page({
     }
   },
 
-  login: function(){
+  login: function() {
     wx.navigateTo({
       url: '../login/login',
     })
   },
-  
-  receiveCoupon: function(){
+
+  receiveCoupon: function() {
     wx.navigateTo({
       url: '../coupon/couponReceive',
     })
   },
 
-  toUserCenter: function(){
+  toUserCenter: function() {
     wx.navigateTo({
       url: '../user/userInfo',
     })
   },
 
-  toCouponList: function(){
+  toCouponList: function() {
     wx.navigateTo({
       url: '../myCoupon/myCoupon',
     })
   },
 
-  toOrderList: function(){
+  toOrderList: function() {
     wx.navigateTo({
       url: '../order/orderList',
     })
   },
 
-  toYouZan: function(){
+  toYouZan: function() {
     wx.navigateTo({
       url: '../youzan/youzan',
     })
   },
 
-  toService: function(){
+  toChoiceCoupon: function () {
+    wx.navigateTo({
+      url: '../logs/logs',
+    })
+  },
+
+  toService: function() {
     wx.navigateTo({
       url: '../service/service',
     })
-  }
+  },
 })
