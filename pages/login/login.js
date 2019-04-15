@@ -149,20 +149,15 @@ Page({
         })
         let userInfo = that.data.userInfo,
           info = res.data;
-
         console.log("info before------>")
         console.log(info)
         console.log(userInfo)
         info.nickname = userInfo.nickName;
         info.photoUrl = userInfo.avatarUrl;
-
-
         console.log("info after------>")
         console.log(info)
         app.globalData.userInfo = info;
-
         that.saveNickName(userInfo.nickName)
-
         // 将userInfo存入本地缓存
         wx.setStorageSync("userInfo", info)
         console.log(that.data.comeFrom == '1')

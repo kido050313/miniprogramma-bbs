@@ -8,11 +8,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: "",
+    userInfo: {},
     couponData: [],
     loading: true,
     couponId: '',
-    shouldItUnload:true
+    shouldItUnload: true
   },
 
   /**
@@ -20,13 +20,9 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      couponId: options.couponId
+      couponId: options.couponId,
+      userInfo: wx.getStorageSync('userInfo')
     })
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo
-      })
-    }
     this.getAllCoupons()
   },
 
@@ -73,6 +69,7 @@ Page({
   },
 
   getUserInfo: function(e) {
+    console.log('getUserInfo')
     // console.log(e.currentTarget.dataset)
     let gotoPage = e.currentTarget.dataset.page
     let that = this
@@ -80,7 +77,7 @@ Page({
     if (e.detail.userInfo) {
       userInfo = e.detail.userInfo;
       that.setData({
-        shouldItUnload:false
+        shouldItUnload: false
       })
       wx.navigateTo({
         url: '../login/login?comeFrom=1&couponId=' + that.data.couponId + '&userInfo=' + JSON.stringify(userInfo),
@@ -90,8 +87,6 @@ Page({
 
   receive: function(item, formId) {
     // let item = event.currentTarget.dataset.item;
-    // console.log(item)
-
     let that = this;
     let {
       userInfo
@@ -114,7 +109,7 @@ Page({
         }
       })
       that.setData({
-        shouldItUnload:false
+        shouldItUnload: false
       })
       wx.navigateTo({
         url: '../myCoupon/myCoupon?fromWhere=1',
@@ -135,12 +130,11 @@ Page({
     let {
       item
     } = event.detail.value, formId = event.detail.formId;
-
     item = JSON.parse(item)
     // console.log(item)
     // console.log("formId=" + formId)
-
     // this.sendTemplate(item, formId)
+    console.log(item)
     this.receive(item, formId)
   },
 
@@ -240,7 +234,11 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function() {
-    this.onUnload()
+    let that = this
+    // wx.setTimeout(() => {
+    //   that.onUnload()
+    // }, 10)
+    that.onUnload()
   },
 
   /**
@@ -248,7 +246,7 @@ Page({
    */
   onUnload: function() {
     if (this.data.shouldItUnload) {
-      setTimeout(function () {
+      setTimeout(function() {
         wx.redirectTo({
           url: '../index/index',
         })
@@ -275,5 +273,5 @@ Page({
    */
   onShareAppMessage: function() {
 
-  }
+  },
 })

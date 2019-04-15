@@ -166,7 +166,8 @@ Page({
   },
 
   getUserInfo: function(e) {
-    console.log(e.currentTarget.dataset)
+    // console.log(e.currentTarget.dataset)
+    console.log(e)
     let gotoPage = e.currentTarget.dataset.page
     let userInfo = {};
     if (e.detail.userInfo) {
@@ -223,11 +224,11 @@ Page({
     })
   },
 
-  // toChoiceCoupon: function () {
-  //   wx.navigateTo({
-  //     url: '../logs/logs',
-  //   })
-  // },
+  toChoiceCoupon: function () {
+    wx.navigateTo({
+      url: '../logs/logs',
+    })
+  },
 
   toService: function() {
     wx.navigateTo({

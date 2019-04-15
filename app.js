@@ -11,12 +11,11 @@ App({
 
   onLaunch: function () {
     let that = this;
-
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
+    // var logs = wx.getStorageSync('logs') || []
+    // logs.unshift(Date.now())
+    // wx.setStorageSync('logs', logs)
+    this.globalData.userInfo=wx.getStorageSync('userInfo')
     wx.request({
       url: api.getToken + `?corpId=ww6513f60f6da03c2e`,//prod
       // url: api.getToken + `?corpId=ww9fa669a713c72aba`,//test

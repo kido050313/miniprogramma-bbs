@@ -48,7 +48,6 @@ Page({
 
   getMyCoupons: function(couponStatus) {
     let that = this;
-
     that.setData({
       loading: true
     })
@@ -69,6 +68,7 @@ Page({
           }
         })
         // console.log(couponData)
+        // couponData=res.couponList
         that.setData({
           loading: false,
           couponData: couponData,
@@ -105,11 +105,7 @@ Page({
 
   switchBack: function() {
     if (this.data.fromWhere == '1') {
-      console.log('goback to index')
-      this.setData({
-        fromWhere: 0
-      })
-      wx.redirectTo({
+      wx.reLaunch({
         url: '../index/index',
       })
     }
@@ -129,7 +125,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function() {
-    this.onUnload()
+    // this.switchBack()
   },
 
   /**
