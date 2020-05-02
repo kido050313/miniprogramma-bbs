@@ -1,0 +1,20 @@
+<view class="post-video-container">
+  <view class="input-content">
+    <input class="weui-input" minlength="6" maxlength="30" placeholder="请输入标题(6-30个字)" />
+  </view>
+  <view class="submit-content">
+    <view class="submit-btn" bindtap="submit">发表</view>
+  </view>
+
+  <view class="video-content" hidden="{{videoUrl == ''}}">
+    <view class="prew_video">
+      <video bindfullscreenchange="bindVideoScreenchange" src="{{videoUrl}}"></video>
+    </view>
+  </view>
+
+  <view class="choose-video">
+    <view class="choose-btn" bindtap="chooseVideo">
+      选择视频
+    </view>
+  </view>
+</view>

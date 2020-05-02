@@ -1,0 +1,11 @@
+<view>
+    <button formType="submit">
+        <view bindtap="downShow" catchtouchmove="ture" class="mask-box" wx:if="{{isShow}}"></view>
+        <view bindtap="toSub" class="sub-img" data-type="1" wx:if="{{isShow}}">图文</view>
+        <view bindtap="toSub" class="sub-vod" data-type="2" wx:if="{{isShow}}">小视频</view>
+        <view class="sub-bott">
+            <image bindtap="downShow" mode="aspectFill" src="/components/images/sub-del.png" wx:if="{{isShow}}"></image>
+            <image bindtap="upShow" mode="aspectFill" src="/components/images/sub.png" wx:if="{{!isShow}}"></image>
+        </view>
+    </button>
+</view>

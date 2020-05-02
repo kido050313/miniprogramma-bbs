@@ -1,0 +1,107 @@
+<view wx:for="{{list}}" wx:key="postsId">
+  <view bind:tap="clickTitle" class="list-box" data-id="{{item.postsId}}" wx:if="{{(item.imageList.length>1||item.imageList.length==0)&&item.type==0}}">
+    <view class="flex-row list-top">
+      <view class="avatar-image flex-grow-0" data-id="{{item.createUserId}}">
+        <image mode="aspectFill" src="{{item.userAvatar}}"></image>
+      </view>
+      <view class="user-msg flex-grow-1">
+        <view class="user-name flex-row" data-id="{{item.createUserId}}">{{item.userNickname}}</view>
+        <view class="flex-row">
+          <view class="flex-col user-level roof-box" wx:if="{{item.isTop==1}}">置顶</view>
+        </view>
+      </view>
+      <view class="put-time flex-grow-0">{{item.createTime}}</view>
+    </view>
+    <view class="list-content">
+      <text bind:tap="clickTopic" class="title" data-id="{{item.topicId}}" style="color:#F33535 ;display:inline;" wx:if="{{item.topicId!=0}}">#{{item.topicName}}#</text>
+      <view bind:tap="clickTitle" class="title" data-id="{{item.postsId}}" style="display:inline;">{{item.title}}</view>
+      <view class="image-list">
+        <view class="image-row" wx:for="{{item.imageList}}" wx:for-index="imageindex" wx:for-item="vvo" wx:key="imageindex">
+          <image bindtap="viewImages" data-imageindex="{{imageindex}}" data-index="{{index}}" mode="aspectFill" src="{{vvo.url}}"></image>
+        </view>
+      </view>
+      <view class="flex-row expand">
+        <view bind:tap="clickTitle" class="flex-grow-1" data-id="{{item.postsId}}">{{item.readNumber}}阅读</view>
+        <view bind:tap="clickTitle" class="flex-grow-0" data-id="{{item.postsId}}">
+          <image mode="aspectFill" src="/components/images/comment.png"></image>
+        </view>
+        <view class="flex-grow-0 number">{{item.commentNumber}}</view>
+        <view catchtap="onClickGood" class="flex-grow-0" data-id="{{item.postsId}}" data-index="{{index}}">
+          <image mode="aspectFill" src="/components/images/good{{item.isLiked==1?'-active':''}}.png"></image>
+        </view>
+        <view catchtap="onClickGood" class="flex-grow-0 number" data-id="{{item.postsId}}" data-index="{{index}}">
+          {{item.likedNumber}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view bind:tap="clickTitle" class="list-box" data-id="{{item.postsId}}" wx:if="{{item.imageList.length==1&&item.type==0}}">
+    <view class="flex-row list-top">
+      <view class="avatar-image flex-grow-0" data-id="{{item.createUserId}}">
+        <image mode="aspectFill" src="{{item.userAvatar}}"></image>
+      </view>
+      <view class="user-msg flex-grow-1">
+        <view class="user-name flex-row" data-id="{{item.createUserId}}">{{item.userNickname}}</view>
+        <view class="flex-row">
+          <view class="flex-col user-level roof-box" wx:if="{{item.isTop==1}}">置顶</view>
+        </view>
+      </view>
+      <view class="put-time flex-grow-0">{{item.createTime}}</view>
+    </view>
+    <view class="list-content">
+      <text bind:tap="clickTopic" class="title" data-id="{{item.topicId}}" style="color:#F33535 ;display:inline;" wx:if="{{item.topicId!=0}}">#{{item.topicName}}#</text>
+      <view bind:tap="clickTitle" class="title" data-id="{{item.postsId}}" style="display:inline;">{{item.title}}</view>
+      <view class="big-image-row">
+        <image data-src="{{item.imageList[0]}}" mode="aspectFill" src="{{item.imageList[0]}}">
+        </image>
+      </view>
+      <view class="flex-row expand">
+        <view bind:tap="clickTitle" class="flex-grow-1" data-id="{{item.postsId}}">{{item.readNumber}}阅读</view>
+        <view bind:tap="clickTitle" class="flex-grow-0" data-id="{{item.postsId}}">
+          <image mode="aspectFill" src="/components/images/comment.png"></image>
+        </view>
+        <view class="flex-grow-0 number">{{item.commentNumber}}</view>
+        <view catchtap="onClickGood" class="flex-grow-0" data-id="{{item.postsId}}" data-index="{{index}}">
+          <image mode="aspectFill" src="/components/images/good{{item.isLiked==1?'-active':''}}.png"></image>
+        </view>
+        <view catchtap="onClickGood" class="flex-grow-0 number" data-id="{{item.postsId}}" data-index="{{index}}">
+          {{item.likedNumber}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="list-box" wx:if="{{item.type==1}}">
+    <view class="flex-row list-top">
+      <view class="avatar-image flex-grow-0" data-id="{{item.createUserId}}">
+        <image mode="aspectFill" src="{{item.userAvatar}}"></image>
+      </view>
+      <view class="user-msg flex-grow-1">
+        <view class="user-name flex-row" data-id="{{item.createUserId}}">{{item.userNickname}}</view>
+        <view class="flex-row">
+          <view class="flex-col user-level roof-box" wx:if="{{item.isTop==1}}">置顶</view>
+        </view>
+      </view>
+      <view class="put-time flex-grow-0">{{item.createTime}}</view>
+    </view>
+    <view class="list-content">
+      <text bind:tap="clickTopic" class="title" data-id="{{item.topicId}}" style="color:#F33535 ;display:inline;" wx:if="{{item.topicId!=0}}">#{{item.topicName}}#</text>
+      <view bind:tap="clickTitle" class="title" data-id="{{item.postsId}}" style="display:inline;">{{item.title}}</view>
+      <view class="video-box flex-row flex-x-center">
+        <video autoPauseIfNavigate controls showCenterPlayBtn="{{false}}" src="{{item.videoUrl}}" title="{{item.title}}"></video>
+      </view>
+      <view class="flex-row expand">
+        <view bind:tap="clickTitle" class="flex-grow-1" data-id="{{item.postsId}}">{{item.readNumber}}阅读</view>
+        <view bind:tap="clickTitle" class="flex-grow-0" data-id="{{item.postsId}}">
+          <image mode="aspectFill" src="/components/images/comment.png"></image>
+        </view>
+        <view class="flex-grow-0 number">{{item.commentNumber}}</view>
+        <view catchtap="onClickGood" class="flex-grow-0" data-id="{{item.postsId}}" data-index="{{index}}">
+          <image mode="aspectFill" src="/components/images/good{{item.isLiked==1?'-active':''}}.png"></image>
+        </view>
+        <view catchtap="onClickGood" class="flex-grow-0 number" data-id="{{item.postsId}}" data-index="{{index}}">
+          {{item.likedNumber}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -13,12 +13,14 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.4",
-	"appid": "wxbcdaa51d5443fa77",
-	"projectname": "Breo_UAT",
+	"appid": "wx9fee57c2d64a1428",
+	"projectname": "mini_bqs3",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -28,13 +30,70 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
-		"miniprogram": {
+		"gamePlugin": {
 			"current": -1,
 			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "pages/bbsForum/postVideo/index",
+					"pathName": "pages/bbsForum/postVideo/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "tuwen",
+					"pathName": "pages/bbsForum/postImg/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "论坛首页",
+					"pathName": "pages/bbsForum/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发帖",
+					"pathName": "pages/release/release",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "帖子详情",
+					"pathName": "pages/bbsForum/details/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "话题帖子列表",
+					"pathName": "pages/bbsForum/topicList/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评论详情",
+					"pathName": "pages/bbsForum/comment/index",
+					"scene": null
+				}
+			]
 		}
 	}
 }

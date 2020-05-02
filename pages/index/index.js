@@ -21,10 +21,10 @@ Page({
 
   onLoad: function() {
     let token = wx.getStorageSync("token")
-    // console.log(app.globalData.userInfo)
+    console.log(app.globalData.userInfo)
     // 从本地缓存中取出userInfo（注释）
     app.globalData.userInfo = wx.getStorageSync("userInfo")
-    if (token && app.globalData.userInfo) {
+    if (app.globalData.userInfo) {
       let customerNum = app.globalData.userInfo.customerNum;
       customerNum = customerNum.replace(/(\d{4})(?=\d)/g, '$1 ');
       console.log(customerNum)
@@ -34,9 +34,9 @@ Page({
       })
     }
 
-    // if(wx.getStorageSync("token")){
-    //   this.getAllCoupons();
-    // }
+    if(wx.getStorageSync("token")){
+      this.getAllCoupons();
+    }
   },
 
   getAllCoupons: function () {
@@ -145,8 +145,11 @@ Page({
     let that = this;
     wx.request({
       // url: api.getToken + `?corpId=ww9fa669a713c72aba`,
-      url: api.getToken + `?corpId=ww6513f60f6da03c2e`,
-      data: {},
+      url: api.getToken,
+      data: {
+        username: 'admin',
+        password: 'lishisheng'
+      },
       method: "POST",
       header: {
         'Content-Type': 'application/json'
@@ -155,7 +158,9 @@ Page({
         // console.log('token==' + res.data.data)
         console.log(res.statusCode)
         if (res.statusCode == 200) {
-          wx.setStorageSync('token', res.data.data)
+
+          let token = res.data.data.tokenHead + ' ' + res.data.data.token
+          wx.setStorageSync('token', token)
           console.log(wx.getStorageSync('token'))
         }
       },
@@ -170,6 +175,7 @@ Page({
     console.log(e)
     let gotoPage = e.currentTarget.dataset.page
     let userInfo = {};
+    console.log(e.detail.userInfo)
     if (e.detail.userInfo) {
       if (app.globalData.userInfo) {
         if (gotoPage == "user") {
@@ -181,16 +187,56 @@ Page({
         }
       } else {
         userInfo = e.detail.userInfo;
-        wx.navigateTo({
-          url: '../login/login?userInfo=' + JSON.stringify(userInfo),
-        })
+        // wx.navigateTo({
+        //   url: '../login/login?userInfo=' + JSON.stringify(userInfo),
+        // })
       }
+      this.login(e.detail.userInfo);
+
     }
   },
 
-  login: function() {
-    wx.navigateTo({
-      url: '../login/login',
+  login: function (userInfo) {
+    let that = this;
+    wx.login({
+      success: function(res) {
+        wx.showToast({
+          title: '拼命登录中...',
+          icon: 'none',
+          duration: 1000
+        })
+        console.log(res);
+        util.request(api.login, {
+            code: res.code,
+            userInfo
+        }, "POST", "json").then(res => {
+            if (res.code == "200") {
+              wx.showToast({
+                title: '登录成功',
+                icon: 'none',
+                duration: 3000
+              })
+              let info = res.data;
+              console.log("info before------>")
+              console.log(info)
+              console.log(userInfo)
+              info.nickname = userInfo.nameNickName;
+              info.photoUrl = userInfo.avatarUrl;
+              console.log("info after------>")
+              console.log(info)
+              app.globalData.userInfo = info;
+              
+              // 将userInfo存入本地缓存
+              wx.setStorageSync("userInfo", info)
+
+            } else {
+              wx.showModal({
+                content: res.message,
+                showCancel: false
+              });
+            }
+          })
+      }
     })
   },
 

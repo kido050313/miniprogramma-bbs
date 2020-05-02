@@ -1,0 +1,12 @@
+<view class="flex-row flex-y-center  nav-box" style="height: {{height*2+24}}px;background-color:#fff;">
+    <view class="flex-grow-0  nav-return" wx:if="{{!share}}">
+        <image bindtap="_back" mode="aspectFill" src="/components/images/return{{color=='#fff'?'-white':''}}.png"></image>
+    </view>
+    <view class="flex-grow-0 down-line" style="color:{{color}}">|</view>
+    <view bindtap="tocenter" class="flex-grow-0  user-avatar">
+        <image mode="aspectFill" src="{{data.avatar}}"></image>
+    </view>
+    <view bindtap="tocenter" class="user-name flex-grow-0">{{data.nickname}}</view>
+    <view bindtap="follow" class="flex-grow-0 follow" wx:if="{{followed==0}}">关注</view>
+    <view bindtap="follow" class="flex-grow-0 follow del-follow" wx:if="{{followed==1}}">已关注</view>
+</view>

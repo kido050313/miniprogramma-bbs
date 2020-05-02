@@ -43,9 +43,9 @@ function request(url, data = {}, method = "GET", type = "json") {
         console.log(url+"==success");
         console.log(res)
 
-        if (res.statusCode == 200) {
+        if (res.data.code == 200) {
           resolve(res.data);
-        } else if (res.statusCode == 401){
+        } else if (res.data.code == 401){
           console.log("用户身份过期,请重新登录!")
           wx.removeStorageSync("token"); 
           wx.reLaunch({

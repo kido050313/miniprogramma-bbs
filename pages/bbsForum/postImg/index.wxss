@@ -1,0 +1,94 @@
+
+.input-content{
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #eee;
+  background-color: #fff;
+  font-size: 32rpx;
+}
+.input-content>input {
+  height: 100%;
+  padding: 0 20rpx;
+}
+
+.submit-content {
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+  background: #fff;
+}
+
+.submit-content .submit-btn {
+  display: block;
+  width: 140rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(138, 217, 236, 1);
+}
+
+.choose-content{
+  height: 100rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 28rpx;
+  text-align: center;
+  background-color: #ffff
+}
+
+.text-content {
+  display: flex;
+  min-height: 100rpx;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  margin: 20rpx;
+  padding: 20rpx;
+  font-size: 32rpx;
+  background-color: #fff;
+}
+.text-content>textarea {
+  flex: 1;
+}
+
+.img-text-area {
+  flex: 1;
+}
+.img-text-area>image {
+  width: 100%;
+}
+
+.text-area {
+  font-size: 28rpx;
+  margin: 30rpx 0 0;
+}
+
+.prew-delete {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  border: 1rpx solid #333;
+  padding: 10rpx;
+  margin-left: 30rpx;
+}
+
+.narrator {
+  width: 130rpx;
+  height: 30rpx;
+  padding: 8rpx 6rpx;
+  margin-top: 20rpx;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  color: #fff;
+  line-height: 30rpx;
+  text-align: center;
+}
+.add-narrator {
+  background-color: red;
+}
+.delete-narrator {
+  background-color: #eee;
+}

@@ -1,0 +1,9 @@
+<view class="flex-row flex-x-center dis-box" style="height:{{heiget}};background-color:{{bgColor}}" wx:if="{{images.length>0}}">
+    <view class="banner" style="height:{{heiget}}">
+        <swiper autoplay circular indicatorActiveColor="#F33535" indicatorDots="true" interval="3000" style="height:{{heiget}}">
+            <swiper-item wx:for="{{images}}">
+                <image bindtap="jumpPage" class="{{shape}}" data-index="{{index}}" mode="aspectFill" src="{{item.image}}" style="height:{{heiget}}"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>

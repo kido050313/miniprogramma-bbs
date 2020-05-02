@@ -1,0 +1,13 @@
+{
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "发帖",
+    "usingComponents": {
+        "van-field": "/vant-weapp/dist/field/index",
+        "van-stepper": "/vant-weapp/dist/stepper/index",
+        "van-dialog": "/vant-weapp/dist/dialog/index",
+        "van-switch": "/vant-weapp/dist/switch/index",
+        "van-toast": "/vant-weapp/dist/toast/index",
+        "van-tabbar": "/vant-weapp/dist/tabbar/index",
+        "van-tabbar-item": "/vant-weapp/dist/tabbar-item/index"
+    }
+}

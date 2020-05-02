@@ -1,0 +1,23 @@
+<form reportSubmit bindsubmit="formSubmit">
+    <view bindtap="downShow" catchtouchmove="ture" class="mask-box" wx:if="{{isShow}}"></view>
+    <view class="input-box" wx:if="{{isShow}}">
+        <view class="flex-row nav">
+            <view bindtap="downShow" class="flex-grow-1 cancel">取消</view>
+            <button bindtap="putComments" formType="submit">
+                <view class="flex-grow-0 release">发表</view>
+            </button>
+        </view>
+        <view class="fill-in">
+            <textarea fixed bindinput="input" placeholder="说点什么~" placeholderStyle="font-size:14px" value="{{value}}"></textarea>
+        </view>
+        <view class="flex-row com-images">
+            <view class="image-row" wx:for="{{images}}">
+                <image mode="aspectFill" src="{{item}}"></image>
+                <view bindtap="delImage" class="del" data-index="{{index}}">
+                    <image mode="aspectFill" src="/components/images/close.png" style="width:40rpx;height:40rpx"></image>
+                </view>
+            </view>
+            <image bindtap="chooseImg" mode="aspectFill" src="/images/upload-image.png" wx:if="{{images.length<3}}"></image>
+        </view>
+    </view>
+</form>

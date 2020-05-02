@@ -1,0 +1,14 @@
+@import "../../styles/serch-class.wxss";
+
+.nofind {
+    width: 100%;
+    font-size: 28rpx;
+    color: #cdcdcd;
+    margin-top: 150rpx;
+    padding-bottom: 100rpx;
+}
+
+.nofind image {
+    height: 100rpx;
+    width: 100rpx;
+}

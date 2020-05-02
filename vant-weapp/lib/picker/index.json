@@ -1,0 +1,9 @@
+{
+    "component": true,
+    "usingComponents": {
+        "picker-column": "../picker-column/index",
+        "loading": "../loading/index",
+        "van-tabbar": "/vant-weapp/dist/tabbar/index",
+        "van-tabbar-item": "/vant-weapp/dist/tabbar-item/index"
+    }
+}

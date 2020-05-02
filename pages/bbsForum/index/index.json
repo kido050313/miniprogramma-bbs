@@ -1,0 +1,10 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "论坛",
+  "usingComponents": {
+    "host-topic": "/components/host-topic/index",
+    "article-list": "/components/article-list/index",
+    "sub-buttom": "/components/sub-buttom/index"
+  }
+}

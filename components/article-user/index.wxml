@@ -1,0 +1,11 @@
+<view class="user-box flex-row flex-y-center">
+    <view class="flex-grow-0 avatar flex-y-center">
+        <image mode="aspectFill" src="{{data.avatar}}"></image>
+    </view>
+    <view class="flex-grow-1 uesr-msg ">
+        <view class="flex-row flex-y-center">
+          <view class="flex-grow-0 flex-y-center">{{data.nickname}}</view>
+        </view>
+        <view class="flex-row sub-time">发布于 . {{ctime}}</view>
+    </view>
+</view>

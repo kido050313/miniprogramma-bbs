@@ -1,0 +1,10 @@
+<title-box title="题主">
+    <view class="flex-row flex-y-center topic-box">
+        <view bindtap="tocenter" class="flex-grow-0 avatar">
+            <image mode="aspectFill" src="{{data.avatar}}"></image>
+        </view>
+        <view bindtap="tocenter" class="flex-grow-1 user-msg">
+            <view class="flex-row user-name">{{data.nickname}}</view>
+        </view>
+    </view>
+</title-box>

@@ -1,0 +1,14 @@
+<form>
+    <title-box title="热门话题" url="/pages/topic/index/index" wx:if="{{list.length>0}}">
+        <view class="topic-box" wx:for="{{list}}" wx:key="{{item.topicId}}">
+            <view bind:tap="onClickNav" class="topic-row flex-row flex-y-center" data-id="{{item.topicId}}">
+                <view class="topic-icod">
+                    <image mode="aspectFill" src="/components/images/topic.png"></image>
+                </view>
+                <button formType="submit">
+                    <view class="topic-title">#{{item.name}}#</view>
+                </button>
+            </view>
+        </view>
+    </title-box>
+</form>

@@ -1,0 +1,44 @@
+<view class="com-main">
+    <view class="flex-row flex-y-center">
+        <view class="flex-col com-icod">
+            <image mode="aspectFill" src="/static/images/all-comment.png"></image>
+        </view>
+        <view class="flex-col">评论</view>
+    </view>
+    <view class="no-comment" wx:if="{{list.length<=0}}">
+    快来抢沙发~
+  </view>
+    <view class="com-row" wx:for="{{list}}">
+        <view class="flex-row flex-y-center user-msg">
+            <view bindtap="toUserDes" class="flex-grow-0 user-avatar" data-id="{{item.user_id}}">
+                <image mode="aspectFill" src="{{item.user.avatar}}"></image>
+            </view>
+            <view class="flex-grow-1">
+                <view bindtap="toUserDes" class="flex-row flex-y-center" data-id="{{item.user_id}}">
+                    <view class="flex-col user-nickname">{{item.user.nickname}}</view>
+                    <view class="flex-col user-level">LV{{item.user.level}}</view>
+                </view>
+                <view class="flex-row com-time">评论于.{{item.createtime}} <text bindtap="delComm" class="del-comm" data-admindel="{{item.adminDel}}" data-id="{{item.id}}" data-index="{{index}}" wx:if="{{item.isDelete==1||item.adminDel==1}}">删除</text>
+                </view>
+            </view>
+            <view class="flex-grow-0 floor-nub">{{index+1}}楼</view>
+        </view>
+        <view bindtap="toDes" class="com-msg" data-id="{{item.id}}">{{item.content}}</view>
+        <view bindtap="toDes" class="com-images" data-id="{{item.id}}" wx:if="{{item.images.length>0}}">
+            <image mode="aspectFill" src="{{vvo}}" wx:for="{{item.images}}" wx:for-item="vvo"></image>
+        </view>
+        <view bindtap="toDes" class="com-son-box" data-id="{{item.id}}" wx:if="{{item.son_count>0}}">
+            <view class="com-son" wx:for="{{item.son_comment}}" wx:for-item="sonitem">
+                <view class="son-user">{{sonitem.user.nickname}} : </view>
+                <view class="son-des">{{sonitem.content}}</view>
+            </view>
+            <view class="flex-row all-com" wx:if="{{item.son_count>7}}">查看全部{{item.son_count}}条评论</view>
+        </view>
+        <view class="flex-row flex-x-right flex-y-center com-action">
+            <image bindtap="toDes" data-id="{{item.id}}" mode="aspectFill" src="/components/static/images/comment.png"></image>
+            <view bindtap="toDes" data-id="{{item.id}}" style="margin-right:24rpx">{{item.com_number}}</view>
+            <image bindtap="goods" data-id="{{item.id}}" data-index="{{index}}" mode="aspectFill" src="/components/static/images/good{{item.goods==1?'-active':''}}.png"></image>
+            <view bindtap="goods" data-id="{{item.id}}" data-index="{{index}}">{{item.good_number}}</view>
+        </view>
+    </view>
+</view>

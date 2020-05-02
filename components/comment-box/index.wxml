@@ -1,0 +1,27 @@
+<form reportSubmit bindsubmit="formSubmit">
+    <view class="comment-box flex-row flex-y-center">
+        <button bindtap="input" formType="submit">
+            <view class="flex-grow-1 flex-y-center c-input">
+                <view class="c-title">说点什么...</view>
+            </view>
+        </button>
+        <view bindtap="commentIcod" class="flex-grow-0 action-box">
+            <image mode="aspectFill" src="/components/images/comment.png"></image>
+        </view>
+        <view bindtap="commentIcod" class="a-title flex-grow-0">{{commentNumber}}</view>
+        <view bindtap="good" class="flex-grow-0 action-box">
+            <image mode="aspectFill" src="/components/images/good{{goods==1?'-active':''}}.png"></image>
+        </view>
+        <view bindtap="good" class="a-title flex-grow-0" style="{{!showStore?'margin-right:24rpx':''}}">{{goodsNumber}}</view>
+        <!-- <view bindtap="store" class="flex-grow-0 action-box" wx:if="{{showStore}}">
+            <image mode="aspectFill" src="/components/images/like{{stored==1?'-active':''}}.png"></image>
+        </view> -->
+        <!-- <view bindtap="more" class="flex-grow-0 action-box" style="margin-right:24rpx" wx:if="{{showMore}}">
+            <image mode="aspectFill" src="/components/images/more-l.png"></image>
+        </view> -->
+        <view bindtap="upShow" class="flex-grow-0 action-box" style="margin-right:24rpx;margin-left:0" wx:if="{{showAdmin}}">
+            <image mode="aspectFill" src="/components/images/admin.png"></image>
+        </view>
+    </view>
+    <van-action-sheet actions="{{actions}}" bind:cancel="onClose" bind:close="onClose" bind:select="onSelect" cancelText="取消" show="{{showI}}"></van-action-sheet>
+</form>

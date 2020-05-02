@@ -1,0 +1,9 @@
+
+<topic-top data="{{topicsDet}}"></topic-top>
+<topic-admin-list data="{{topicsDet.user}}"></topic-admin-list>
+
+<article-list list="{{list}}"></article-list>
+<nofind wx:if="{{list.length<=0&&!showLoading}}"></nofind>
+<hey-loading wx:if="{{showLoading}}"></hey-loading>
+<hey-empty wx:if="{{isEmpty&&list.length>0}}"></hey-empty>
+<sub-buttom params="{{topic}}"></sub-buttom>

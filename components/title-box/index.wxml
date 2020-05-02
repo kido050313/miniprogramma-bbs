@@ -1,0 +1,8 @@
+<view class="title-box">
+    <view class="flex-row flex-y-center title">
+        <view class="flex-grow-0 title-line" wx:if="{{line}}"></view>
+        <view class="flex-grow-1 title-font">{{title}}</view>
+        <image bindtap="_jump" class="flex-grow-0" src="/components/images/more.png" wx:if="{{url!=''}}"></image>
+    </view>
+    <slot></slot>
+</view>

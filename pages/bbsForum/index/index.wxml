@@ -1,0 +1,6 @@
+<view class="home-page" style="margin-top:{{height}}rpx">
+    <host-topic bind:click-nav="onClickTopics" list="{{hostTopics}}"></host-topic>
+     <article-list list="{{list}}"></article-list>
+</view>
+<sub-buttom></sub-buttom>
+

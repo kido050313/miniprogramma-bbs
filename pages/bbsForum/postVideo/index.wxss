@@ -1,0 +1,63 @@
+
+.input-content{
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #eee;
+  background-color: #fff;
+  font-size: 32rpx;
+}
+.input-content>input {
+  height: 100%;
+  padding: 0 20rpx;
+}
+
+.submit-content {
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+  background: #fff;
+}
+
+.submit-content .submit-btn {
+  display: block;
+  width: 140rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(138, 217, 236, 1);
+}
+
+.choose-video{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  text-align: center;
+  background-color: #ffff
+}
+
+.video-content {
+  height: 500rpx;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  margin: 20rpx;
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+}
+
+.prew_video{
+  display: flex;
+  align-items: center; /*垂直居中*/
+  justify-content: center; /*居中对齐*/
+  position: relative;
+  background-color: #fff;
+}
+.prew_video[hidden]{
+    display: none;
+}
+.prew_video .play{
+    width: 48rpx;
+    height: 48rpx;
+}

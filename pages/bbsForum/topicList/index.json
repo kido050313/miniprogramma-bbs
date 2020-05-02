@@ -1,0 +1,15 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "topic-top": "/components/topic-top/index",
+    "topic-admin-list": "/components/topic-admin-list/index",
+    "article-list": "/components/article-list/index",
+    "hey-loading": "/components/hey-loading/index",
+    "hey-empty": "/components/hey-empty/index",
+    "nofind": "/components/nofind/index",
+    "sub-buttom": "/components/sub-buttom/index",
+    "van-tabbar": "/vant-weapp/dist/tabbar/index",
+    "van-tabbar-item": "/vant-weapp/dist/tabbar-item/index"
+  }
+}

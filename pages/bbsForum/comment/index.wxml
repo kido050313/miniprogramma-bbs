@@ -1,0 +1,71 @@
+
+<view class="home-page" style="margin-top:{{height+10}}rpx">
+    <view class="com-main bot-line">
+        <view class="com-row">
+            <view class="flex-row flex-y-center user-msg">
+                <view class="flex-grow-0 user-avatar" data-id="{{comment.user.id}}">
+                    <image mode="aspectFill" src="{{comment.user.avatar}}"></image>
+                </view>
+                <view class="flex-grow-1">
+                    <view class="flex-row flex-y-center" data-id="{{comment.user.id}}">
+                        <view class="flex-col user-nickname">{{comment.userNickname}}</view>
+                    </view>
+                    <view class="flex-row com-time">评论于.{{comment.createtime}}<text bindtap="delComm" class="del-comm" data-admindel="{{comment.adminDel}}" data-id="{{comment.id}}" wx:if="{{comment.isDelete==1||comment.adminDel==1}}">删除</text>
+                    </view>
+                </view>
+
+            </view>
+            <view class="com-msg">{{comment.content}}</view>
+            <view class="com-images" wx:if="{{comment.images.length>0}}">
+                <image bindtap="viewImages" data-images="{{comment.images}}" data-index="{{index}}" mode="aspectFill" src="{{vvo}}" wx:for="{{comment.images}}" wx:for-item="vvo"></image>
+            </view>
+            <view class="flex-row flex-x-right flex-y-center com-action">
+                <image bindtap="goods" data-id="{{comment.id}}" data-index="my" mode="aspectFill" src="/components/images/good{{comment.goods==1?'-active':''}}.png"></image>
+                <view bindtap="goods" data-id="{{item.id}}" data-index="{{index}}">{{comment.good_number}}</view>
+                <view bindtap="toReport" style="margin-left:24rpx">举报</view>
+            </view>
+        </view>
+    </view>
+    <view class="com-main">
+        <view class="flex-row flex-y-center">
+            <view class="flex-col com-icod">
+                <image mode="aspectFill" src="/images/all-comment.png"></image>
+            </view>
+            <view class="flex-col">评论</view>
+        </view>
+        <view class="no-comment" wx:if="{{list.length<=0}}">
+    快来抢沙发~
+  </view>
+        <view class="com-row" wx:for="{{list}}">
+            <view class="flex-row flex-y-center user-msg">
+                <view class="flex-grow-0 user-avatar" data-id="{{item.user.id}}">
+                    <image mode="aspectFill" src="{{item.user.avatar}}"></image>
+                </view>
+                <view class="flex-grow-1">
+                    <view  class="flex-row flex-y-center" data-id="{{item.user.id}}">
+                        <view class="flex-col user-nickname">{{item.user.nickname}}</view>
+                      
+                    </view>
+                    <view class="flex-row com-time">评论于.{{item.createtime}}<text bindtap="delCommSon" class="del-comm" data-admindel="{{item.adminDel}}" data-id="{{item.id}}" data-index="{{index}}" wx:if="{{item.isDelete==1||item.adminDel==1}}">删除</text>
+                    </view>
+                </view>
+                <view class="flex-grow-0 floor-nub">{{index+1}}楼</view>
+            </view>
+            <view bindtap="clickInput" class="com-msg" data-index="{{item.id}}">
+                <text style="color:#33425b" wx:if="{{item.two_id!=0}}">@{{item.two_nickname}}://</text>{{item.content}}</view>
+            <view class="com-images" wx:if="{{item.images.length>0}}">
+                <image bindtap="viewImages" data-images="{{item.images}}" data-index="{{idx}}" mode="aspectFill" src="{{vvo}}" wx:for="{{item.images}}" wx:for-index="idx" wx:for-item="vvo"></image>
+            </view>
+            <view class="flex-row flex-x-right flex-y-center com-action">
+                <image bindtap="clickInput" data-index="{{item.id}}" mode="aspectFill" src="/components/images/comment.png"></image>
+                <view bindtap="clickInput" data-index="{{item.id}}" style="margin-right:24rpx">{{item.com_number}}</view>
+                <image bindtap="goods" data-id="{{item.id}}" data-index="{{index}}" mode="aspectFill" src="/components/images/good{{item.goods==1?'-active':''}}.png"></image>
+                <view bindtap="goods" data-id="{{item.id}}" data-index="{{index}}">{{item.good_number}}</view>
+            </view>
+        </view>
+    </view>
+    <hey-loading wx:if="{{showLoading}}"></hey-loading>
+    <hey-empty wx:if="{{isEmpty&&list.length>0}}"></hey-empty>
+    <comment-box bind:click-good="goods" bind:click-icod="clickInput" bind:click-input="clickInput" commentNumber="{{comment.com_number}}" data-id="{{comment.id}}" data-index="my" goods="{{comment.goods}}" goodsNumber="{{comment.good_number}}" showMore="{{false}}" showStore="{{false}}"></comment-box>
+    <comment-input bind:click-put="putComment" isShow="{{isShow}}" oneId="{{one_id}}" postId="{{comment.post_id}}" twoId="{{two_id}}"></comment-input>
+</view>

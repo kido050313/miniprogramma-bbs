@@ -1,0 +1,15 @@
+<!-- <common-nav title="帖子详情" wx:if="{{!userShow}}"></common-nav> -->
+<view class="home-page" style="margin-top:{{height+10}}rpx">
+  <article-user bind:click-follow="follow" ctime="{{data.createtime}}" data="{{data.user}}" followed="{{data.followed}}"></article-user>
+  <article-des bind:click-poster="poster" data="{{data}}"></article-des>
+
+  <comment-list list="{{list}}"></comment-list>
+  <hey-loading wx:if="{{showLoading}}"></hey-loading>
+  <hey-empty wx:if="{{isEmpty&&list.length>0}}"></hey-empty>
+  <comment-box artid="{{data.id}}" bind:click-good="clickGood" bind:click-icod="clickInput" bind:click-input="clickInput" bind:click-more="more" bind:click-store="clickStore" commentNumber="{{data.reply_count}}" goods="{{data.goods}}" goodsNumber="{{data.good_count}}"
+    showAdmin="{{data.isAdmin}}" stored="{{data.stored}}"></comment-box>
+  <comment-input bind:click-put="putComment" isShow="{{isShow}}" postId="{{data.id}}"></comment-input>
+
+  <van-action-sheet actions="{{actions}}" bind:cancel="onClose" bind:close="onClose" bind:select="onSelect" cancelText="取消" show="{{show}}"></van-action-sheet>
+  
+</view>

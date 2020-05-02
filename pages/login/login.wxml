@@ -8,6 +8,6 @@
       <input placeholder='验证码' name='code' class='password'></input>
       <view bindtap="{{showCountdown?'':'getCode'}}" class='code'>{{showCountdown?(countdown+"秒"):"发送验证码"}}</view>
     </view>
-    <button formType="submit" class='submit'>进 入</button>
+    <button formType="submit" class='submit'>进入</button>
   </form>
 </view>

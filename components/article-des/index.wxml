@@ -1,0 +1,30 @@
+<view class="content">
+  <view class="content-title">
+    <text bindtap="jumpToDes" 
+      data-url="/pages/topic/details/index?id={{data.topic_id}}" 
+      wx:if="{{data.topic_id!=0}}">
+      #{{data.topic.title}}#
+    </text>
+      {{data.title}}
+  </view>
+  <view class="rich-content" wx:if="{{data.type==1}}">
+    <rich-text nodes="{{data.content}}" wx:if="{{data.sub_type==1}}"></rich-text>
+    <view class="video-box flex-row flex-x-center" wx:if="{{data.sub_type==2}}">
+      <video src="{{data.video_url}}" title="{{data.title}}"></video>
+    </view>
+  </view>
+  <view wx:if="{{data.type==2}}">
+    <view class="video-box flex-row flex-x-center" wx:if="{{data.sub_type==2}}">
+      <video src="{{data.video_url}}" title="{{data.title}}"></video>
+    </view>
+    <view wx:if="{{data.sub_type==1}}" wx:for="{{data.content}}">
+      <view class="content-des" wx:if="{{item.type==1}}">
+        <text>{{item.value}}</text>
+      </view>
+      <view class="content-image" wx:if="{{item.type==2}}">
+        <image mode="widthFix" src="{{item.value}}"></image>
+        <view class="image-aside" wx:if="{{item.is_aside==1}}">{{item.aside}}</view>
+      </view>
+    </view>
+  </view>
+</view>
